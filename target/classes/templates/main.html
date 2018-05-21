@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+{{> header }}
+</head>
+
+<body>
+
+	<div id="wrapper">
+
+		<!-- navBar -->
+		{{> navBar }}
+		<!-- /navBar -->
+
+		<!-- Sidebar -->
+		{{> sideBar }}
+		<!-- /#sidebar-wrapper -->
+
+		<!-- Page Content -->
+		<div id="page-content-wrapper">
+			<div class="container-fluid">
+				<!-- main contents 넣을 자리 입니다. -->
+				<div class="jumbotron">
+				<div class="jumbotron" id="test" style="background-color: #4286f4; margin-left: 20%; min-width: 70%; border-radius: 25px;">
+					<div id='calendar' style="margin: 20px;"></div>
+				</div>
+				
+			</div>
+		</div>
+		<!-- /#page-content-wrapper -->
+
+	</div>
+	<!-- /#wrapper -->
+
+	<!-- Bootstrap core JavaScript -->
+	<script src="/js/bootstrap.bundle.min.js"></script>
+
+	<!-- Menu Toggle Script -->
+	<script>
+	$(document).ready(function() {
+  		// page is now ready, initialize the calendar...
+		console.log("hi1");
+		
+		$('#calendar').fullCalendar();
+		
+		console.log("hi2");
+	});
+	
+	$("#menu-toggle").click(function(e) {
+        e.preventDefault();
+        $("#wrapper").toggleClass("toggled");
+    });
+    </script>
+    
+</body>
+
+</html>

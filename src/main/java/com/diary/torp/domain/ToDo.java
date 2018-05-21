@@ -20,12 +20,11 @@ public class ToDo {
     @Column(nullable = false)
     private String contents;
 
-    @Column
-    private List<String> partialPlans = new ArrayList<String> ();
-
     @ManyToOne
     @JoinColumn(foreignKey = @ForeignKey(name = "todo_writer"))
     private User writer;
+
+    private boolean deleted = false;
 
     public long getId() {
         return id;
@@ -43,10 +42,6 @@ public class ToDo {
         return contents;
     }
 
-    public List<String> getPartialPlans() {
-        return partialPlans;
-    }
-
     public User getWriter() {
         return writer;
     }
@@ -58,7 +53,6 @@ public class ToDo {
                 ", title='" + title + '\'' +
                 ", dueDate=" + dueDate +
                 ", contents='" + contents + '\'' +
-                ", partialPlans=" + partialPlans +
                 ", writer=" + writer +
                 '}';
     }
