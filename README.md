@@ -1,4 +1,4 @@
-# torp
+# TORP
 KOOs First private web service. Main feature is scheduling.
 
 ---
@@ -12,5 +12,5 @@ It's make a target of job seeker. So I wanna add job news board.
 This is Temporary Title. It will be changed.
 
 ---
-## first DB drawing
+## First DB drawing
 ![Image](https://github.com/KOOSANGYOON/TIL/blob/master/TIL201805/first_db_drawing.png?raw=true)
