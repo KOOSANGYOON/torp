@@ -15,9 +15,6 @@ public class ToDo {
     private String title;
 
     @Column(nullable = false)
-    private Date dueDate;
-
-    @Column(nullable = false)
     private String contents;
 
     @ManyToOne
@@ -26,16 +23,13 @@ public class ToDo {
 
     private boolean deleted = false;
 
+    //getter, setter
     public long getId() {
         return id;
     }
 
     public String getTitle() {
         return title;
-    }
-
-    public Date getDueDate() {
-        return dueDate;
     }
 
     public String getContents() {
@@ -51,7 +45,6 @@ public class ToDo {
         return "ToDo{" +
                 "id=" + id +
                 ", title='" + title + '\'' +
-                ", dueDate=" + dueDate +
                 ", contents='" + contents + '\'' +
                 ", writer=" + writer +
                 '}';
