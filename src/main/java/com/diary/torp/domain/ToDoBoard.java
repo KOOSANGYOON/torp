@@ -1,11 +1,14 @@
 package com.diary.torp.domain;
 
+import org.hibernate.annotations.Where;
+
 import javax.persistence.*;
 import javax.validation.constraints.Size;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
-public class ToDo {
+public class ToDoBoard {
     @Id
     @GeneratedValue
     private long id;
@@ -14,14 +17,25 @@ public class ToDo {
     @Column(nullable = false, length = 20)
     private String title;
 
-    @Column(nullable = false)
-    private String contents;
+    @OneToMany(mappedBy = "toDoBoard", cascade = CascadeType.ALL)
+    @Where(clause = "deleted = false")
+    @OrderBy("id ASC")
+    private List<ToDoCard> toDoCards = new ArrayList<ToDoCard>();
 
     @ManyToOne
     @JoinColumn(foreignKey = @ForeignKey(name = "todo_writer"))
     private User writer;
 
     private boolean deleted = false;
+
+    public ToDoBoard() {
+
+    }
+
+    public ToDoBoard(User writer, String title) {
+        this.title = title;
+        this.writer = writer;
+    }
 
     //getter, setter
     public long getId() {
@@ -32,21 +46,26 @@ public class ToDo {
         return title;
     }
 
-    public String getContents() {
-        return contents;
-    }
-
     public User getWriter() {
         return writer;
     }
 
+    public List<ToDoCard> getToDoCards() {
+        return toDoCards;
+    }
+
+    public boolean isDeleted() {
+        return deleted;
+    }
+
     @Override
     public String toString() {
-        return "ToDo{" +
+        return "ToDoBoard{" +
                 "id=" + id +
                 ", title='" + title + '\'' +
-                ", contents='" + contents + '\'' +
+                ", toDoCards=" + toDoCards +
                 ", writer=" + writer +
+                ", deleted=" + deleted +
                 '}';
     }
 }

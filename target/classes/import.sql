@@ -4,4 +4,6 @@ INSERT INTO user (id, user_id, password, name, deleted) values (3, 'koo', 'test'
 INSERT INTO user (id, user_id, password, name, deleted) values (4, 'pobi', 'test', '박재성교수님', false);
 INSERT INTO user (id, user_id, password, name, deleted) values (5, 'testman', 'testman', 'imTestMan', false);
 
-INSERT INTO to_do (id, contents, deleted, title, writer_id) values (1, '토익 850점', false, '영어', 1);
+INSERT INTO to_do_board (id, deleted, title, writer_id) values (1, false, '영어점수올리기', 1);
+INSERT INTO to_do_board (id, deleted, title, writer_id) values (2, false, '영어점수올리기', 3);
+INSERT INTO to_do_board (id, deleted, title, writer_id) values (3, false, '알고리즘점수올리기', 3);

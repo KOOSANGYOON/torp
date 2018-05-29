@@ -8,7 +8,7 @@ var BOARDS = (function (window){
 		$(".board-list").on("click", ".board", gotoBoard);
 		$(".add-board-btn").on("click", showCreateBoardForm);
 		$(".add-board-form .save").on("click", createNewBoard);
-		$(".close-moadl").on("click", closeModal);
+		$(".close-modal").on("click", closeModal);
 
 	}
 
@@ -19,7 +19,7 @@ var BOARDS = (function (window){
 	}
 
 	function createNewBoard(){
-
+		console.log("in to create board");
 		var boardName = $(".board-name").val();
 
 		if(boardName == ""){
@@ -27,26 +27,38 @@ var BOARDS = (function (window){
 			return;
 		}
 
-		// $.ajax({
-		//
-		// }).done(function(){
+        var url = $(".add-board-form").attr("action");
+        console.log("url is : " + url);
 
-            $(".warning").css("display","none");
-            var str = Template.board.replace(/\{\{input-value\}\}/gi,boardName);
-            $(".board-name").val("");
-            $("#modal").modal("close");
-            $(".board-list").append(str);
+        $.ajax({
+            type: 'post',
+            url: url,
+            contentType: 'text/html; charset=utf-8',
+            data: boardName,
+            dataType: 'json',
+            error: makeBoardFail,
+            success: makeBoardSuccess});
 
-		// }).fail(function(){
-        //
-		// });
+        $(".warning").css("display","none");
+        var str = Template.board.replace(/\{\{input-value\}\}/gi,boardName);
+        $(".board-name").val("");
+        $("#modal").modal("close");
+        $(".board-list").append(str);
 
     }
 
+    function makeBoardFail(data) {
+		console.log("data is : " + data);
+		console.log("fail");
+	}
+
+	function makeBoardSuccess(data) {
+        console.log("data is : " + data);
+		console.log("success");
+	}
+
 	function gotoBoard(){
-
 		window.location.href = ("board.html");
-
 	}
 
 	function closeModal(){
