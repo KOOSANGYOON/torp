@@ -8,7 +8,6 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 
 import com.diary.torp.service.UserService;
-import com.diary.torp.web.HomeController;
 
 @Controller
 public class HomeController {
