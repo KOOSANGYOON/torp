@@ -13,4 +13,4 @@ This is Temporary Title. It will be changed.
 
 ---
 ## First DB drawing
-![Image](https://github.com/KOOSANGYOON/TIL/blob/master/TIL201805/first_db_drawing.png?raw=true)
+![Image](https://github.com/KOOSANGYOON/TIL/blob/master/TIL201805/UpdateOnce.png?raw=true)
