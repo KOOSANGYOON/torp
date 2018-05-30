@@ -38,11 +38,11 @@
         <textarea class="deck-header-name" value="First Todo">{{title}}</textarea>
       </div>
 
-      {{# toDoCards}}
       <div class="deck-cards">
-        <textarea class="card-name">{{title}}</textarea>
-      </div>
+      {{# toDoCards}}
+        <div class="card">{{title}}</div>
       {{/ toDoCards}}
+      </div>
 
       <div class="card-composer">
         <div class="add-card-form">
