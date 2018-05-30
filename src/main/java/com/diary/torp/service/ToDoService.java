@@ -19,6 +19,9 @@ public class ToDoService {
     @Resource(name="toDoDeckRepository")
     private ToDoDeckRepository toDoDeckRepository;
 
+    @Resource(name="toDoCardRepository")
+    private ToDoCardRepository toDoCardRepository;
+
     public ToDoBoard createBoard(User user, String title) {
         ToDoBoard newBoard = new ToDoBoard(user, title);
         return toDoBoardRepository.save(newBoard);
@@ -38,5 +41,22 @@ public class ToDoService {
         newToDoDeck.registerIntoBoard(board);
         board.addDeck(newToDoDeck);
         return;
+    }
+
+    public ToDoCard createCard(User loginUser, String title, long boardId, long deckId) {
+        log.debug("in to ToDoService - createCard");
+        ToDoBoard board = toDoBoardRepository.findOne(boardId);
+        ToDoDeck deck = toDoDeckRepository.findOne(deckId);
+
+        ToDoCard newCard = new ToDoCard(loginUser, title);
+        return toDoCardRepository.save(newCard);
+    }
+
+    @Transactional
+    public void addCard(long deckId, ToDoCard newCard) {
+        log.debug("in to ToDoService - addCard");
+        ToDoDeck deck = toDoDeckRepository.findOne(deckId);
+        newCard.registerIntoDeck(deck);
+        deck.addCard(newCard);
     }
 }

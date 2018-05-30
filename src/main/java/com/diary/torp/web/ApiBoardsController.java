@@ -1,9 +1,6 @@
 package com.diary.torp.web;
 
-import com.diary.torp.domain.ToDoBoard;
-import com.diary.torp.domain.ToDoBoardRepository;
-import com.diary.torp.domain.ToDoDeck;
-import com.diary.torp.domain.User;
+import com.diary.torp.domain.*;
 import com.diary.torp.security.LoginUser;
 import com.diary.torp.service.ToDoService;
 import org.slf4j.Logger;
@@ -43,5 +40,18 @@ public class ApiBoardsController {
         toDoService.addDeck(id, newToDoDeck);
 
         return newToDoDeck;
+    }
+
+    @PostMapping("/{boardId}/{deckId}/add")
+    public ToDoCard createCard(@LoginUser User loginUser, @PathVariable long boardId, @PathVariable long deckId, @Valid @RequestBody String title) {
+        log.debug("user is " + loginUser);
+        log.debug("board id is " + boardId);
+        log.debug("deck id is " + deckId);
+        log.debug("title is " + title);
+
+        ToDoCard newCard = toDoService.createCard(loginUser, title, boardId, deckId);
+        toDoService.addCard(deckId, newCard);
+
+        return newCard;
     }
 }

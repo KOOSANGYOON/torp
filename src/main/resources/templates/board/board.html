@@ -10,7 +10,7 @@
 
 <div id="wrapper">{{> navBar }}</div>
 
-<div class="board-header-area">
+<div class="board-header-area" value="{{board.id}}">
   <p class="board-name">BOARD : {{board.title}}</p>
 
   <div class="member-list z-depth-1">
@@ -38,14 +38,17 @@
         <textarea class="deck-header-name" value="First Todo">{{title}}</textarea>
       </div>
 
+      {{# toDoCards}}
       <div class="deck-cards">
+        <textarea class="card-name">{{title}}</textarea>
       </div>
+      {{/ toDoCards}}
 
       <div class="card-composer">
         <div class="add-card-form">
           <textarea class="card-title"></textarea>
           <div class=btn-area>
-            <button class="btn waves-effect waves-light save-card">save</button>
+            <button class="btn waves-effect waves-light save-card" value="{{id}}">save</button>
             <button class="btn waves-effect waves-light cancel-card">cancel</button>
           </div>
         </div>
@@ -56,7 +59,7 @@
   {{/ decks }}
 
   <div class="add-deck-area">
-    <button class="btn waves-effect waves-light add-deck-btn">Add a Deck</button>
+    <button class="btn waves-effect waves-light add-deck-btn" style="background-color: #4dd0e1">Add a Deck</button>
     <form class="add-deck-form z-depth-1" action="/api/boards/{{board.id}}/add" method="post">
       <div class="input-field col s12">
         <input id="add-deck" type="text" class="validate" placeholder="Deck's name"/>

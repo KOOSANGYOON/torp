@@ -1,5 +1,6 @@
 package com.diary.torp.domain;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.hibernate.annotations.Where;
 
 import javax.persistence.*;
@@ -17,6 +18,7 @@ public class ToDoDeck {
     @Column(nullable = false, length = 20)
     private String title;
 
+    @JsonIgnore
     @OneToMany(mappedBy = "toDoDeck", cascade = CascadeType.ALL)
     @Where(clause = "deleted = false")
     @OrderBy("id ASC")
@@ -43,6 +45,10 @@ public class ToDoDeck {
 
     public void registerIntoBoard(ToDoBoard board) {
         this.toDoBoard = board;
+    }
+
+    public void addCard(ToDoCard newCard) {
+        this.toDoCards.add(newCard);
     }
 
     //getter(), setter()

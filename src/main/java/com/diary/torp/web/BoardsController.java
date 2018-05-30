@@ -1,9 +1,6 @@
 package com.diary.torp.web;
 
-import com.diary.torp.domain.ToDoBoard;
-import com.diary.torp.domain.ToDoBoardRepository;
-import com.diary.torp.domain.ToDoDeckRepository;
-import com.diary.torp.domain.User;
+import com.diary.torp.domain.*;
 import com.diary.torp.security.LoginUser;
 import com.diary.torp.service.ToDoService;
 import org.slf4j.Logger;
@@ -28,6 +25,9 @@ public class BoardsController {
     @Resource (name = "toDoDeckRepository")
     private ToDoDeckRepository toDoDeckRepository;
 
+    @Resource (name = "toDoCardRepository")
+    private ToDoCardRepository toDoCardRepository;
+
     @GetMapping("")
     public String boardList(@LoginUser User loginUser, Model model) {
 //        model.addAttribute("toDoBoards", toDoBoardRepository.findByDeletedAndWriter(loginUser.getId(), false));
@@ -40,7 +40,8 @@ public class BoardsController {
         System.out.println("In the showboard");
         ToDoBoard board = toDoBoardRepository.findOne(id);
         model.addAttribute("board", board);
-        model.addAttribute("decks", toDoDeckRepository.findByDeleted(false));
+        model.addAttribute("decks", toDoDeckRepository.findByToDoBoardAndDeleted(board, false));
+//        model.addAttribute("cards", toDoCardRepository.findByToDoDeckAndDeleted())
         return "/board/board";
     }
 }

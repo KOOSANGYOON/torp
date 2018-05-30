@@ -77,6 +77,23 @@ var BOARD = (function (window){
             return;
         }
 
+        var boardId = $(".board-header-area").attr("value");
+        var deckId = $(e.target).parents(".add-card-form").find(".save-card").val();
+        var url = "/api/boards/" + boardId + "/" + deckId + "/add";
+
+        console.log("board id is : " + boardId);
+        console.log("deck id is : " + deckId);
+        console.log("url is : " + url);
+
+        $.ajax({
+            type: 'post',
+            url: url,
+            contentType: 'text/html; charset=utf-8',
+            data: cardTitle,
+            dataType: 'json',
+            error: makeCardFail,
+            success: makeCardSuccess});
+
         // $.ajax({
         //
         // }).done(function(){
@@ -91,6 +108,14 @@ var BOARD = (function (window){
         //
         // });
 
+    }
+
+    function makeCardFail() {
+        console.log("make card fail.");
+    }
+
+    function makeCardSuccess() {
+        console.log("make card success.");
     }
 
     function cancelCard(e){

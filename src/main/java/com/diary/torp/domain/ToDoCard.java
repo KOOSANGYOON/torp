@@ -49,6 +49,10 @@ public class ToDoCard {
         this.title = title;
     }
 
+    public void registerIntoDeck(ToDoDeck deck) {
+        this.toDoDeck = deck;
+    }
+
     //getter, setter
 
 
