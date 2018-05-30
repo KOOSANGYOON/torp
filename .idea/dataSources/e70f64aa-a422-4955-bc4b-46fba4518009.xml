@@ -903,205 +903,250 @@
     <table id="226" parent="6" name="comment"/>
     <table id="227" parent="6" name="to_do_board"/>
     <table id="228" parent="6" name="to_do_card"/>
-    <table id="229" parent="6" name="user"/>
-    <column id="230" parent="226" name="id">
+    <table id="229" parent="6" name="to_do_deck"/>
+    <table id="230" parent="6" name="user"/>
+    <column id="231" parent="226" name="id">
       <Position>1</Position>
       <DataType>bigint(20)|0s</DataType>
       <NotNull>1</NotNull>
       <SequenceIdentity>1</SequenceIdentity>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="231" parent="226" name="comment">
+    <column id="232" parent="226" name="comment">
       <Position>2</Position>
       <DataType>varchar(255)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="232" parent="226" name="deleted">
+    <column id="233" parent="226" name="deleted">
       <Position>3</Position>
       <DataType>bit(1)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="233" parent="226" name="to_do_card_id">
+    <column id="234" parent="226" name="to_do_card_id">
       <Position>4</Position>
       <DataType>bigint(20)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="234" parent="226" name="writer_id">
+    <column id="235" parent="226" name="writer_id">
       <Position>5</Position>
       <DataType>bigint(20)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <index id="235" parent="226" name="commentedCard">
+    <index id="236" parent="226" name="comments">
       <ColNames>to_do_card_id</ColNames>
       <Type>btree</Type>
     </index>
-    <index id="236" parent="226" name="comment_writer">
+    <index id="237" parent="226" name="comment_writer">
       <ColNames>writer_id</ColNames>
       <Type>btree</Type>
     </index>
-    <key id="237" parent="226" name="PRIMARY">
+    <key id="238" parent="226" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>id</ColNames>
       <Primary>1</Primary>
     </key>
-    <foreign-key id="238" parent="226" name="commentedCard">
+    <foreign-key id="239" parent="226" name="comments">
       <ColNames>to_do_card_id</ColNames>
       <RefSchemaName>torp</RefSchemaName>
       <RefTableName>to_do_card</RefTableName>
       <RefColNames>id</RefColNames>
     </foreign-key>
-    <foreign-key id="239" parent="226" name="comment_writer">
+    <foreign-key id="240" parent="226" name="comment_writer">
       <ColNames>writer_id</ColNames>
       <RefSchemaName>torp</RefSchemaName>
       <RefTableName>user</RefTableName>
       <RefColNames>id</RefColNames>
     </foreign-key>
-    <column id="240" parent="227" name="id">
+    <column id="241" parent="227" name="id">
       <Position>1</Position>
       <DataType>bigint(20)|0s</DataType>
       <NotNull>1</NotNull>
       <SequenceIdentity>1</SequenceIdentity>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="241" parent="227" name="deleted">
+    <column id="242" parent="227" name="deleted">
       <Position>2</Position>
       <DataType>bit(1)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="242" parent="227" name="title">
+    <column id="243" parent="227" name="title">
       <Position>3</Position>
       <DataType>varchar(20)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="243" parent="227" name="writer_id">
+    <column id="244" parent="227" name="writer_id">
       <Position>4</Position>
       <DataType>bigint(20)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <index id="244" parent="227" name="todo_writer">
+    <index id="245" parent="227" name="todo_writer">
       <ColNames>writer_id</ColNames>
       <Type>btree</Type>
     </index>
-    <key id="245" parent="227" name="PRIMARY">
+    <key id="246" parent="227" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>id</ColNames>
       <Primary>1</Primary>
     </key>
-    <foreign-key id="246" parent="227" name="todo_writer">
+    <foreign-key id="247" parent="227" name="todo_writer">
       <ColNames>writer_id</ColNames>
       <RefSchemaName>torp</RefSchemaName>
       <RefTableName>user</RefTableName>
       <RefColNames>id</RefColNames>
     </foreign-key>
-    <column id="247" parent="228" name="id">
+    <column id="248" parent="228" name="id">
       <Position>1</Position>
       <DataType>bigint(20)|0s</DataType>
       <NotNull>1</NotNull>
       <SequenceIdentity>1</SequenceIdentity>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="248" parent="228" name="deleted">
+    <column id="249" parent="228" name="deleted">
       <Position>2</Position>
       <DataType>bit(1)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="249" parent="228" name="description">
+    <column id="250" parent="228" name="description">
       <Position>3</Position>
       <DataType>varchar(255)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="250" parent="228" name="label">
+    <column id="251" parent="228" name="label">
       <Position>4</Position>
       <DataType>varchar(255)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="251" parent="228" name="title">
+    <column id="252" parent="228" name="title">
       <Position>5</Position>
       <DataType>varchar(20)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="252" parent="228" name="to_do_board_id">
+    <column id="253" parent="228" name="to_do_deck_id">
       <Position>6</Position>
       <DataType>bigint(20)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="253" parent="228" name="writer_id">
+    <column id="254" parent="228" name="writer_id">
       <Position>7</Position>
       <DataType>bigint(20)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <index id="254" parent="228" name="toDoBoard">
-      <ColNames>to_do_board_id</ColNames>
+    <index id="255" parent="228" name="toDoCards">
+      <ColNames>to_do_deck_id</ColNames>
       <Type>btree</Type>
     </index>
-    <index id="255" parent="228" name="card_writer">
+    <index id="256" parent="228" name="card_writer">
       <ColNames>writer_id</ColNames>
       <Type>btree</Type>
     </index>
-    <key id="256" parent="228" name="PRIMARY">
+    <key id="257" parent="228" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>id</ColNames>
       <Primary>1</Primary>
     </key>
-    <foreign-key id="257" parent="228" name="toDoBoard">
+    <foreign-key id="258" parent="228" name="toDoCards">
+      <ColNames>to_do_deck_id</ColNames>
+      <RefSchemaName>torp</RefSchemaName>
+      <RefTableName>to_do_deck</RefTableName>
+      <RefColNames>id</RefColNames>
+    </foreign-key>
+    <foreign-key id="259" parent="228" name="card_writer">
+      <ColNames>writer_id</ColNames>
+      <RefSchemaName>torp</RefSchemaName>
+      <RefTableName>user</RefTableName>
+      <RefColNames>id</RefColNames>
+    </foreign-key>
+    <column id="260" parent="229" name="id">
+      <Position>1</Position>
+      <DataType>bigint(20)|0s</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="261" parent="229" name="deleted">
+      <Position>2</Position>
+      <DataType>bit(1)|0s</DataType>
+      <NotNull>1</NotNull>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="262" parent="229" name="title">
+      <Position>3</Position>
+      <DataType>varchar(20)|0s</DataType>
+      <NotNull>1</NotNull>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="263" parent="229" name="to_do_board_id">
+      <Position>4</Position>
+      <DataType>bigint(20)|0s</DataType>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="264" parent="229" name="writer_id">
+      <Position>5</Position>
+      <DataType>bigint(20)|0s</DataType>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <index id="265" parent="229" name="toDoDecks">
+      <ColNames>to_do_board_id</ColNames>
+      <Type>btree</Type>
+    </index>
+    <key id="266" parent="229" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <foreign-key id="267" parent="229" name="toDoDecks">
       <ColNames>to_do_board_id</ColNames>
       <RefSchemaName>torp</RefSchemaName>
       <RefTableName>to_do_board</RefTableName>
       <RefColNames>id</RefColNames>
     </foreign-key>
-    <foreign-key id="258" parent="228" name="card_writer">
-      <ColNames>writer_id</ColNames>
-      <RefSchemaName>torp</RefSchemaName>
-      <RefTableName>user</RefTableName>
-      <RefColNames>id</RefColNames>
-    </foreign-key>
-    <column id="259" parent="229" name="id">
+    <column id="268" parent="230" name="id">
       <Position>1</Position>
       <DataType>bigint(20)|0s</DataType>
       <NotNull>1</NotNull>
       <SequenceIdentity>1</SequenceIdentity>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="260" parent="229" name="deleted">
+    <column id="269" parent="230" name="deleted">
       <Position>2</Position>
       <DataType>bit(1)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="261" parent="229" name="name">
+    <column id="270" parent="230" name="name">
       <Position>3</Position>
       <DataType>varchar(20)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="262" parent="229" name="password">
+    <column id="271" parent="230" name="password">
       <Position>4</Position>
       <DataType>varchar(20)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="263" parent="229" name="user_id">
+    <column id="272" parent="230" name="user_id">
       <Position>5</Position>
       <DataType>varchar(15)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <index id="264" parent="229" name="UK_a3imlf41l37utmxiquukk8ajc">
+    <index id="273" parent="230" name="UK_a3imlf41l37utmxiquukk8ajc">
       <ColNames>user_id</ColNames>
       <Unique>1</Unique>
       <Type>btree</Type>
     </index>
-    <key id="265" parent="229" name="PRIMARY">
+    <key id="274" parent="230" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>id</ColNames>
       <Primary>1</Primary>
     </key>
-    <key id="266" parent="229" name="UK_a3imlf41l37utmxiquukk8ajc">
+    <key id="275" parent="230" name="UK_a3imlf41l37utmxiquukk8ajc">
       <ColNames>user_id</ColNames>
       <UnderlyingIndexName>UK_a3imlf41l37utmxiquukk8ajc</UnderlyingIndexName>
     </key>

@@ -27,7 +27,7 @@ public class BoardsController {
     @GetMapping("")
     public String boardList(@LoginUser User loginUser, Model model) {
 //        model.addAttribute("toDoBoards", toDoBoardRepository.findByDeletedAndWriter(loginUser.getId(), false));
-        model.addAttribute("toDoBoards", toDoBoardRepository.findByWriter(loginUser));
+        model.addAttribute("boards", toDoBoardRepository.findByWriter(loginUser));
         return "/board/boards";
     }
 
@@ -38,7 +38,4 @@ public class BoardsController {
         model.addAttribute("board", board);
         return "/board/board";
     }
-
-    @GetMapping("/3")
-    public String three() { return "/board/index"; }
 }

@@ -1,8 +1,6 @@
 package com.diary.torp.service;
 
-import com.diary.torp.domain.ToDoBoard;
-import com.diary.torp.domain.ToDoBoardRepository;
-import com.diary.torp.domain.User;
+import com.diary.torp.domain.*;
 import com.diary.torp.web.HomeController;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -17,8 +15,16 @@ public class ToDoService {
     @Resource(name="toDoBoardRepository")
     private ToDoBoardRepository toDoBoardRepository;
 
-    public ToDoBoard create(User user, String title) {
+    @Resource(name="toDoDeckRepository")
+    private ToDoDeckRepository toDoDeckRepository;
+
+    public ToDoBoard createBoard(User user, String title) {
         ToDoBoard newBoard = new ToDoBoard(user, title);
         return toDoBoardRepository.save(newBoard);
+    }
+
+    public ToDoDeck createDeck(User user, String title) {
+        ToDoDeck newDeck = new ToDoDeck(user, title);
+        return toDoDeckRepository.save(newDeck);
     }
 }

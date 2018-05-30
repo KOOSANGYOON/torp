@@ -20,7 +20,7 @@ public class ToDoBoard {
     @OneToMany(mappedBy = "toDoBoard", cascade = CascadeType.ALL)
     @Where(clause = "deleted = false")
     @OrderBy("id ASC")
-    private List<ToDoCard> toDoCards = new ArrayList<ToDoCard>();
+    private List<ToDoDeck> toDoDecks = new ArrayList<ToDoDeck>();
 
     @ManyToOne
     @JoinColumn(foreignKey = @ForeignKey(name = "todo_writer"))
@@ -50,8 +50,8 @@ public class ToDoBoard {
         return writer;
     }
 
-    public List<ToDoCard> getToDoCards() {
-        return toDoCards;
+    public List<ToDoDeck> getToDoDecks() {
+        return toDoDecks;
     }
 
     public boolean isDeleted() {
@@ -63,7 +63,7 @@ public class ToDoBoard {
         return "ToDoBoard{" +
                 "id=" + id +
                 ", title='" + title + '\'' +
-                ", toDoCards=" + toDoCards +
+                ", toDoDecks=" + toDoDecks +
                 ", writer=" + writer +
                 ", deleted=" + deleted +
                 '}';

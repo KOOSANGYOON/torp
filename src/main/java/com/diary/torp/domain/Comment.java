@@ -12,7 +12,7 @@ public class Comment {
     private String comment;
 
     @ManyToOne
-    @JoinColumn(foreignKey = @ForeignKey(name = "commentedCard"))
+    @JoinColumn(foreignKey = @ForeignKey(name = "comments"))
     private ToDoCard toDoCard;
 
     @ManyToOne

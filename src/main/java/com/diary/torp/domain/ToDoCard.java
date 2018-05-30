@@ -18,8 +18,8 @@ public class ToDoCard {
     private String title;
 
     @ManyToOne
-    @JoinColumn(foreignKey = @ForeignKey(name = "toDoBoard"))
-    private ToDoBoard toDoBoard;
+    @JoinColumn(foreignKey = @ForeignKey(name = "toDoCards"))
+    private ToDoDeck toDoDeck;
 
     @Column(nullable = true)
     private String description;
@@ -70,15 +70,12 @@ public class ToDoCard {
         return writer;
     }
 
-    public ToDoBoard getToDoBoard() {
-        return toDoBoard;
+    public ToDoDeck getToDoDeck() {
+        return toDoDeck;
     }
 
     public boolean isDeleted() {
         return deleted;
     }
 
-//    public List<Comment> getComments() {
-//        return comments;
-//    }
 }

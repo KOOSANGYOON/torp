@@ -14,11 +14,9 @@
 
     <ul class="board-list">
         <li class="board waves-effect waves-light btn z-depth-1">Default board</li>
-        {{# toDoBoards }}
-        <li class="board waves-effect waves-light btn z-depth-1" ><a href="/boards/{{id}}">{{title}}</a></li>
-        <!--<li class="board waves-effect waves-light btn z-depth-1" >{{title}}</li>-->
-        <!--<li class="board waves-effect waves-light btn z-depth-1" >{{title}}</li>-->
-        {{/ toDoBoards }}
+        {{# boards }}
+        <li class="board waves-effect waves-light btn z-depth-1 asdf" name="boardId" value="{{id}}"><a href="/boards/{{id}}">{{title}}</a></li>
+        {{/ boards }}
     </ul>
 
     <a class="btn-floating btn-large waves-effect waves-light cyan accent-4 add-board-btn">

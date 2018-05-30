@@ -11,7 +11,7 @@
 <div id="wrapper">{{> navBar }}</div>
 
 <div class="board-header-area">
-  <p class="board-name">Default Board</p>
+  <p class="board-name">BOARD : {{board.title}}</p>
 
   <div class="member-list z-depth-1">
     <ul class="members">
@@ -56,7 +56,7 @@
 
   <div class="add-deck-area">
     <button class="btn waves-effect waves-light add-deck-btn">Add a Deck</button>
-    <form class="add-deck-form z-depth-1">
+    <form class="add-deck-form z-depth-1" action="/api/boards/{{board.id}}/add" method="post">
       <div class="input-field col s12">
         <input id="add-deck" type="text" class="validate" placeholder="Deck's name"/>
         <div class=btn-area>
