@@ -21,7 +21,7 @@ import java.net.URI;
 
 @RestController
 @RequestMapping("/api/boards")
-public class ApiScheduleController {
+public class ApiBoardsController {
     private static final Logger log = LoggerFactory.getLogger(HomeController.class);
 
     @Resource(name = "toDoService")

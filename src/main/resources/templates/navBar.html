@@ -5,7 +5,7 @@
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
 	<button type="button" class="btn btn-outline-primary" id="menu-toggle"><span class="glyphicon glyphicon-menu-hamburger"></span></button>
 	<a class="navbar-brand" style="color: white;"><i class="material-icons" style="font-size:20px">smoking_rooms</i>&nbsp T &nbsp O &nbsp R &nbsp P</a>
-	
+
 	<div class="container">
 		<div class="collapse navbar-collapse" id="navbarResponsive">
 			<!-- <ul class="navbar-nav ml-auto">
@@ -13,11 +13,11 @@
 			</ul> -->
 		</div>
 	</div>
-	
+
 	<div class="btn-group" style="margin-right: 10px;">
-	<a class="btn btn-primary" href="/" role="button"><span class="glyphicon glyphicon-home"></span>&nbsp HOME</a>
+		<a class="btn btn-primary" href="/" role="button"><span class="glyphicon glyphicon-home"></span>&nbsp HOME</a>
 	</div>
-	
+
 	{{^loginedUser}}		<!--non-login -->
 	<div class="btn-group" style="margin-right: 10px;">
 		<button type="button" class="btn btn-info dropdown-toggle"data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -29,7 +29,7 @@
 			<a class="dropdown-item" href="/user/loginForm"><span class="glyphicon glyphicon-log-in"></span>&nbsp LOGIN</a>
 		</div>
 	</div>
-	
+
 	<div class="btn-group" style="margin-right: 10px;">
 		<button type="button" class="btn btn-success dropdown-toggle"data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 			<span class="glyphicon glyphicon-calendar"></span>&nbsp SCHEDULING
@@ -40,7 +40,7 @@
 			<a class="dropdown-item" href="#">LOGIN 후 이용해주세요.</a>
 		</div>
 	</div>
-	
+
 	<div class="btn-group" style="margin-right: 10px;">
 		<button type="button" class="btn btn-warning dropdown-toggle"data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 			<span class="glyphicon glyphicon-globe"></span>&nbsp COMMUNITY
@@ -55,7 +55,7 @@
 			<a class="dropdown-item" href="#">TODAY's BOOK</a>
 		</div>
 	</div>
-	
+
 	<div class="btn-group" style="margin-right: 100px;">
 		<button type="button" class="btn btn-danger dropdown-toggle"data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 			<span class="glyphicon glyphicon-send"></span>&nbsp CHAT
@@ -71,7 +71,7 @@
 		</div>
 	</div>
 	{{/loginedUser}}
-	
+
 	{{#loginedUser}}			<!-- login user -->
 	<div class="btn-group" style="margin-right: 10px;">
 		<button type="button" class="btn btn-info dropdown-toggle"data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -85,7 +85,7 @@
 			<a class="dropdown-item" href="/user/logout"><span class="glyphicon glyphicon-log-out"></span>&nbsp LOGOUT</a>
 		</div>
 	</div>
-	
+
 	<div class="btn-group" style="margin-right: 10px;">
 		<button type="button" class="btn btn-success dropdown-toggle"data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 			<span class="glyphicon glyphicon-calendar"></span>&nbsp SCHEDULING
@@ -93,10 +93,10 @@
 		<div class="dropdown-menu">
 			<a class="dropdown-item" href="#"><span class="glyphicon glyphicon-time"></span>&nbsp MY SCHEDULE</a>
 			<div class="dropdown-divider"></div>
-			<a class="dropdown-item" href="/toDoBoard"><span class="glyphicon glyphicon-list-alt"></span>&nbsp TODO LIST</a>
+			<a class="dropdown-item" href="/boards"><span class="glyphicon glyphicon-list-alt"></span>&nbsp TODO LIST</a>
 		</div>
 	</div>
-	
+
 	<div class="btn-group" style="margin-right: 10px;">
 		<button type="button" class="btn btn-warning dropdown-toggle"data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 			<span class="glyphicon glyphicon-globe"></span>&nbsp COMMUNITY
@@ -112,7 +112,7 @@
 			<div class="dropdown-divider"></div>
 		</div>
 	</div>
-	
+
 	<div class="btn-group" style="margin-right: 100px;">
 		<button type="button" class="btn btn-danger dropdown-toggle"data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 			<span class="glyphicon glyphicon-send"></span>&nbsp CHAT
@@ -131,4 +131,5 @@
 </nav>
 
 <!-- Bootstrap core JavaScript -->
+<script src='/js/jquery/jquery.min.js'></script>
 <script src="/js/bootstrap.bundle.min.js"></script>		<!-- navBar의 spring boot 기능을 더해주는 스크립트 -->

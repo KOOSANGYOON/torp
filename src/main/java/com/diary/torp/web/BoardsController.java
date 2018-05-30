@@ -1,5 +1,6 @@
 package com.diary.torp.web;
 
+import com.diary.torp.domain.ToDoBoard;
 import com.diary.torp.domain.ToDoBoardRepository;
 import com.diary.torp.domain.User;
 import com.diary.torp.security.LoginUser;
@@ -13,8 +14,8 @@ import org.springframework.web.bind.annotation.*;
 import javax.annotation.Resource;
 
 @Controller
-@RequestMapping("/toDoBoard")
-public class ScheduleController {
+@RequestMapping("/boards")
+public class BoardsController {
     private static final Logger log = LoggerFactory.getLogger(HomeController.class);
 
     @Resource (name = "toDoService")
@@ -24,14 +25,19 @@ public class ScheduleController {
     private ToDoBoardRepository toDoBoardRepository;
 
     @GetMapping("")
-    public String one(@LoginUser User loginUser, Model model) {
+    public String boardList(@LoginUser User loginUser, Model model) {
 //        model.addAttribute("toDoBoards", toDoBoardRepository.findByDeletedAndWriter(loginUser.getId(), false));
         model.addAttribute("toDoBoards", toDoBoardRepository.findByWriter(loginUser));
         return "/board/boards";
     }
 
-    @GetMapping("/2")
-    public String two() { return "/board/board"; }
+    @GetMapping("/{id}")
+    public String showBoard(@PathVariable Long id, Model model) {
+        System.out.println("In the showboard");
+        ToDoBoard board = toDoBoardRepository.findById(id);
+        model.addAttribute("board", board);
+        return "/board/board";
+    }
 
     @GetMapping("/3")
     public String three() { return "/board/index"; }
