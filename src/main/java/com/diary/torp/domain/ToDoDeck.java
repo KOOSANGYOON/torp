@@ -11,7 +11,7 @@ import java.util.List;
 public class ToDoDeck {
     @Id
     @GeneratedValue
-    private Long id;
+    private long id;
 
     @Size(min = 3, max = 20)
     @Column(nullable = false, length = 20)
@@ -41,9 +41,13 @@ public class ToDoDeck {
         this.title = title;
     }
 
+    public void registerIntoBoard(ToDoBoard board) {
+        this.toDoBoard = board;
+    }
+
     //getter(), setter()
 
-    public Long getId() {
+    public long getId() {
         return id;
     }
 

@@ -2,6 +2,7 @@ package com.diary.torp.web;
 
 import com.diary.torp.domain.ToDoBoard;
 import com.diary.torp.domain.ToDoBoardRepository;
+import com.diary.torp.domain.ToDoDeckRepository;
 import com.diary.torp.domain.User;
 import com.diary.torp.security.LoginUser;
 import com.diary.torp.service.ToDoService;
@@ -24,6 +25,9 @@ public class BoardsController {
     @Resource (name = "toDoBoardRepository")
     private ToDoBoardRepository toDoBoardRepository;
 
+    @Resource (name = "toDoDeckRepository")
+    private ToDoDeckRepository toDoDeckRepository;
+
     @GetMapping("")
     public String boardList(@LoginUser User loginUser, Model model) {
 //        model.addAttribute("toDoBoards", toDoBoardRepository.findByDeletedAndWriter(loginUser.getId(), false));
@@ -34,8 +38,9 @@ public class BoardsController {
     @GetMapping("/{id}")
     public String showBoard(@PathVariable Long id, Model model) {
         System.out.println("In the showboard");
-        ToDoBoard board = toDoBoardRepository.findById(id);
+        ToDoBoard board = toDoBoardRepository.findOne(id);
         model.addAttribute("board", board);
+        model.addAttribute("decks", toDoDeckRepository.findByDeleted(false));
         return "/board/board";
     }
 }

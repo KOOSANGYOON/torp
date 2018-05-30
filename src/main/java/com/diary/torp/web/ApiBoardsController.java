@@ -8,10 +8,7 @@ import com.diary.torp.security.LoginUser;
 import com.diary.torp.service.ToDoService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
 import javax.validation.Valid;
@@ -38,11 +35,12 @@ public class ApiBoardsController {
     }
 
     @PostMapping("/{id}/add")
-    public ToDoDeck createDeck(@LoginUser User loginUser, @Valid @RequestBody String title) {
+    public ToDoDeck createDeck(@LoginUser User loginUser, @PathVariable long id, @Valid @RequestBody String title) {
         log.debug("user is " + loginUser);
         log.debug("title is " + title);
 
         ToDoDeck newToDoDeck = toDoService.createDeck(loginUser, title);
+        toDoService.addDeck(id, newToDoDeck);
 
         return newToDoDeck;
     }

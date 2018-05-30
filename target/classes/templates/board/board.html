@@ -31,11 +31,11 @@
 </div>
 
 <div id="board-canvas" class="deck-sortable">
+  {{# decks }}
   <div class="deck-wrapper">
     <div class="deck-content z-depth-1">
-
       <div class="deck-header">
-        <textarea class="deck-header-name" value="First Todo">First Todo</textarea>
+        <textarea class="deck-header-name" value="First Todo">{{title}}</textarea>
       </div>
 
       <div class="deck-cards">
@@ -53,6 +53,7 @@
       </div>
     </div>
   </div>
+  {{/ decks }}
 
   <div class="add-deck-area">
     <button class="btn waves-effect waves-light add-deck-btn">Add a Deck</button>

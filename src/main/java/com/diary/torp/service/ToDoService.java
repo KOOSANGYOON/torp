@@ -5,6 +5,7 @@ import com.diary.torp.web.HomeController;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import javax.annotation.Resource;
 
@@ -24,7 +25,18 @@ public class ToDoService {
     }
 
     public ToDoDeck createDeck(User user, String title) {
+        log.debug("in to ToDoService - createDeck");
         ToDoDeck newDeck = new ToDoDeck(user, title);
+        log.debug("new deck title " + newDeck.getTitle() + " , new deck writer is " + newDeck.getWriter());
         return toDoDeckRepository.save(newDeck);
+    }
+
+    @Transactional
+    public void addDeck(long boardId, ToDoDeck newToDoDeck) {
+        log.debug("in to ToDoService - addDeck");
+        ToDoBoard board = toDoBoardRepository.findOne(boardId);
+        newToDoDeck.registerIntoBoard(board);
+        board.addDeck(newToDoDeck);
+        return;
     }
 }

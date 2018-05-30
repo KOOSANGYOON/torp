@@ -1,5 +1,6 @@
 package com.diary.torp.domain;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.hibernate.annotations.Where;
 
 import javax.persistence.*;
@@ -17,6 +18,7 @@ public class ToDoBoard {
     @Column(nullable = false, length = 20)
     private String title;
 
+    @JsonIgnore
     @OneToMany(mappedBy = "toDoBoard", cascade = CascadeType.ALL)
     @Where(clause = "deleted = false")
     @OrderBy("id ASC")
@@ -37,7 +39,13 @@ public class ToDoBoard {
         this.writer = writer;
     }
 
+    //deck 추가
+    public void addDeck(ToDoDeck newDeck) {
+        this.toDoDecks.add(newDeck);
+    }
+
     //getter, setter
+
     public long getId() {
         return id;
     }
@@ -46,17 +54,19 @@ public class ToDoBoard {
         return title;
     }
 
-    public User getWriter() {
-        return writer;
-    }
-
     public List<ToDoDeck> getToDoDecks() {
         return toDoDecks;
+    }
+
+    public User getWriter() {
+        return writer;
     }
 
     public boolean isDeleted() {
         return deleted;
     }
+
+    //toString()
 
     @Override
     public String toString() {

@@ -50,6 +50,8 @@ public class ToDoCard {
     }
 
     //getter, setter
+
+
     public long getId() {
         return id;
     }
@@ -58,24 +60,27 @@ public class ToDoCard {
         return title;
     }
 
-    public String getDescription() {
-        return description;
+    public ToDoDeck getToDoDeck() {
+        return toDoDeck;
     }
 
-    public String getLabel() {
-        return label;
+    public String getDescription() {
+        return description;
     }
 
     public User getWriter() {
         return writer;
     }
 
-    public ToDoDeck getToDoDeck() {
-        return toDoDeck;
+    public String getLabel() {
+        return label;
+    }
+
+    public List<Comment> getComments() {
+        return comments;
     }
 
     public boolean isDeleted() {
         return deleted;
     }
-
 }
