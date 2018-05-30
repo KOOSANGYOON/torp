@@ -58,7 +58,10 @@ var BOARDS = (function (window){
 	}
 
 	function gotoBoard(){
-		window.location.href = ("board.html");
+        // var url = $(".board").attr("title");
+        var url = $(".board").attr("action");
+        console.log("title " + url);
+		// window.location.href = ("/boards/{id}");
 	}
 
 	function closeModal(){

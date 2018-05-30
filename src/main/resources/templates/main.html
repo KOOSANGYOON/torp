@@ -2,30 +2,31 @@
 <html lang="ko">
 
 <head>
-{{> header }}
+	{{> header }}
+	<link rel='stylesheet' href='/css/calendar/fullcalendar.css' />
 </head>
 
 <body>
 
-	<div id="wrapper">
+<div id="wrapper">
 
-		<!-- navBar -->
-		{{> navBar }}
-		<!-- /navBar -->
+	<!-- navBar -->
+	{{> navBar }}
+	<!-- /navBar -->
 
-		<!-- Sidebar -->
-		{{> sideBar }}
-		<!-- /#sidebar-wrapper -->
+	<!-- Sidebar -->
+	{{> sideBar }}
+	<!-- /#sidebar-wrapper -->
 
-		<!-- Page Content -->
-		<div id="page-content-wrapper">
-			<div class="container-fluid">
-				<!-- main contents 넣을 자리 입니다. -->
-				<div class="jumbotron">
+	<!-- Page Content -->
+	<div id="page-content-wrapper">
+		<div class="container-fluid">
+			<!-- main contents 넣을 자리 입니다. -->
+			<div class="jumbotron">
 				<div class="jumbotron" id="test" style="background-color: #4286f4; margin-left: 20%; min-width: 70%; border-radius: 25px;">
 					<div id='calendar' style="margin: 20px;"></div>
 				</div>
-				
+
 			</div>
 		</div>
 		<!-- /#page-content-wrapper -->
@@ -35,21 +36,20 @@
 
 	<!-- Menu Toggle Script -->
 	<script>
-	$(document).ready(function() {
-  		// page is now ready, initialize the calendar...
-		console.log("hi1");
-		
-		$('#calendar').fullCalendar();
-		
-		console.log("hi2");
-	});
-	
-	$("#menu-toggle").click(function(e) {
-        e.preventDefault();
-        $("#wrapper").toggleClass("toggled");
-    });
-    </script>
-    
+        $(document).ready(function() {
+			// page is now ready, initialize the calendar...
+            $('#calendar').fullCalendar();
+        });
+
+        $("#menu-toggle").click(function(e) {
+            e.preventDefault();
+            $("#wrapper").toggleClass("toggled");
+        });
+	</script>
+	<script src='/js/jquery/jquery.min.js'></script>
+	<script src='/js/moment/moment.min.js'></script>
+	<script src='/js/fullcalendar.js'></script>
+
 </body>
 
 </html>
