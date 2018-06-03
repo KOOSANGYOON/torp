@@ -38,10 +38,14 @@
         <textarea class="deck-header-name" value="First Todo">{{title}}</textarea>
       </div>
 
-      <div class="deck-cards">
-      {{# toDoCards}}
-        <div class="card">{{title}}</div>
-      {{/ toDoCards}}
+      <div class="deck-cards-exist">
+        {{# toDoCards }}
+        <div class='deck-card'>
+          <div class='deck-card-detail'>
+            <a class='deck-card-title modal-trigger modalLink' dir='auto' href='#'>{{title}}</a>
+            </div>
+          </div>
+        {{/ toDoCards }}
       </div>
 
       <div class="card-composer">

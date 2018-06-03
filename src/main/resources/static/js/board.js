@@ -94,19 +94,6 @@ var BOARD = (function (window){
             error: makeCardFail,
             success: makeCardSuccess});
 
-        // $.ajax({
-        //
-        // }).done(function(){
-
-        $(".add-card-form").css('display', 'none');
-        var card = cardTemplate({"value":cardTitle});
-        var $deckWrapper = $(e.target).closest(".deck-wrapper");
-        $deckWrapper.find(".deck-cards").append(card);
-        $(e.target).parents(".add-card-form").find(".card-title").val("");
-        $(e.target).parents(".card-composer").find("a.add-card-btn").css('display', 'block');
-        // }).fail(function(){
-        //
-        // });
 
     }
 
@@ -114,8 +101,17 @@ var BOARD = (function (window){
         console.log("make card fail.");
     }
 
-    function makeCardSuccess() {
+    function makeCardSuccess(data, e) {
         console.log("make card success.");
+
+        $(".add-card-form").css('display', 'none');
+        var card = cardTemplate({"value":data.title});
+        var $deckWrapper = $(e.target).closest(".deck-wrapper");
+        $deckWrapper.find(".deck-card").append(card);
+        // $(".deck-cards-exist").append(card);
+
+        $(e.target).parents(".add-card-form").find(".card-title").val("");
+        $(e.target).parents(".card-composer").find("a.add-card-btn").css('display', 'block');
     }
 
     function cancelCard(e){
@@ -363,6 +359,16 @@ var BOARD = (function (window){
     }
 
 })(window);
+
+String.prototype.format = function() {
+    var args = arguments;
+    return this.replace(/{(\d+)}/g, function(match, number) {
+        return typeof args[number] != 'undefined'
+            ? args[number]
+            : match
+            ;
+    });
+};
 
 $(function(){
     BOARD.init();

@@ -41,7 +41,6 @@ public class BoardsController {
         ToDoBoard board = toDoBoardRepository.findOne(id);
         model.addAttribute("board", board);
         model.addAttribute("decks", toDoDeckRepository.findByToDoBoardAndDeleted(board, false));
-//        model.addAttribute("cards", toDoCardRepository.findByToDoDeckAndDeleted())
         return "/board/board";
     }
 }
