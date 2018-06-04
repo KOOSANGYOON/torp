@@ -35,15 +35,26 @@ var BOARDS = (function (window){
             url: url,
             contentType: 'text/html; charset=utf-8',
             data: boardName,
-            dataType: 'json',
-            error: makeBoardFail,
-            success: makeBoardSuccess});
+            dataType: 'json'}).done(function makeBoardSuccess(data) {
+            	console.log("data is : ", data);
 
-        $(".warning").css("display","none");
-        var str = Template.board.replace(/\{\{input-value\}\}/gi,boardName);
-        $(".board-name").val("");
-        $("#modal").modal("close");
-        $(".board-list").append(str);
+            	$(".warning").css("display","none");
+				var str = Template.board.replace(/\{\{input-value\}\}/gi,boardName);
+				$(".board-name").val("");
+				$("#modal").modal("close");
+				$(".board-list").append(str);
+		}).fail(function makeBoardFail(data) {
+            console.log("data is : ", data);
+            console.log("fail");
+		});
+            // error: makeBoardFail,
+            // success: makeBoardSuccess});
+
+        // $(".warning").css("display","none");
+        // var str = Template.board.replace(/\{\{input-value\}\}/gi,boardName);
+        // $(".board-name").val("");
+        // $("#modal").modal("close");
+        // $(".board-list").append(str);
 
     }
 

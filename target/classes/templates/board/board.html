@@ -32,10 +32,10 @@
 
 <div id="board-canvas" class="deck-sortable">
   {{# decks }}
-  <div class="deck-wrapper">
+  <div class="deck-wrapper deck-id" id="{{id}}">
     <div class="deck-content z-depth-1">
       <div class="deck-header">
-        <textarea class="deck-header-name" value="{{id}}">{{title}}</textarea>
+        <textarea class="deck-header-name" value="First Todo">{{title}}</textarea>
       </div>
 
       <div class="deck-cards-exist">
@@ -171,7 +171,6 @@
 
 <!----------------------------------------------------------------->
 
-<script type="text/javascript" src="/lib/jquery-2.2.0.min.js"></script>
 <script type="text/javascript" src="/lib/materialize.min.js"></script>
 <script type="text/javascript" src="/lib/handlebars-v4.0.5.js"></script>
 <script type="text/javascript" src="/js/template.js"></script>
