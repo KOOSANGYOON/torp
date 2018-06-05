@@ -37,12 +37,14 @@ var BOARDS = (function (window){
             data: boardName,
             dataType: 'json'}).done(function makeBoardSuccess(data) {
             	console.log("data is : ", data);
+            	console.log("data : ", data.id);
 
             	$(".warning").css("display","none");
-				var str = Template.board.replace(/\{\{input-value\}\}/gi,boardName);
+				var str = Template.board.replace(/\{\{input-value\}\}/gi, boardName);
 				$(".board-name").val("");
 				$("#modal").modal("close");
 				$(".board-list").append(str);
+				location.reload();		//무조건 이 부분은 수정해야합니다.
 		}).fail(function makeBoardFail(data) {
             console.log("data is : ", data);
             console.log("fail");

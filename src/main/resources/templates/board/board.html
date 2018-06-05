@@ -40,9 +40,9 @@
 
       <div class="deck-cards-exist">
         {{# toDoCards }}
-        <div class='deck-card'>
+        <div class='deck-card' value="{{id}}">
           <div class='deck-card-detail'>
-            <a class='deck-card-title modal-trigger modalLink' dir='auto' href='#'>{{title}}</a>
+            <a class='deck-card-title modal-trigger modalLink' dir='auto' value="{{id}}">{{title}}</a>
             </div>
           </div>
         {{/ toDoCards }}
@@ -83,7 +83,7 @@
   <div class="close-moadl"></div>
   <div class="modal-content">
     <span class="card-title-in-modal">{{card-title}}</span>
-    <span class="due-date-notification">Due Date</span>
+    <span class="due-date-notification">Due Date : {{dueDate}}</span>
     <div class="deck-name-and-current-due-date-wrapper">
       <span class="in-deck">in deck</span>
       <span class="deck-name">{{deck-name}}</span>

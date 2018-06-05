@@ -9,5 +9,7 @@ INSERT INTO to_do_board (id, deleted, title, writer_id) values (2, false, '영�
 INSERT INTO to_do_board (id, deleted, title, writer_id) values (3, false, '알고리즘점수올리기', 3);
 
 INSERT INTO to_do_deck (id, deleted, title, to_do_board_id, writer_id) values (1, false, '한글안깨짐', 2, 3);
-INSERT INTO to_do_deck (id, deleted, title, to_do_board_id, writer_id) values (2, false, '제발한글안깨짐', 3, 3);
-INSERT INTO to_do_deck (id, deleted, title, to_do_board_id, writer_id) values (3, false, 'testfile', 1, 1);
+INSERT INTO to_do_deck (id, deleted, title, to_do_board_id, writer_id) values (2, false, '이것도안깨짐', 2, 3);
+INSERT INTO to_do_deck (id, deleted, title, to_do_board_id, writer_id) values (3, false, 'English_not_crack', 2, 3);
+INSERT INTO to_do_deck (id, deleted, title, to_do_board_id, writer_id) values (4, false, '제발한글안깨짐', 3, 3);
+INSERT INTO to_do_deck (id, deleted, title, to_do_board_id, writer_id) values (5, false, 'testfile', 1, 1);

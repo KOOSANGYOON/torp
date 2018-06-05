@@ -146,6 +146,7 @@ var BOARD = (function (window){
                 $(".add-deck-area").before(deck);
                 $("#add-deck").val("");
                 $(".add-deck-btn").css('display','block');
+                location.reload();      //이 부분은 무조건 수정해야 합니다.
         }).fail(function makeDeckFail() {
             console.log("make deck fail.");
         });
@@ -162,6 +163,13 @@ var BOARD = (function (window){
     function openCardModal(e){
 
         $("#modal").modal('open');
+
+        var cardId = $(e.target).closest(".deck-card").attr("value");
+        console.log("target : ", e.target);
+        console.log("id : ", cardId);
+
+        $(".close-moadl").text(cardId);
+
         var title = $(e.target).text();
         $(".card-title-in-modal").text(title);
         var deckName = $(e.target).closest(".deck-content").find(".deck-header-name").val();
@@ -294,8 +302,7 @@ var BOARD = (function (window){
 
     }
 
-    function saveCardEdit(){
-
+    function saveCardEdit(e){
 
         var description = $(".card-description-textarea").val();
 
@@ -306,21 +313,25 @@ var BOARD = (function (window){
 
         }
 
-        // $.ajax({
-        //
-        // }).done(function(){
+        var cardId = $(".close-moadl").text();
+        console.log(cardId);
+
+        $.ajax({
+            type: 'post',
+            url: url,
+            contentType: 'text/html; charset=utf-8',
+            data: description,
+            dataType: 'json'}).done(function editDescriptionSuccess() {
+
+        }).fail(function editDescriptionFail() {
+
+        });
 
         $(".card-description-textarea").val("");
         $(".card-description").text(description);
         $(".card-description-edit").css("display","none");
         $(".card-description-edit-btn").css("display","block");
         $(".card-description").css("display","block");
-
-
-        // }).fail(function(){
-        //
-        // });
-
 
     }
 
