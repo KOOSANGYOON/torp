@@ -11,7 +11,7 @@
 <div id="wrapper">{{> navBar }}</div>
 
 <div class="board-header-area" value="{{board.id}}">
-  <p class="board-name">BOARD : {{board.title}}</p>
+  <p class="board-name">to do List : {{board.title}}</p>
 
   <div class="member-list z-depth-1">
     <ul class="members">
@@ -42,8 +42,9 @@
         {{# toDoCards }}
         <div class='deck-card' value="{{id}}">
           <div class='deck-card-detail'>
-            <a class='deck-card-title modal-trigger modalLink' dir='auto' value="{{id}}">{{title}}</a>
-            <a class='deck-card-description' style="display: none" value="{{description}}"></a>
+            <div class='deck-card-description' value="{{description}}">   <!--description 추가를 위해 넣은 div (이것으로 인해 ui 깨질 수 있음. 주의!)-->
+              <a class='deck-card-title modal-trigger modalLink' dir='auto' value="{{id}}">{{title}}</a>
+            </div>
           </div>
         </div>
         {{/ toDoCards }}
@@ -93,6 +94,9 @@
       <span class="current-due-date"></span>
     </div>
 
+    <p class="description-page">Description : </p>
+    <div class="card-description"></div>
+
     <p class="card-description-edit-btn">
       Edit the description
     </p>
@@ -104,15 +108,14 @@
       </div>
     </div>
 
-    <div class="card-description">{{discription}}</div>
 
-    <p>Add comment</p>
+    <p>Add Achivement comment</p>
     <div class="comment-frame">
       <textarea class="comment-contents z-depth-1" placeholder="Write a comment..."></textarea>
     </div>
     <div class="comment-send btn waves-effect waves-light">Send</div></br>
 
-    <p>Activity</p>
+    <p>Achivement history</p>
     <div class="comments">
 
     </div>

@@ -1,5 +1,6 @@
 package com.diary.torp.domain;
 
+import com.diary.torp.UnAuthenticationException;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.hibernate.annotations.Where;
 
@@ -42,6 +43,11 @@ public class ToDoBoard {
     //deck 추가
     public void addDeck(ToDoDeck newDeck) {
         this.toDoDecks.add(newDeck);
+    }
+
+    //접근성 확인
+    public boolean isOwner(User loginUser) {
+        return this.writer.equals(loginUser);
     }
 
     //getter, setter

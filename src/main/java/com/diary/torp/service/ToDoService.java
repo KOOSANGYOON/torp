@@ -23,6 +23,9 @@ public class ToDoService {
     @Resource(name="toDoCardRepository")
     private ToDoCardRepository toDoCardRepository;
 
+    @Resource(name="commentRepository")
+    private CommentRepository commentRepository;
+
     public ToDoBoard createBoard(User user, String title) {
         ToDoBoard newBoard = new ToDoBoard(user, title);
         return toDoBoardRepository.save(newBoard);
@@ -64,5 +67,18 @@ public class ToDoService {
         ToDoCard editedCard = toDoCardRepository.findOne(cardId);
         editedCard.editDescription(loginUser, newDescription);
         return editedCard;
+    }
+
+    public Comment createComment(User loginUser, String comment) {
+        Comment newComment = new Comment(loginUser, comment);
+        return commentRepository.save(newComment);
+    }
+
+    @Transactional
+    public ToDoCard addComment(User loginUser, long cardId, Comment newComment) throws UnAuthenticationException {
+        ToDoCard card = toDoCardRepository.findOne(cardId);
+        newComment.registerIntoCard(card);
+        card.addComment(loginUser, newComment);
+        return card;
     }
 }

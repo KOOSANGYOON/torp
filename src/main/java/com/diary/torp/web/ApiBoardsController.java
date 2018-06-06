@@ -67,4 +67,17 @@ public class ApiBoardsController {
 
         return toDoService.editDescription(loginUser, cardId, description);
     }
+
+    @PostMapping("/{boardId}/{deckId}/{cardId}/addComment")
+    public ToDoCard addComment(@LoginUser User loginUser, @PathVariable long boardId, @PathVariable long deckId, @PathVariable long cardId,
+                                    @Valid @RequestBody String comment) throws UnAuthenticationException {
+        log.debug("user is " + loginUser);
+        log.debug("board id is " + boardId);
+        log.debug("deck id is " + deckId);
+        log.debug("card id is " + cardId);
+        log.debug("new comment is " + comment);
+
+        Comment newComment = toDoService.createComment(loginUser, comment);
+        return toDoService.addComment(loginUser, cardId, newComment);
+    }
 }

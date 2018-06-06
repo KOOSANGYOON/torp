@@ -30,6 +30,11 @@ public class Comment {
         this.writer = loginUser;
     }
 
+    //card를 등록해주는 메서드
+    public void registerIntoCard(ToDoCard card) {
+        this.toDoCard = card;
+    }
+
     //getter, setter
 
     public long getId() {

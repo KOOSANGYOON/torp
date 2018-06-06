@@ -175,10 +175,8 @@ var BOARD = (function (window){
         $(".hiddenDeckTitle").text(deckId);
 
         var description = $(e.target).closest(".deck-card-description").attr("value");
-        var test = $(e.target).closest(".deck-card-title").attr("value");
-
         console.log("description : ", description);
-        console.log("test : ", test);
+        $(".card-description").text(description);
 
         var title = $(e.target).text();
         $(".card-title-in-modal").text(title);
@@ -235,22 +233,32 @@ var BOARD = (function (window){
 
         }
 
-        // $.ajax({
-        //
-        // }).done(function(){
+        var boardId = $(".board-header-area").attr("value");
+        var deckId = $(".hiddenDeckTitle").text();
+        var cardId = $(".hiddenCardTitle").text();
+        console.log("card id : ", cardId + " , board id : ", boardId + " , deck id : ", deckId);
 
-        var now = new Date();
-        var currentTime = now.getDate() + " " +
-            monthToString(now.getMonth()+1) + " " +
-            now.getFullYear() + " at " +
-            now.getHours() + ":" +
-            now.getMinutes();
-        $(commentTemplate({"comment-contents":commentContent, "current-time":currentTime})).appendTo(".comments");
-        $(".comment-contents").val("");
+        var url = "/api/boards/" + boardId + "/" + deckId + "/" + cardId + "/addComment";
 
-        // }).fail(function(){
-        //
-        // });
+        $.ajax({
+            type: 'post',
+            url: url,
+            contentType: 'text/html; charset=utf-8',
+            data: commentContent,
+            dataType: 'json'}).done(function addCommentSuccess(e) {
+                console.log("add comment success.");
+
+                var now = new Date();
+                var currentTime = now.getDate() + " " +
+                    monthToString(now.getMonth()+1) + " " +
+                    now.getFullYear() + " at " +
+                    now.getHours() + ":" +
+                    now.getMinutes();
+                $(commentTemplate({"comment-contents":commentContent, "current-time":currentTime})).appendTo(".comments");
+                $(".comment-contents").val("");
+        }).fail(function addCommentFail() {
+            console.log("add comment fail.");
+        });
 
     }
 
@@ -337,7 +345,7 @@ var BOARD = (function (window){
             data: description,
             dataType: 'json'}).done(function editDescriptionSuccess() {
                 $(".card-description-textarea").val("");
-                $(".card-description").text(description);
+                $(".card-description").text(description);       //jquery 의 data() 를 이용해서 직접 값을 저장하는 기능을 넣어야함. 그래야 refresh하지 않아도 변경이력이 바로 저장됨.
                 $(".card-description-edit").css("display","none");
                 $(".card-description-edit-btn").css("display","block");
                 $(".card-description").css("display","block");

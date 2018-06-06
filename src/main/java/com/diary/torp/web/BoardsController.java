@@ -1,5 +1,6 @@
 package com.diary.torp.web;
 
+import com.diary.torp.UnAuthenticationException;
 import com.diary.torp.domain.*;
 import com.diary.torp.security.LoginUser;
 import com.diary.torp.service.ToDoService;
@@ -36,9 +37,14 @@ public class BoardsController {
     }
 
     @GetMapping("/{id}")
-    public String showBoard(@PathVariable Long id, Model model) {
+    public String showBoard(@LoginUser User loginUser, @PathVariable Long id, Model model) {
         System.out.println("In the showboard");
+
         ToDoBoard board = toDoBoardRepository.findOne(id);
+        if (!board.isOwner(loginUser)) {
+            return "/error/error";
+        }
+
         model.addAttribute("board", board);
         model.addAttribute("decks", toDoDeckRepository.findByToDoBoardAndDeleted(board, false));
         return "/board/board";

@@ -29,7 +29,7 @@ var Template = {
           "</div>",
 
   comment :  "<div class='comment'>" +
-                "<div class='commenter'>{writer-name}</div>" +
+                "<div class='commenter'>{{writer-name}}</div>" +
                 "<div class='comment-contents z-depth-1'>{{comment-contents}}</div>" +
                 "<div class='comment-date'>{{current-time}} - </div>" +
                 "<div class='comment-reply'> Reply</div>" +
