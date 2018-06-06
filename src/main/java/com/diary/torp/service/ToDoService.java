@@ -1,5 +1,6 @@
 package com.diary.torp.service;
 
+import com.diary.torp.UnAuthenticationException;
 import com.diary.torp.domain.*;
 import com.diary.torp.web.HomeController;
 import org.slf4j.Logger;
@@ -43,10 +44,8 @@ public class ToDoService {
         return;
     }
 
-    public ToDoCard createCard(User loginUser, String title, long boardId, long deckId) {
+    public ToDoCard createCard(User loginUser, String title) {
         log.debug("in to ToDoService - createCard");
-        ToDoBoard board = toDoBoardRepository.findOne(boardId);
-        ToDoDeck deck = toDoDeckRepository.findOne(deckId);
 
         ToDoCard newCard = new ToDoCard(loginUser, title);
         return toDoCardRepository.save(newCard);
@@ -58,5 +57,12 @@ public class ToDoService {
         ToDoDeck deck = toDoDeckRepository.findOne(deckId);
         newCard.registerIntoDeck(deck);
         deck.addCard(newCard);
+    }
+
+    @Transactional
+    public ToDoCard editDescription(User loginUser, long cardId, String newDescription) throws UnAuthenticationException {
+        ToDoCard editedCard = toDoCardRepository.findOne(cardId);
+        editedCard.editDescription(loginUser, newDescription);
+        return editedCard;
     }
 }

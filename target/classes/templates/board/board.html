@@ -38,13 +38,14 @@
         <textarea class="deck-header-name" value="First Todo">{{title}}</textarea>
       </div>
 
-      <div class="deck-cards-exist">
+      <div class="deck-cards-exist" value="{{id}}">
         {{# toDoCards }}
         <div class='deck-card' value="{{id}}">
           <div class='deck-card-detail'>
             <a class='deck-card-title modal-trigger modalLink' dir='auto' value="{{id}}">{{title}}</a>
-            </div>
+            <a class='deck-card-description' style="display: none" value="{{description}}"></a>
           </div>
+        </div>
         {{/ toDoCards }}
       </div>
 
@@ -81,6 +82,8 @@
 
 <div id="modal" class="modal">
   <div class="close-moadl"></div>
+  <div class="hiddenDeckTitle" style="display: none"></div>
+  <div class="hiddenCardTitle" style="display: none"></div>
   <div class="modal-content">
     <span class="card-title-in-modal">{{card-title}}</span>
     <span class="due-date-notification">Due Date : {{dueDate}}</span>
@@ -101,7 +104,7 @@
       </div>
     </div>
 
-    <div class="card-description"></div>
+    <div class="card-description">{{discription}}</div>
 
     <p>Add comment</p>
     <div class="comment-frame">
@@ -166,6 +169,15 @@
   <div class="close-moadl"></div>
   <div class="modal-content">
     <h5>Please Write Contents!</h5>
+  </div>
+</div>
+
+<!--------------------  Warning Modal HTML-------------------------------->
+
+<div id="warnNotOwner" class="modal">
+  <div class="close-moadl"></div>
+  <div class="modal-content">
+    <h5>You are not OWNER!!</h5>
   </div>
 </div>
 

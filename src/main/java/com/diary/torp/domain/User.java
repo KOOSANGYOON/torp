@@ -8,6 +8,8 @@ import javax.validation.constraints.Size;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
+import java.util.Objects;
+
 @Entity
 public class User {
 	@Id
@@ -78,5 +80,23 @@ public class User {
 	public String toString() {
 		return "User [id=" + id + ", userId=" + userId + ", password=" + password + ", name=" + name + ", deleted="
 				+ deleted + "]";
+	}
+
+	@Override
+	public boolean equals(Object o) {
+		if (this == o) return true;
+		if (o == null || getClass() != o.getClass()) return false;
+		User user = (User) o;
+		return id == user.id &&
+				deleted == user.deleted &&
+				Objects.equals(userId, user.userId) &&
+				Objects.equals(password, user.password) &&
+				Objects.equals(name, user.name);
+	}
+
+	@Override
+	public int hashCode() {
+
+		return Objects.hash(id, userId, password, name, deleted);
 	}
 }

@@ -10,6 +10,7 @@ var BOARD = (function (window){
 
         $("#modal").modal();
         $("#warning-modal").modal();
+        $("#warnNotOwner").modal();
         $(".close-moadl").on("click", closeModal)
         $(".members-btn").on("click", showMembers);
         $("#board-canvas").on("click",".add-card-btn", showCreateCardForm);
@@ -165,10 +166,19 @@ var BOARD = (function (window){
         $("#modal").modal('open');
 
         var cardId = $(e.target).closest(".deck-card").attr("value");
+        var deckId = $(e.target).closest(".deck-cards-exist").attr("value");
         console.log("target : ", e.target);
-        console.log("id : ", cardId);
+        console.log("card id : ", cardId);
+        console.log("deck id : ", deckId);
 
-        $(".close-moadl").text(cardId);
+        $(".hiddenCardTitle").text(cardId);
+        $(".hiddenDeckTitle").text(deckId);
+
+        var description = $(e.target).closest(".deck-card-description").attr("value");
+        var test = $(e.target).closest(".deck-card-title").attr("value");
+
+        console.log("description : ", description);
+        console.log("test : ", test);
 
         var title = $(e.target).text();
         $(".card-title-in-modal").text(title);
@@ -313,8 +323,12 @@ var BOARD = (function (window){
 
         }
 
-        var cardId = $(".close-moadl").text();
-        console.log(cardId);
+        var boardId = $(".board-header-area").attr("value");
+        var deckId = $(".hiddenDeckTitle").text();
+        var cardId = $(".hiddenCardTitle").text();
+        console.log("card id : ", cardId + " , board id : ", boardId + " , deck id : ", deckId);
+
+        var url = "/api/boards/" + boardId + "/" + deckId + "/" + cardId + "/editDescription";
 
         $.ajax({
             type: 'post',
@@ -322,16 +336,18 @@ var BOARD = (function (window){
             contentType: 'text/html; charset=utf-8',
             data: description,
             dataType: 'json'}).done(function editDescriptionSuccess() {
-
+                $(".card-description-textarea").val("");
+                $(".card-description").text(description);
+                $(".card-description-edit").css("display","none");
+                $(".card-description-edit-btn").css("display","block");
+                $(".card-description").css("display","block");
         }).fail(function editDescriptionFail() {
-
+            console.log("fail to edit card description.");
+            $("#warnNotOwner").modal('open');
+            return;
         });
 
-        $(".card-description-textarea").val("");
-        $(".card-description").text(description);
-        $(".card-description-edit").css("display","none");
-        $(".card-description-edit-btn").css("display","block");
-        $(".card-description").css("display","block");
+
 
     }
 

@@ -1200,3 +1200,30 @@ body #warning-modal {
   text-align: center;
 
 }
+
+body #warnNotOwner {
+
+  width: 400px;
+  margin-top: 200px;
+
+}
+
+#warnNotOwner .close-moadl {
+
+  width: 25px;
+  height: 25px;
+  float: right;
+  background-image: url("/image/icon-x.png");
+  background-size: 15px 15px;
+  background-repeat: no-repeat;
+  margin-top: 10px;
+  cursor: pointer;
+
+}
+
+#warnNotOwner .modal-content h5{
+
+  margin: 0 auto;
+  text-align: center;
+
+}

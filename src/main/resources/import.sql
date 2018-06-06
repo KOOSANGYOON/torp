@@ -13,3 +13,8 @@ INSERT INTO to_do_deck (id, deleted, title, to_do_board_id, writer_id) values (2
 INSERT INTO to_do_deck (id, deleted, title, to_do_board_id, writer_id) values (3, false, 'English_not_crack', 2, 3);
 INSERT INTO to_do_deck (id, deleted, title, to_do_board_id, writer_id) values (4, false, '제발한글안깨짐', 3, 3);
 INSERT INTO to_do_deck (id, deleted, title, to_do_board_id, writer_id) values (5, false, 'testfile', 1, 1);
+
+INSERT INTO to_do_card (id, deleted, description, label, title, to_do_deck_id, writer_id) values (1, false, 'testfile1', null, 'test title1', 5, 1);
+INSERT INTO to_do_card (id, deleted, description, label, title, to_do_deck_id, writer_id) values (2, false, 'testfile2', null, 'test title2', 1, 3);
+INSERT INTO to_do_card (id, deleted, description, label, title, to_do_deck_id, writer_id) values (3, false, 'testfile3', null, 'test title3', 2, 3);
+INSERT INTO to_do_card (id, deleted, description, label, title, to_do_deck_id, writer_id) values (4, false, 'testfile4', null, 'test title4', 4, 3);

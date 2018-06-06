@@ -1,5 +1,6 @@
 package com.diary.torp.domain;
 
+import com.diary.torp.UnAuthenticationException;
 import org.hibernate.annotations.Where;
 
 import javax.persistence.*;
@@ -49,13 +50,35 @@ public class ToDoCard {
         this.title = title;
     }
 
+    public ToDoCard(User loginUser, String title, String description, User writer, String label) {
+        this.writer = loginUser;
+        this.title = title;
+        this.description = description;
+        this.writer = writer;
+        this.label = label;
+    }
+
+    //deck 에 추가하기
     public void registerIntoDeck(ToDoDeck deck) {
         this.toDoDeck = deck;
     }
 
+    //description 변경
+    public void editDescription(User loginUser, String newDescription) throws UnAuthenticationException {
+        if (!isOwner(loginUser)) {
+            System.out.println("--- writer : " + this.writer);
+            System.out.println("--- loginUser : " + loginUser);
+            throw new UnAuthenticationException();
+        }
+        this.description = newDescription;
+    }
+
+    //작성자 확인
+    public boolean isOwner(User loginUser) {
+        return this.writer.equals(loginUser);
+    }
+
     //getter, setter
-
-
     public long getId() {
         return id;
     }
