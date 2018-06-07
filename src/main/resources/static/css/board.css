@@ -1,4 +1,4 @@
-@import url("/fonts/60sSTRIPE.otf");
+/*@import url("/fonts/60sSTRIPE.otf");*/
 
 body{
 
@@ -37,21 +37,21 @@ header .header-wrapper{
 
 }
 
-header .header-wrapper .brand-logo{
+/*header .header-wrapper .brand-logo{*/
 
-  position: absolute;
-  left: 50%;
-  transform: translateX(-50%);
-  text-decoration: none;
-  text-align: center;
-  color: rgba(255,255,255, .9);
-  font-size: 1.6rem;
-  display: inline-block;
-  white-space: nowrap;
-  font-family: '60sSTRIPE';
-  font-weight: lighter;
+  /*position: absolute;*/
+  /*left: 50%;*/
+  /*transform: translateX(-50%);*/
+  /*text-decoration: none;*/
+  /*text-align: center;*/
+  /*color: rgba(255,255,255, .9);*/
+  /*font-size: 1.6rem;*/
+  /*display: inline-block;*/
+  /*white-space: nowrap;*/
+  /*font-family: '60sSTRIPE';*/
+  /*font-weight: lighter;*/
 
-}
+/*}*/
 
 header .header-wrapper ul {
 
@@ -195,6 +195,23 @@ header .header-wrapper ul li a:hover{
   text-align: center;
   box-shadow: none;
 
+}
+
+.edit-board-title-btn {
+  width: 25px;
+  height: 25px;
+  float: right;
+  border-radius: 10px;
+  background-image: url(/icons/glyphicons-151-edit.png);
+  background-position-x: center;
+  background-position-y: center;
+  background-color: #00bcd4;
+  background-size: 15px 15px;
+  background-repeat: no-repeat;
+  margin-top: 10px;
+  cursor: pointer;
+  float: left;
+  display:inline-block;
 }
 
 .board-header-area .members-btn {
@@ -1226,4 +1243,62 @@ body #warnNotOwner {
   margin: 0 auto;
   text-align: center;
 
+}
+
+.board-name-textarea {
+  display: none;
+  width: 250px;
+  margin-left: 5px;
+}
+
+.edit-board-title-btn-submit {
+  display: none;
+  width: 25px;
+  height: 25px;
+  float: right;
+  border-radius: 10px;
+  background-image: url(/icons/glyphicons-207-ok.png);
+  background-position-x: center;
+  background-position-y: center;
+  background-color: #67d41a;
+  background-size: 15px 15px;
+  background-repeat: no-repeat;
+  margin-top: 10px;
+  cursor: pointer;
+  float: left;
+}
+
+.edit-board-title-btn-cancel {
+  display: none;
+  width: 25px;
+  height: 25px;
+  float: right;
+  border-radius: 10px;
+  background-image: url(/icons/glyphicons-208-remove.png);
+  background-position-x: center;
+  background-position-y: center;
+  background-color: #d4272a;
+  background-size: 15px 15px;
+  background-repeat: no-repeat;
+  margin-top: 10px;
+  cursor: pointer;
+  float: left;
+}
+
+.edit-board-title {
+  display: none;
+  height: 50px;
+  width: 300px;
+  line-height: 50px;
+  color:#4d4d4d;
+  font-size: 2rem;
+  margin-left: 20px;
+  padding-bottom: 30px;
+  text-align: left;
+  display: inline-block;
+}
+
+.board-name-area {
+  float: left;
+  width: 100%;
 }

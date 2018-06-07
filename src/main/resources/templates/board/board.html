@@ -11,7 +11,13 @@
 <div id="wrapper">{{> navBar }}</div>
 
 <div class="board-header-area" value="{{board.id}}">
-  <p class="board-name">to do List : {{board.title}}</p>
+  <p class="board-name">
+    <span class="board-edit-area">
+      <textarea class="board-name-textarea"></textarea>
+      <button class="edit-board-title-btn-cancel"></button> <button class="edit-board-title-btn-submit" value="{{board.id}}"></button>
+    </span>
+    <span class="board-name-area">to do List : {{board.title}} </span> <button class="edit-board-title-btn"></button>
+  </p>
 
   <div class="member-list z-depth-1">
     <ul class="members">

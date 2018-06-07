@@ -86,4 +86,10 @@ public class ApiBoardsController {
         Comment newComment = toDoService.createComment(loginUser, comment);
         return toDoService.addComment(loginUser, cardId, newComment);
     }
+
+    @PutMapping("/{boardId}/editTitle")
+    public ToDoBoard editBoardTitle(@LoginUser User loginUser, @PathVariable long boardId,
+                                   @Valid @RequestBody String newTitle) throws UnAuthenticationException {
+        return toDoService.editBoardTitle(loginUser, boardId, newTitle);
+    }
 }

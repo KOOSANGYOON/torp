@@ -33,6 +33,9 @@ var BOARD = (function (window){
         $(".card-edit-close").on("click", closeCardEdit);
         $(".card-edit-save").on("click", saveCardEdit);
         $(".datepicker").on("change", setDueDate);
+        $(".edit-board-title-btn").on("click", editBoardForm);
+        $(".edit-board-title-btn-submit").on("click", editBoardName);
+        $(".edit-board-title-btn-cancel").on("click", cancelEditBoardName);
 
     }
 
@@ -378,9 +381,49 @@ var BOARD = (function (window){
             $("#warnNotOwner").modal('open');
             return;
         });
+    }
 
+    function editBoardForm(e) {
+        $(".board-name-area").css("display", "none");
+        $(".edit-board-title-btn").css("display", "none");
+        $(".board-name-textarea").css("display", "block");
+        $(".edit-board-title-btn-submit").css("display", "block");
+        $(".edit-board-title-btn-cancel").css("display", "block");
+    }
 
+    function cancelEditBoardName() {
+        $(".board-name-textarea").css("display", "none");
+        $(".edit-board-title-btn-submit").css("display", "none");
+        $(".edit-board-title-btn-cancel").css("display", "none");
+        $(".board-name-area").css("display", "block");
+        $(".edit-board-title-btn").css("display", "block");
+    }
 
+    function editBoardName(e) {
+        var boardId = $(e.target).attr("value");
+        var url = "/api/boards/" + boardId + "/editTitle";
+        var newTitle = $(".board-name-textarea").val();
+
+        $.ajax({
+            type: 'put',
+            url: url,
+            contentType: 'text/html; charset=utf-8',
+            data: newTitle,
+            dataType: 'json'
+        }).done(function editBoardNameSuccess(data) {
+            console.log("edit board name success.");
+
+            var newTitle = "to do List : " + data.title;
+            $(".board-name-area").text(newTitle);
+
+            $(".edit-board-title-btn").css("display", "block");
+            $(".board-name-area").css("display", "block");
+            $(".board-name-textarea").css("display", "none");
+            $(".edit-board-title-btn-submit").css("display", "none");
+            $(".edit-board-title-btn-cancel").css("display", "none");
+        }).fail(function editBoardNameFail() {
+            console.log("edit board name fail.");
+        })
     }
 
     function setDueDate(){

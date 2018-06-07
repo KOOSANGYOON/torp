@@ -50,6 +50,15 @@ public class ToDoBoard {
         return this.writer.equals(loginUser);
     }
 
+    //boardName 수정
+    public void editTitle(User loginUser, String newTitle) throws UnAuthenticationException {
+        if (!this.isOwner(loginUser)) {
+            throw new UnAuthenticationException();
+        }
+
+        this.title = newTitle;
+    }
+
     //getter, setter
 
     public long getId() {

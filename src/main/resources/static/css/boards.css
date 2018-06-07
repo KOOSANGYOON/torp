@@ -1,4 +1,4 @@
-@import url("/fonts/60sSTRIPE.otf");
+/*@import url("/fonts/60sSTRIPE.otf");*/
 
 header {
 
@@ -19,21 +19,21 @@ header .header-wrapper{
 
 }
 
-header .header-wrapper .brand-logo{
+/*header .header-wrapper .brand-logo{*/
 
-  position: absolute;
-  left: 50%;
-  transform: translateX(-50%);
-  text-decoration: none;
-  text-align: center;
-  color: rgba(255,255,255, .9);
-  font-size: 1.6rem;
-  display: inline-block;
-  white-space: nowrap;
-  font-family: '60sSTRIPE';
-  font-weight: lighter;
+  /*position: absolute;*/
+  /*left: 50%;*/
+  /*transform: translateX(-50%);*/
+  /*text-decoration: none;*/
+  /*text-align: center;*/
+  /*color: rgba(255,255,255, .9);*/
+  /*font-size: 1.6rem;*/
+  /*display: inline-block;*/
+  /*white-space: nowrap;*/
+  /*font-family: '60sSTRIPE';*/
+  /*font-weight: lighter;*/
 
-}
+/*}*/
 
 header .header-wrapper ul {
 

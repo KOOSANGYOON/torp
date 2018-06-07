@@ -31,6 +31,14 @@ public class ToDoService {
         return toDoBoardRepository.save(newBoard);
     }
 
+    @Transactional
+    public ToDoBoard editBoardTitle(User loginUser, long boardId, String newTitle) throws UnAuthenticationException {
+        ToDoBoard targetBoard = toDoBoardRepository.findOne(boardId);
+
+        targetBoard.editTitle(loginUser, newTitle);
+        return targetBoard;
+    }
+
     public ToDoDeck createDeck(User user, String title) {
         log.debug("in to ToDoService - createDeck");
         ToDoDeck newDeck = new ToDoDeck(user, title);
