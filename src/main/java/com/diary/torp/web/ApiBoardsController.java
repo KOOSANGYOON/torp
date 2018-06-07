@@ -92,4 +92,9 @@ public class ApiBoardsController {
                                    @Valid @RequestBody String newTitle) throws UnAuthenticationException {
         return toDoService.editBoardTitle(loginUser, boardId, newTitle);
     }
+
+//    @DeleteMapping("/{boardId")
+//    public ToDoBoard deleteBoard(@LoginUser User loginUSer, @PathVariable long boardId) {
+//        toDoService.deleteBoard();
+//    }
 }

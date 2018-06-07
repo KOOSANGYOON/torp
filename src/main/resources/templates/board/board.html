@@ -14,9 +14,10 @@
   <p class="board-name">
     <span class="board-edit-area">
       <textarea class="board-name-textarea"></textarea>
-      <button class="edit-board-title-btn-cancel"></button> <button class="edit-board-title-btn-submit" value="{{board.id}}"></button>
+      <button class="edit-board-title-btn-submit" value="{{board.id}}"></button> <button class="edit-board-title-btn-cancel"></button>
     </span>
-    <span class="board-name-area">to do List : {{board.title}} </span> <button class="edit-board-title-btn"></button>
+    <span class="board-name-area">to do List : {{board.title}} </span>
+    <button class="edit-board-title-btn"></button> <button class="delete-board-btn"></button>
   </p>
 
   <div class="member-list z-depth-1">
@@ -187,6 +188,15 @@
   <div class="close-moadl"></div>
   <div class="modal-content">
     <h5>You are not OWNER!!</h5>
+  </div>
+</div>
+
+<!--------------------  Warning Modal HTML-------------------------------->
+
+<div id="warnToDelete" class="modal">
+  <div class="close-moadl"></div>
+  <div class="modal-content">
+    <h5>Do You wanna delete this deck ?</h5>
   </div>
 </div>
 

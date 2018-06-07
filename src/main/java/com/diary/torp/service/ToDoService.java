@@ -102,4 +102,28 @@ public class ToDoService {
         card.addComment(loginUser, newComment);
         return newComment;
     }
+
+//    public ToDoBoard deleteBoard(User loginUser, long boardId) {
+//        ToDoBoard targetBoard = toDoBoardRepository.findOne(boardId);
+//
+//        for (ToDoDeck deck: targetBoard.getToDoDecks()) {
+//
+//        }
+//    }
+//
+//    public ToDoCard deleteCard(User loginUser, long deckId) {
+//        ToDoDeck targetDeck = toDoDeckRepository.findOne(deckId);
+//
+//        for (ToDoCard card : targetDeck.getToDoCards()) {
+//
+//        }
+//    }
+//
+//    public Comment deleteComment(User loginUser, long cardId) {
+//        ToDoCard targetCard = toDoCardRepository.findOne(cardId);
+//
+//        for (Comment comment : targetCard.getComments()) {
+//            comment.deleteComment(loginUser);
+//        }
+//    }
 }

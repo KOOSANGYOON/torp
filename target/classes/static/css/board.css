@@ -1302,3 +1302,20 @@ body #warnNotOwner {
   float: left;
   width: 100%;
 }
+
+.delete-board-btn {
+  width: 25px;
+  height: 25px;
+  float: right;
+  border-radius: 10px;
+  background-image: url(/icons/glyphicons-208-remove.png);
+  background-position-x: center;
+  background-position-y: center;
+  background-color: #d40300;
+  background-size: 15px 15px;
+  background-repeat: no-repeat;
+  margin-top: 10px;
+  cursor: pointer;
+  float: left;
+  display:inline-block;
+}
