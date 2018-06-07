@@ -56,9 +56,15 @@ public class ApiBoardsController {
         return newCard;
     }
 
+    @PostMapping("/{boardId}/{deckId}/{cardId}/cardInfo")
+    public ToDoCard getCardInfo(@LoginUser User loginUser, @PathVariable long boardId, @PathVariable long deckId,
+                                @PathVariable long cardId) throws Exception {
+        return toDoService.getCardInfo(loginUser, cardId);
+    }
+
     @PostMapping("/{boardId}/{deckId}/{cardId}/editDescription")
-    public ToDoCard editDescription(@LoginUser User loginUser, @PathVariable long boardId, @PathVariable long deckId, @PathVariable long cardId,
-                                    @Valid @RequestBody String description) throws UnAuthenticationException {
+    public ToDoCard editDescription(@LoginUser User loginUser, @PathVariable long boardId, @PathVariable long deckId,
+                                    @PathVariable long cardId, @Valid @RequestBody String description) throws UnAuthenticationException {
         log.debug("user is " + loginUser);
         log.debug("board id is " + boardId);
         log.debug("deck id is " + deckId);
@@ -69,7 +75,7 @@ public class ApiBoardsController {
     }
 
     @PostMapping("/{boardId}/{deckId}/{cardId}/addComment")
-    public ToDoCard addComment(@LoginUser User loginUser, @PathVariable long boardId, @PathVariable long deckId, @PathVariable long cardId,
+    public Comment addComment(@LoginUser User loginUser, @PathVariable long boardId, @PathVariable long deckId, @PathVariable long cardId,
                                     @Valid @RequestBody String comment) throws UnAuthenticationException {
         log.debug("user is " + loginUser);
         log.debug("board id is " + boardId);

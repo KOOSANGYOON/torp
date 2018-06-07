@@ -165,6 +165,7 @@ var BOARD = (function (window){
 
         $("#modal").modal('open');
 
+        var boardId = $(".board-header-area").attr("value");
         var cardId = $(e.target).closest(".deck-card").attr("value");
         var deckId = $(e.target).closest(".deck-cards-exist").attr("value");
         console.log("target : ", e.target);
@@ -174,14 +175,28 @@ var BOARD = (function (window){
         $(".hiddenCardTitle").text(cardId);
         $(".hiddenDeckTitle").text(deckId);
 
-        var description = $(e.target).closest(".deck-card-description").attr("value");
-        console.log("description : ", description);
-        $(".card-description").text(description);
+        var url = "/api/boards/" + boardId + "/" + deckId + "/" + cardId + "/cardInfo";
+        console.log("url : ", url);
 
-        var title = $(e.target).text();
-        $(".card-title-in-modal").text(title);
-        var deckName = $(e.target).closest(".deck-content").find(".deck-header-name").val();
-        $(".deck-name").text(deckName);
+        $.ajax({
+            type: 'post',
+            url: url,
+            contentType: 'text/html; charset=utf-8',
+            data: cardId,
+            dataType: 'json'}).done(function getCardSuccess(data) {
+                console.log("data : ", data);
+                $(".card-description").text(data.description);
+                $(".card-title-in-modal").text(data.title);
+                $(".deck-name").text(data.toDoDeck.title);
+
+                for (var i = 0; i < data.comments.length; i++) {
+                    var writerSection = data.comments[i].writer.userId + "'s comment :";
+                    var comment = data.comments[i].comment;
+                    $(commentTemplate({"comment-contents":comment, "writer-name":writerSection})).appendTo(".comments");
+                }
+        }).fail(function getCardFail() {
+            console.log("get card info fail.");
+        });
 
     }
 
@@ -245,8 +260,11 @@ var BOARD = (function (window){
             url: url,
             contentType: 'text/html; charset=utf-8',
             data: commentContent,
-            dataType: 'json'}).done(function addCommentSuccess(e) {
+            dataType: 'json'}).done(function addCommentSuccess(data, e) {
                 console.log("add comment success.");
+
+                var writerSection = data.writer.userId + "'s comment :";
+                console.log("data : ", data);
 
                 var now = new Date();
                 var currentTime = now.getDate() + " " +
@@ -254,7 +272,10 @@ var BOARD = (function (window){
                     now.getFullYear() + " at " +
                     now.getHours() + ":" +
                     now.getMinutes();
-                $(commentTemplate({"comment-contents":commentContent, "current-time":currentTime})).appendTo(".comments");
+
+                $(commentTemplate({"comment-contents":commentContent, "current-time":currentTime,
+                    "writer-name":writerSection})).appendTo(".comments");
+
                 $(".comment-contents").val("");
         }).fail(function addCommentFail() {
             console.log("add comment fail.");

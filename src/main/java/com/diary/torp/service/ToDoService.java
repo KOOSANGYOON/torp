@@ -47,6 +47,19 @@ public class ToDoService {
         return;
     }
 
+    public ToDoCard getCardInfo(User loginUser, long cardId) throws Exception {
+        ToDoCard toDoCard = toDoCardRepository.findOne(cardId);
+        if (toDoCard.isDeleted()) {
+            throw new Exception();
+        }
+
+        if (!toDoCard.isOwner(loginUser)) {
+            throw new UnAuthenticationException();
+        }
+
+        return toDoCard;
+    }
+
     public ToDoCard createCard(User loginUser, String title) {
         log.debug("in to ToDoService - createCard");
 
@@ -75,10 +88,10 @@ public class ToDoService {
     }
 
     @Transactional
-    public ToDoCard addComment(User loginUser, long cardId, Comment newComment) throws UnAuthenticationException {
+    public Comment addComment(User loginUser, long cardId, Comment newComment) throws UnAuthenticationException {
         ToDoCard card = toDoCardRepository.findOne(cardId);
         newComment.registerIntoCard(card);
         card.addComment(loginUser, newComment);
-        return card;
+        return newComment;
     }
 }
