@@ -185,6 +185,9 @@ var BOARD = (function (window){
             data: cardId,
             dataType: 'json'}).done(function getCardSuccess(data) {
                 console.log("data : ", data);
+
+                $(".comments").empty();
+
                 $(".card-description").text(data.description);
                 $(".card-title-in-modal").text(data.title);
                 $(".deck-name").text(data.toDoDeck.title);
