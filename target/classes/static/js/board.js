@@ -34,9 +34,10 @@ var BOARD = (function (window){
         $(".card-edit-save").on("click", saveCardEdit);
         $(".datepicker").on("change", setDueDate);
         $(".edit-board-title-btn").on("click", editBoardForm);
-        $(".edit-board-title-btn-submit").on("click", editBoardName);
-        $(".edit-board-title-btn-cancel").on("click", cancelEditBoardName);
+        $(".edit-board-title-btn-submit").on("click", editBoardTitle);
+        $(".edit-board-title-btn-cancel").on("click", cancelEditBoardTitle);
         $(".delete-board-btn").on("click", deleteBoard);
+        $(".deck-header-name").on("change", editDeckTitle);
 
     }
 
@@ -393,7 +394,7 @@ var BOARD = (function (window){
         $(".edit-board-title-btn-cancel").css("display", "inline-block");
     }
 
-    function cancelEditBoardName() {
+    function cancelEditBoardTitle() {
         $(".board-name-textarea").css("display", "none");
         $(".edit-board-title-btn-submit").css("display", "none");
         $(".edit-board-title-btn-cancel").css("display", "none");
@@ -402,9 +403,9 @@ var BOARD = (function (window){
         $(".delete-board-btn").css("display", "inline-block");
     }
 
-    function editBoardName(e) {
+    function editBoardTitle(e) {
         var boardId = $(e.target).attr("value");
-        var url = "/api/boards/" + boardId + "/editTitle";
+        var url = "/api/boards/" + boardId;
         var newTitle = $(".board-name-textarea").val();
 
         $.ajax({
@@ -441,6 +442,29 @@ var BOARD = (function (window){
 
         }).fail(function deleteBoardFail() {
 
+        });
+    }
+
+    function editDeckTitle(e) {
+        var newDeckTitle = $(e.target).closest(".deck-header-name").val();
+        var boardId = $(".board-header-area").attr("value");
+        var deckId = $(e.target).closest(".deck-id").attr("id");
+        var url = "/api/boards/" + boardId + "/" + deckId;
+
+        console.log("new title : ", newDeckTitle);
+        console.log("board : ", boardId);
+        console.log("deck : ", deckId);
+
+        $.ajax({
+            type: 'put',
+            url: url,
+            contentType: 'text/html; charset=utf-8',
+            data: newDeckTitle,
+            dataType: 'json'
+        }).done(function editDeckTitleSuccess() {
+            console.log("edit success.");
+        }).fail(function editDeckTitleFail() {
+            console.log("edit fail.");
         });
     }
 

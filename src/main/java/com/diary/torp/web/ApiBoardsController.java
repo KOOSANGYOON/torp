@@ -87,10 +87,16 @@ public class ApiBoardsController {
         return toDoService.addComment(loginUser, cardId, newComment);
     }
 
-    @PutMapping("/{boardId}/editTitle")
+    @PutMapping("/{boardId}")
     public ToDoBoard editBoardTitle(@LoginUser User loginUser, @PathVariable long boardId,
                                    @Valid @RequestBody String newTitle) throws UnAuthenticationException {
         return toDoService.editBoardTitle(loginUser, boardId, newTitle);
+    }
+
+    @PutMapping("/{boardId}/{deckId}")
+    public ToDoDeck editDeckTitle(@LoginUser User loginUser, @PathVariable long boardId, @PathVariable long deckId,
+                                  @Valid @RequestBody String newTitle) throws UnAuthenticationException {
+        return toDoService.editDeckTitle(loginUser, deckId, newTitle);
     }
 
 //    @DeleteMapping("/{boardId")
