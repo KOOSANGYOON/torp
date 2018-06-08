@@ -47,6 +47,14 @@ public class ToDoService {
         return targetDeck;
     }
 
+    @Transactional
+    public ToDoCard editCardTitle(User loginUser, long cardId, String newTitle) throws UnAuthenticationException {
+        ToDoCard targetCard = toDoCardRepository.findOne(cardId);
+
+        targetCard.editTitle(loginUser, newTitle);
+        return targetCard;
+    }
+
     public ToDoDeck createDeck(User user, String title) {
         log.debug("in to ToDoService - createDeck");
         ToDoDeck newDeck = new ToDoDeck(user, title);

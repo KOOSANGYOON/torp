@@ -668,6 +668,8 @@ body #modal{
   width: 400px;
   margin-top: 13px;
   display: inline-block;
+  border: none;
+  resize: none;
 
 }
 
@@ -677,7 +679,7 @@ body #modal{
   vertical-align: middle;
   display: inline-block;
   margin-top: -6px;
-  margin-left: 48px;
+  /*margin-left: 48px;*/
   font-size: 20px;
   font-weight: bold;
   color: rgba(0,0,0,0.6);

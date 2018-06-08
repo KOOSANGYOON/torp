@@ -75,6 +75,14 @@ public class ToDoCard {
         this.comments.add(newComment);
     }
 
+    public void editTitle(User loginUser, String newTitle) throws UnAuthenticationException {
+        if (!this.isOwner(loginUser)) {
+            throw new UnAuthenticationException();
+        }
+
+        this.title = newTitle;
+    }
+
     //작성자 확인
     public boolean isOwner(User loginUser) {
         return this.writer.equals(loginUser);

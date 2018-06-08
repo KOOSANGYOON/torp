@@ -99,6 +99,13 @@ public class ApiBoardsController {
         return toDoService.editDeckTitle(loginUser, deckId, newTitle);
     }
 
+    @PutMapping("/{boardId}/{deckId}/{cardId}")
+    public ToDoCard editCardTitle(@LoginUser User loginUser, @PathVariable long boardId, @PathVariable long deckId,
+                                  @PathVariable long cardId, @Valid @RequestBody String newTitle) throws UnAuthenticationException {
+        log.debug("in editCardTitle controller.");
+        return toDoService.editCardTitle(loginUser, cardId, newTitle);
+    }
+
 //    @DeleteMapping("/{boardId")
 //    public ToDoBoard deleteBoard(@LoginUser User loginUSer, @PathVariable long boardId) {
 //        toDoService.deleteBoard();
