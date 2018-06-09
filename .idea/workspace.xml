@@ -3,15 +3,8 @@
   <component name="ChangeListManager">
     <list default="true" id="23f67da8-5f5e-4358-b81a-67435308c4db" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/diary/torp/domain/ToDoCard.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/diary/torp/domain/ToDoCard.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/diary/torp/service/ToDoService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/diary/torp/service/ToDoService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/diary/torp/web/ApiBoardsController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/diary/torp/web/ApiBoardsController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/css/board.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/css/board.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/static/js/board.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/js/board.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/board/board.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/board/board.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/css/board.css" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/static/css/board.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/static/js/board.js" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/static/js/board.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/templates/board/board.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/templates/board/board.html" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -62,8 +55,8 @@
       <file leaf-file-name="ApiBoardsController.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/diary/torp/web/ApiBoardsController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="250">
-              <caret line="104" column="47" selection-start-line="104" selection-start-column="47" selection-end-line="104" selection-end-column="47" />
+            <state relative-caret-position="193">
+              <caret line="52" column="47" selection-start-line="52" selection-start-column="47" selection-end-line="52" selection-end-column="47" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -102,17 +95,8 @@
       <file leaf-file-name="board.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/resources/static/js/board.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="222">
-              <caret line="499" column="20" lean-forward="true" selection-start-line="499" selection-start-column="20" selection-end-line="500" selection-end-column="20" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="to_do_card" pinned="false" current-in-tab="false">
-        <entry file="das://e70f64aa-a422-4955-bc4b-46fba4518009/schema/torp/table/to_do_card">
-          <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-            <state>
-              <filtering enabled="true" />
+            <state relative-caret-position="181">
+              <caret line="106" column="30" selection-start-line="106" selection-start-column="30" selection-end-line="106" selection-end-column="30" />
             </state>
           </provider>
         </entry>
@@ -120,7 +104,7 @@
       <file leaf-file-name="board.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/resources/templates/board/board.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="172">
+            <state relative-caret-position="-97">
               <caret line="52" column="104" lean-forward="true" selection-start-line="52" selection-start-column="104" selection-end-line="52" selection-end-column="104" />
               <folding>
                 <element signature="n#style#0;n#button#0;n#div#1;n#div#2;n#body#0;n#html#0;n#!!top" expanded="true" />
@@ -167,11 +151,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>new comment</find>
-      <find>isdelete</find>
-      <find>href</find>
-      <find>add-card-btn</find>
-      <find>btn</find>
       <find>card-description-edit</find>
       <find>description-page</find>
       <find>card-description</find>
@@ -186,7 +165,6 @@
       <find>brand-logo</find>
       <find>board-name-area</find>
       <find>board</find>
-      <find>commen</find>
       <find>warnNotOwner</find>
       <find>hihi</find>
       <find>edit-board-title-btn</find>
@@ -196,7 +174,13 @@
       <find>#board-canvas .deck-wrapper .deck-header .deck-header-name</find>
       <find>card-title-in-modal</find>
       <find>open</find>
+      <find>commen</find>
       <find>~</find>
+      <find>addcomm</find>
+      <find>addcommen</find>
+      <find>window.location</find>
+      <find>make card</find>
+      <find>add</find>
     </findStrings>
     <replaceStrings>
       <replace />
@@ -256,8 +240,8 @@
         <option value="$PROJECT_DIR$/src/main/resources/templates/board/board.html" />
         <option value="$PROJECT_DIR$/src/main/resources/static/css/board.css" />
         <option value="$PROJECT_DIR$/src/main/java/com/diary/torp/domain/ToDoCard.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/diary/torp/web/ApiBoardsController.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/diary/torp/service/ToDoService.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/diary/torp/web/ApiBoardsController.java" />
         <option value="$PROJECT_DIR$/src/main/resources/static/js/board.js" />
       </list>
     </option>
@@ -515,12 +499,12 @@
       <workItem from="1527308852900" duration="259000" />
       <workItem from="1527469715261" duration="1455000" />
       <workItem from="1527474941116" duration="43116000" />
-      <workItem from="1527661422022" duration="116679000" />
+      <workItem from="1527661422022" duration="118684000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="179950000" />
+    <option name="totallyTimeSpent" value="181955000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1280" height="800" extended-state="0" />
@@ -547,7 +531,6 @@
       <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.4983845" visible="true" weight="0.47586206" />
       <window_info anchor="bottom" id="Spring" order="7" />
       <window_info anchor="bottom" id="Terminal" order="9" />
-      <window_info anchor="bottom" id="Database Console" order="12" weight="0.32965517" />
       <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.26979" />
       <window_info anchor="bottom" id="Problems" />
       <window_info anchor="right" id="Bean Validation" order="9" />
@@ -557,6 +540,7 @@
       <window_info id="Favorites" order="5" side_tool="true" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
+      <window_info anchor="bottom" id="Database Console" order="12" weight="0.32965517" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -899,13 +883,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="das://e70f64aa-a422-4955-bc4b-46fba4518009/schema/torp/table/to_do_deck">
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state>
-          <filtering enabled="true" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/resources/static/css/board.css">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="134">
@@ -937,17 +914,14 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/diary/torp/web/ApiBoardsController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="250">
-          <caret line="104" column="47" selection-start-line="104" selection-start-column="47" selection-end-line="104" selection-end-column="47" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
+    <entry file="das://e70f64aa-a422-4955-bc4b-46fba4518009/schema/torp/table/to_do_card">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
         </state>
       </provider>
     </entry>
-    <entry file="das://e70f64aa-a422-4955-bc4b-46fba4518009/schema/torp/table/to_do_card">
+    <entry file="das://e70f64aa-a422-4955-bc4b-46fba4518009/schema/torp/table/to_do_deck">
       <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
         <state>
           <filtering enabled="true" />
@@ -956,7 +930,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/resources/templates/board/board.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="172">
+        <state relative-caret-position="-97">
           <caret line="52" column="104" lean-forward="true" selection-start-line="52" selection-start-column="104" selection-end-line="52" selection-end-column="104" />
           <folding>
             <element signature="n#style#0;n#button#0;n#div#1;n#div#2;n#body#0;n#html#0;n#!!top" expanded="true" />
@@ -966,10 +940,20 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/diary/torp/web/ApiBoardsController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="193">
+          <caret line="52" column="47" selection-start-line="52" selection-start-column="47" selection-end-line="52" selection-end-column="47" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/resources/static/js/board.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="222">
-          <caret line="499" column="20" lean-forward="true" selection-start-line="499" selection-start-column="20" selection-end-line="500" selection-end-column="20" />
+        <state relative-caret-position="181">
+          <caret line="106" column="30" selection-start-line="106" selection-start-column="30" selection-end-line="106" selection-end-column="30" />
         </state>
       </provider>
     </entry>

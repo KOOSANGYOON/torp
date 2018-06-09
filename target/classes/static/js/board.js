@@ -110,7 +110,7 @@ var BOARD = (function (window){
                 $(eventTarget).parents(".card-composer").find("a.add-card-btn").css('display', 'block');
         }).fail(function makeCardFail() {       //ajax fail
             console.log("make card fail.");
-            window.location.replace("/");       //재시작(도중에 로그인이 끊겼을 시)
+            // window.location.replace("/");       //재시작(도중에 로그인이 끊겼을 시)
         });
     }
 
@@ -157,7 +157,7 @@ var BOARD = (function (window){
                 location.reload();      //이 부분은 무조건 수정해야 합니다.
         }).fail(function makeDeckFail() {
             console.log("make deck fail.");
-            window.location.replace("/");       //재시작(도중에 로그인이 끊겼을 시)
+            // window.location.replace("/");       //재시작(도중에 로그인이 끊겼을 시)
         });
         return false;
     }
@@ -207,7 +207,7 @@ var BOARD = (function (window){
                 }
         }).fail(function getCardFail() {
             console.log("get card info fail.");
-            window.location.replace("/");       //재시작(도중에 로그인이 끊겼을 시)
+            // window.location.replace("/");       //재시작(도중에 로그인이 끊겼을 시)
         });
 
     }
@@ -285,13 +285,15 @@ var BOARD = (function (window){
                     now.getHours() + ":" +
                     now.getMinutes();
 
+                console.log('time type : ', jQuery.type(currentTime));
+
                 $(commentTemplate({"comment-contents":commentContent, "current-time":currentTime,
                     "writer-name":writerSection})).appendTo(".comments");
 
                 $(".comment-contents").val("");
         }).fail(function addCommentFail() {
             console.log("add comment fail.");
-            window.location.replace("/");       //재시작(도중에 로그인이 끊겼을 시)
+            // window.location.replace("/");       //재시작(도중에 로그인이 끊겼을 시)
         });
 
     }
@@ -386,7 +388,7 @@ var BOARD = (function (window){
         }).fail(function editDescriptionFail() {
             console.log("fail to edit card description.");
             $("#warnNotOwner").modal('open');
-            window.location.replace("/");       //재시작(도중에 로그인이 끊겼을 시)
+            // window.location.replace("/");       //재시작(도중에 로그인이 끊겼을 시)
         });
     }
 
@@ -432,7 +434,7 @@ var BOARD = (function (window){
             $(".edit-board-title-btn-cancel").css("display", "none");
         }).fail(function editBoardNameFail() {
             console.log("edit board name fail.");
-            window.location.replace("/");       //재시작(도중에 로그인이 끊겼을 시)
+            // window.location.replace("/");       //재시작(도중에 로그인이 끊겼을 시)
         });
     }
 
@@ -447,7 +449,7 @@ var BOARD = (function (window){
             dataType: 'json'}).done(function deleteBoardSuccess() {
 
         }).fail(function deleteBoardFail() {
-            window.location.replace("/");       //재시작(도중에 로그인이 끊겼을 시)
+            // window.location.replace("/");       //재시작(도중에 로그인이 끊겼을 시)
         });
     }
 
@@ -497,9 +499,10 @@ var BOARD = (function (window){
             var test = $(".deck-cards-exist").find(".deck-card-title");
 
             for (var i = 0; i < test.length; i++) {
-                // if ($(test.get(i)).attr('value').is(cardId)) {
-                // }
-                console.log($(test.get(i)).attr('value'));
+                if ($(test.get(i)).attr('value') === cardId) {
+                    console.log($(test.get(i)).attr('value'));
+                    $(test.get(i)).text(newCardTitle);
+                }
             }
 
             console.log("test : ", test);
