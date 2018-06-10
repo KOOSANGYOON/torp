@@ -468,6 +468,7 @@ var BOARD = (function (window){
             dataType: 'json'}).done(function deleteBoardSuccess() {
                 console.log("success to delete.");
                 $("#warn-delete-board").modal("close");
+                window.location.replace("/boards");     //이 부분도 수정이 필요할 수 있다. replace가 아닌 다른방법이 있는지 확인 필요.
         }).fail(function deleteBoardFail() {
             console.log("fail to delete.");
             alert("비밀번호를 확인해주세요.");
