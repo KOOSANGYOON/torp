@@ -31,8 +31,9 @@ public class BoardsController {
 
     @GetMapping("")
     public String boardList(@LoginUser User loginUser, Model model) {
-//        model.addAttribute("toDoBoards", toDoBoardRepository.findByDeletedAndWriter(loginUser.getId(), false));
-        model.addAttribute("boards", toDoBoardRepository.findByWriter(loginUser));
+//        model.addAttribute("boards", toDoBoardRepository.findByWriter(loginUser));
+        model.addAttribute("boards", toDoBoardRepository.findByDeletedAndWriter(false, loginUser));
+
         return "/board/boards";
     }
 

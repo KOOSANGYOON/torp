@@ -11,6 +11,7 @@ var BOARD = (function (window){
         $("#modal").modal();
         $("#warning-modal").modal();
         $("#warnNotOwner").modal();
+        $("#warn-delete-board").modal();
         $(".close-moadl").on("click", closeModal)
         $(".members-btn").on("click", showMembers);
         $("#board-canvas").on("click",".add-card-btn", showCreateCardForm);
@@ -36,7 +37,7 @@ var BOARD = (function (window){
         $(".edit-board-title-btn").on("click", editBoardForm);
         $(".edit-board-title-btn-submit").on("click", editBoardTitle);
         $(".edit-board-title-btn-cancel").on("click", cancelEditBoardTitle);
-        $(".delete-board-btn").on("click", deleteBoard);
+        $(".delete-board-btn").on("click", deleteBoardForm);
         $(".deck-header-name").on("change", editDeckTitle);
         $(".card-title-in-modal").on("change", editCardTitle);
 
@@ -429,6 +430,7 @@ var BOARD = (function (window){
 
             $(".edit-board-title-btn").css("display", "block");
             $(".board-name-area").css("display", "block");
+            $(".delete-board-btn").css("display", "block");
             $(".board-name-textarea").css("display", "none");
             $(".edit-board-title-btn-submit").css("display", "none");
             $(".edit-board-title-btn-cancel").css("display", "none");
@@ -438,19 +440,21 @@ var BOARD = (function (window){
         });
     }
 
-    function deleteBoard(e) {
-        var boardId = $(e.target).attr("value");
-        var url = "/api/boards/" + boardId;
-
-        $.ajax({
-            type: 'delete',
-            url: url,
-            contentType: 'text/html; charset=utf-8',
-            dataType: 'json'}).done(function deleteBoardSuccess() {
-
-        }).fail(function deleteBoardFail() {
-            // window.location.replace("/");       //재시작(도중에 로그인이 끊겼을 시)
-        });
+    function deleteBoardForm(e) {
+        console.log("delete");
+        $("#warn-delete-board").modal('open');
+        // var boardId = $(e.target).attr("value");
+        // var url = "/api/boards/" + boardId;
+        //
+        // $.ajax({
+        //     type: 'delete',
+        //     url: url,
+        //     contentType: 'text/html; charset=utf-8',
+        //     dataType: 'json'}).done(function deleteBoardSuccess() {
+        //
+        // }).fail(function deleteBoardFail() {
+        //     // window.location.replace("/");       //재시작(도중에 로그인이 끊겼을 시)
+        // });
     }
 
     function editDeckTitle(e) {

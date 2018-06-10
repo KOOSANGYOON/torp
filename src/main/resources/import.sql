@@ -8,6 +8,7 @@ INSERT INTO to_do_board (id, deleted, title, writer_id) values (1, false, 'CODE 
 INSERT INTO to_do_board (id, deleted, title, writer_id) values (2, false, '영어회화 스케쥴러', 3);
 INSERT INTO to_do_board (id, deleted, title, writer_id) values (3, false, '알고리즘 스케쥴러', 3);
 INSERT INTO to_do_board (id, deleted, title, writer_id) values (4, false, 'CS 학습 스케쥴러', 3);
+INSERT INTO to_do_board (id, deleted, title, writer_id) values (5, true, 'testfile', 3);
 
 INSERT INTO to_do_deck (id, deleted, title, to_do_board_id, writer_id) values (1, false, 'level3 review', 1, 1);
 INSERT INTO to_do_deck (id, deleted, title, to_do_board_id, writer_id) values (2, false, 'OPIC 스터디', 2, 3);
