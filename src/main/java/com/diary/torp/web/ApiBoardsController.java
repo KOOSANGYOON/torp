@@ -9,6 +9,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
+import javax.security.auth.login.LoginException;
 import javax.validation.Valid;
 
 @RestController
@@ -106,8 +107,14 @@ public class ApiBoardsController {
         return toDoService.editCardTitle(loginUser, cardId, newTitle);
     }
 
-//    @DeleteMapping("/{boardId")
-//    public ToDoBoard deleteBoard(@LoginUser User loginUSer, @PathVariable long boardId) {
-//        toDoService.deleteBoard();
-//    }
+    @DeleteMapping("/{boardId}")
+    public ToDoBoard deleteBoard(@LoginUser User loginUser, @PathVariable long boardId,
+                                 @Valid @RequestBody String password) throws LoginException, UnAuthenticationException {
+        log.debug("api controller - delete board");
+        if (!loginUser.matchPassword(password)) {
+            log.debug("password is wrong.");
+            throw new LoginException("password isn't correct.");
+        }
+        return toDoService.deleteBoard(loginUser, boardId);
+    }
 }

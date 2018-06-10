@@ -59,6 +59,14 @@ public class ToDoBoard {
         this.title = newTitle;
     }
 
+    //board 삭제
+    public void delete(User loginUser) throws UnAuthenticationException {
+        if (!this.isOwner(loginUser)) {
+            throw new UnAuthenticationException();
+        }
+
+        this.deleted = true;
+    }
     //getter, setter
 
     public long getId() {

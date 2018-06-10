@@ -40,11 +40,11 @@ var BOARD = (function (window){
         $(".delete-board-btn").on("click", deleteBoardForm);
         $(".deck-header-name").on("change", editDeckTitle);
         $(".card-title-in-modal").on("change", editCardTitle);
+        $(".submit-delete").on("click", deleteBoard);
 
     }
 
     function closeModal(e){
-
 
         var modalName = $(e.target).closest(".modal").attr('id');
 
@@ -55,6 +55,12 @@ var BOARD = (function (window){
         }else if(modalName === "warning-modal") {
 
             $("#warning-modal").modal("close");
+        }else if (modalName === "warnNotOwner") {
+
+            $("#warnNotOwner").modal("close");
+        }else if (modalName === "warn-delete-board") {
+
+            $("#warn-delete-board").modal("close");
         }
 
     }
@@ -443,18 +449,30 @@ var BOARD = (function (window){
     function deleteBoardForm(e) {
         console.log("delete");
         $("#warn-delete-board").modal('open');
-        // var boardId = $(e.target).attr("value");
-        // var url = "/api/boards/" + boardId;
-        //
-        // $.ajax({
-        //     type: 'delete',
-        //     url: url,
-        //     contentType: 'text/html; charset=utf-8',
-        //     dataType: 'json'}).done(function deleteBoardSuccess() {
-        //
-        // }).fail(function deleteBoardFail() {
-        //     // window.location.replace("/");       //재시작(도중에 로그인이 끊겼을 시)
-        // });
+    }
+
+    function deleteBoard(e) {
+        var boardId = $(".board-header-area").attr("value");
+        var password = $("#password-to-delete").val();
+        var url = "/api/boards/" + boardId;
+
+        console.log(typeof password);
+        console.log(boardId);
+        console.log(url);
+
+        $.ajax({
+            type: 'delete',
+            url: url,
+            data: password,
+            contentType: 'text/html; charset=utf-8',
+            dataType: 'json'}).done(function deleteBoardSuccess() {
+                console.log("success to delete.");
+                $("#warn-delete-board").modal("close");
+        }).fail(function deleteBoardFail() {
+            console.log("fail to delete.");
+            alert("비밀번호를 확인해주세요.");
+            $("#password-to-delete").val('');
+        });
     }
 
     function editDeckTitle(e) {

@@ -119,13 +119,16 @@ public class ToDoService {
         return newComment;
     }
 
-//    public ToDoBoard deleteBoard(User loginUser, long boardId) {
-//        ToDoBoard targetBoard = toDoBoardRepository.findOne(boardId);
-//
+    @Transactional
+    public ToDoBoard deleteBoard(User loginUser, long boardId) throws UnAuthenticationException {
+        ToDoBoard targetBoard = toDoBoardRepository.findOne(boardId);
+
+        targetBoard.delete(loginUser);
+        return targetBoard;
 //        for (ToDoDeck deck: targetBoard.getToDoDecks()) {
 //
 //        }
-//    }
+    }
 //
 //    public ToDoCard deleteCard(User loginUser, long deckId) {
 //        ToDoDeck targetDeck = toDoDeckRepository.findOne(deckId);

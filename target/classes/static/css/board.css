@@ -1203,7 +1203,7 @@ body #warning-modal {
 
 body #warn-delete-board {
 
-    /*height: 150px;*/
+    height: 265px;
     width: 400px;
     margin-top: 200px;
 
@@ -1353,17 +1353,24 @@ body #warnNotOwner {
 
 .submit-delete {
     display: block;
-    width: 25px;
-    height: 25px;
-    float: right;
+    width: 100%;
+    height: 50px;
+    float: conter;
     border-radius: 10px;
-    background-image: url(/icons/glyphicons-208-remove.png);
     background-position-x: center;
     background-position-y: center;
-    background-color: #d4272a;
-    background-size: 15px 15px;
+    background-color: #d40400;
     background-repeat: no-repeat;
     margin-top: 10px;
     cursor: pointer;
-    float: left;
+}
+
+#password-to-delete {
+    font-size: 18px;
+    resize: none;
+    border-radius: 30px;
+    position: center;
+    background-position: center;
+    background-color: #d4a6ae;
+    text-align: center;
 }
