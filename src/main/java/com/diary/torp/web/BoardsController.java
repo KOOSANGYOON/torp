@@ -15,7 +15,7 @@ import javax.annotation.Resource;
 @Controller
 @RequestMapping("/boards")
 public class BoardsController {
-    private static final Logger log = LoggerFactory.getLogger(HomeController.class);
+    private static final Logger log = LoggerFactory.getLogger(BoardsController.class);
 
     @Resource (name = "toDoService")
     private ToDoService toDoService;

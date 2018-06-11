@@ -1,7 +1,10 @@
 package com.diary.torp.domain;
 
 import com.diary.torp.UnAuthenticationException;
+import com.diary.torp.web.HomeController;
 import org.hibernate.annotations.Where;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import javax.persistence.*;
 import javax.validation.constraints.Size;
@@ -10,6 +13,8 @@ import java.util.List;
 
 @Entity
 public class ToDoCard {
+    private static final Logger log = LoggerFactory.getLogger(HomeController.class);
+
     @Id
     @GeneratedValue
     private long id;
@@ -58,8 +63,8 @@ public class ToDoCard {
     //description 변경
     public void editDescription(User loginUser, String newDescription) throws UnAuthenticationException {
         if (!isOwner(loginUser)) {
-            System.out.println("--- writer : " + this.writer);
-            System.out.println("--- loginUser : " + loginUser);
+            log.debug("--- writer : " + this.writer);
+            log.debug("--- loginUser : " + loginUser);
             throw new UnAuthenticationException();
         }
         this.description = newDescription;
@@ -68,8 +73,8 @@ public class ToDoCard {
     //comment 추가
     public void addComment(User loginUser, Comment newComment) throws UnAuthenticationException {
         if (!isOwner(loginUser)) {
-            System.out.println("--- writer : " + this.writer);
-            System.out.println("--- loginUser : " + loginUser);
+            log.debug("--- writer : " + this.writer);
+            log.debug("--- loginUser : " + loginUser);
             throw new UnAuthenticationException();
         }
         this.comments.add(newComment);

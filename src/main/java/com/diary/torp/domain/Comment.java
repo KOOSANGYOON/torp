@@ -52,4 +52,8 @@ public class Comment {
     public boolean isDeleted() {
         return deleted;
     }
+
+    public ToDoCard getToDoCard() {
+        return toDoCard;
+    }
 }

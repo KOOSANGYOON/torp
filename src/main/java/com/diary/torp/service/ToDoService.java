@@ -12,7 +12,7 @@ import javax.annotation.Resource;
 
 @Service
 public class ToDoService {
-    private static final Logger log = LoggerFactory.getLogger(HomeController.class);
+    private static final Logger log = LoggerFactory.getLogger(ToDoService.class);
 
     @Resource(name="toDoBoardRepository")
     private ToDoBoardRepository toDoBoardRepository;
@@ -27,6 +27,7 @@ public class ToDoService {
     private CommentRepository commentRepository;
 
     public ToDoBoard createBoard(User user, String title) {
+        log.debug("todo service - createBoard in");
         ToDoBoard newBoard = new ToDoBoard(user, title);
         return toDoBoardRepository.save(newBoard);
     }
@@ -126,9 +127,13 @@ public class ToDoService {
         targetBoard.delete(loginUser);
         return targetBoard;
 //        for (ToDoDeck deck: targetBoard.getToDoDecks()) {
-//
+//            deleteDeck(deck);
 //        }
     }
+
+//    public ToDoDeck deleteDeck(ToDoDeck deck) {
+//
+//    }
 //
 //    public ToDoCard deleteCard(User loginUser, long deckId) {
 //        ToDoDeck targetDeck = toDoDeckRepository.findOne(deckId);

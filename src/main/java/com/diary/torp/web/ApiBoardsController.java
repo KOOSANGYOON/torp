@@ -15,7 +15,7 @@ import javax.validation.Valid;
 @RestController
 @RequestMapping("/api/boards")
 public class ApiBoardsController {
-    private static final Logger log = LoggerFactory.getLogger(HomeController.class);
+    private static final Logger log = LoggerFactory.getLogger(ApiBoardsController.class);
 
     @Resource(name = "toDoService")
     private ToDoService toDoService;
