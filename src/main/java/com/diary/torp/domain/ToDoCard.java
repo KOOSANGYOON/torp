@@ -2,6 +2,7 @@ package com.diary.torp.domain;
 
 import com.diary.torp.UnAuthenticationException;
 import com.diary.torp.web.HomeController;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.hibernate.annotations.Where;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -91,6 +92,14 @@ public class ToDoCard {
     //작성자 확인
     public boolean isOwner(User loginUser) {
         return this.writer.equals(loginUser);
+    }
+
+    //board 삭제
+    public void delete(User loginUser) throws UnAuthenticationException {
+        if (!this.isOwner(loginUser)) {
+            throw new UnAuthenticationException();
+        }
+        this.deleted = true;
     }
 
     //getter, setter

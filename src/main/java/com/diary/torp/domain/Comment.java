@@ -1,5 +1,7 @@
 package com.diary.torp.domain;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.*;
 
 @Entity
@@ -11,6 +13,7 @@ public class Comment {
     @Column
     private String comment;
 
+    @JsonIgnore
     @ManyToOne
     @JoinColumn(foreignKey = @ForeignKey(name = "comments"))
     private ToDoCard toDoCard;

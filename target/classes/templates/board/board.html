@@ -168,6 +168,9 @@
             <div class="link-submit z-depth-1">Attach</div>
         </div>
 
+        <p>Delete Card</p>
+        <div class="modal-sidebar-btn z-depth-1" id="delete-card-btn">Delete this card</div>
+
     </div>
 </div>
 
@@ -199,9 +202,22 @@
         <h5>Do You REALLY wanna delete this board ?</h5>
     </div>
     <div class="modal-content">
-        <input id="password-to-delete" type="password" placeholder="Typing your password..">
+        <input class="password-to-delete" type="password" placeholder="Typing your password..">
     </div>
-    <button class="submit-delete">Yes, I REALLY wanna delete this board.</button>
+    <button class="submit-delete-board">Yes, I REALLY wanna delete this board.</button>
+</div>
+
+<!--------------------  Warning Modal HTML-------------------------------->
+
+<div id="warn-delete-card" class="modal">
+    <div class="close-moadl"></div>
+    <div class="modal-content">
+        <h5>Do You REALLY wanna delete this card ?</h5>
+    </div>
+    <div class="modal-content">
+        <input class="password-to-delete" id="deleteCardPassword" type="password" placeholder="Typing your password..">
+    </div>
+    <button class="submit-delete-card">Yes, I REALLY wanna delete this card.</button>
 </div>
 
 <!----------------------------------------------------------------->

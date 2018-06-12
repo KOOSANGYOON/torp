@@ -70,6 +70,7 @@ public class ApiBoardsController {
     @PostMapping("/{boardId}/{deckId}/{cardId}/cardInfo")
     public ToDoCard getCardInfo(@LoginUser User loginUser, @PathVariable long boardId, @PathVariable long deckId,
                                 @PathVariable long cardId) throws Exception {
+        log.debug("boards controller - getCardInfo in");
         return toDoService.getCardInfo(loginUser, cardId);
     }
 
@@ -126,5 +127,17 @@ public class ApiBoardsController {
             throw new LoginException("password isn't correct.");
         }
         return toDoService.deleteBoard(loginUser, boardId);
+    }
+
+    @DeleteMapping("/{boardId}/{deckId}/{cardId}")
+    public ToDoCard deleteCard(@LoginUser User loginUser, @PathVariable long boardId, @PathVariable long deckId,
+                               @PathVariable long cardId, @Valid @RequestBody String password) throws UnAuthenticationException, LoginException {
+        log.debug("api controller - delete card");
+
+        if (!loginUser.matchPassword(password)) {
+            log.debug("password is wrong.");
+            throw new LoginException("password isn't correct.");
+        }
+        return toDoService.deleteCard(loginUser, cardId);
     }
 }

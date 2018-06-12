@@ -72,7 +72,7 @@ var BOARDS = (function (window){
 
 	function gotoBoard(){
         // var url = $(".board").attr("title");
-        var url = $(".asdf").attr("value");
+        var url = $(".board").attr("value");
         // var index = $("#boardId").index(this);
         console.log("title " + url);
 		// window.location.href = ("/boards/" + url);

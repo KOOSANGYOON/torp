@@ -79,6 +79,7 @@ public class ToDoService {
     }
 
     public ToDoCard getCardInfo(User loginUser, long cardId) throws Exception {
+        log.debug("todoservice - getCardInfo");
         ToDoCard toDoCard = toDoCardRepository.findOne(cardId);
         if (toDoCard.isDeleted()) {
             throw new Exception();
@@ -87,7 +88,6 @@ public class ToDoService {
         if (!toDoCard.isOwner(loginUser)) {
             throw new UnAuthenticationException();
         }
-
         return toDoCard;
     }
 
@@ -146,13 +146,17 @@ public class ToDoService {
 //
 //    }
 //
-//    public ToDoCard deleteCard(User loginUser, long deckId) {
-//        ToDoDeck targetDeck = toDoDeckRepository.findOne(deckId);
-//
+    @Transactional
+    public ToDoCard deleteCard(User loginUser, long cardId) throws UnAuthenticationException {
+        ToDoCard targetCard = toDoCardRepository.findOne(cardId);
+        targetCard.delete(loginUser);
+
+        return targetCard;
+
 //        for (ToDoCard card : targetDeck.getToDoCards()) {
 //
 //        }
-//    }
+    }
 //
 //    public Comment deleteComment(User loginUser, long cardId) {
 //        ToDoCard targetCard = toDoCardRepository.findOne(cardId);

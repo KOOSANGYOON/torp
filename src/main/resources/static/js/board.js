@@ -12,6 +12,7 @@ var BOARD = (function (window){
         $("#warning-modal").modal();
         $("#warnNotOwner").modal();
         $("#warn-delete-board").modal();
+        $("#warn-delete-card").modal();
         $(".close-moadl").on("click", closeModal)
         $(".members-btn").on("click", showMembers);
         $("#board-canvas").on("click",".add-card-btn", showCreateCardForm);
@@ -40,7 +41,9 @@ var BOARD = (function (window){
         $(".delete-board-btn").on("click", deleteBoardForm);
         $(".deck-header-name").on("change", editDeckTitle);
         $(".card-title-in-modal").on("change", editCardTitle);
-        $(".submit-delete").on("click", deleteBoard);
+        $(".submit-delete-board").on("click", deleteBoard);
+        $("#delete-card-btn").on("click", deleteCardForm);
+        $(".submit-delete-card").on("click", deleteCard);
 
     }
 
@@ -115,6 +118,8 @@ var BOARD = (function (window){
 
                 $(eventTarget).parents(".add-card-form").find(".card-title").val("");
                 $(eventTarget).parents(".card-composer").find("a.add-card-btn").css('display', 'block');
+
+                window.location.reload();       //수정 필요함. reload -> ajax를 쓰는 이유가 없어져버림.
         }).fail(function makeCardFail() {       //ajax fail
             console.log("make card fail.");
             // window.location.replace("/");       //재시작(도중에 로그인이 끊겼을 시)
@@ -447,13 +452,13 @@ var BOARD = (function (window){
     }
 
     function deleteBoardForm(e) {
-        console.log("delete");
+        console.log("delete board");
         $("#warn-delete-board").modal('open');
     }
 
     function deleteBoard(e) {
         var boardId = $(".board-header-area").attr("value");
-        var password = $("#password-to-delete").val();
+        var password = $(".password-to-delete").val();
         var url = "/api/boards/" + boardId;
 
         console.log(typeof password);
@@ -472,7 +477,47 @@ var BOARD = (function (window){
         }).fail(function deleteBoardFail() {
             console.log("fail to delete.");
             alert("비밀번호를 확인해주세요.");
-            $("#password-to-delete").val('');
+            $(".password-to-delete").val('');
+        });
+    }
+
+    function deleteCardForm(e) {
+        console.log("open delete card form.");
+        $("#warn-delete-card").modal('open');
+    }
+
+    function deleteCard(e) {
+        console.log("delete card.");
+
+        var password = $("#deleteCardPassword").val();
+        var boardId = $(".board-header-area").attr("value");
+        var deckId = $(".hiddenDeckTitle").text();
+        var cardId = $(".hiddenCardTitle").text();
+
+        var url = "/api/boards/" + boardId + "/" + deckId + "/" + cardId;
+
+        $.ajax({
+            type: 'delete',
+            url: url,
+            data: password,
+            contentType: 'text/html; charset=utf-8',
+            dataType: 'json'}).done(function deleteCardSuccess() {
+                console.log("success to delete.");
+                $("#warn-delete-card").modal("close");
+                $("#modal").modal("close");
+
+                var deckTitle = $(".deck-cards-exist").find(".deck-card-title");
+
+                for (var i = 0; i < deckTitle.length; i++) {
+                    if ($(deckTitle.get(i)).attr('value') === cardId) {
+                        console.log($(deckTitle.get(i)).attr('value'));
+                        $(deckTitle.get(i)).parents(".deck-card").remove();
+                    }
+                }
+        }).fail(function deleteCardFail() {
+            console.log("fail to delete.");
+            alert("비밀번호를 확인해주세요.");
+            $("#deleteCardPassword").val('');
         });
     }
 
@@ -519,16 +564,16 @@ var BOARD = (function (window){
             dataType: 'json'
         }).done(function editCardTitleSuccess() {
             console.log("edit success.");
-            var test = $(".deck-cards-exist").find(".deck-card-title");
+            var deckTitle = $(".deck-cards-exist").find(".deck-card-title");
 
-            for (var i = 0; i < test.length; i++) {
-                if ($(test.get(i)).attr('value') === cardId) {
-                    console.log($(test.get(i)).attr('value'));
-                    $(test.get(i)).text(newCardTitle);
+            for (var i = 0; i < deckTitle.length; i++) {
+                if ($(deckTitle.get(i)).attr('value') === cardId) {
+                    console.log($(deckTitle.get(i)).attr('value'));
+                    $(deckTitle.get(i)).text(newCardTitle);
                 }
             }
 
-            console.log("test : ", test);
+            console.log("deckTitle : ", deckTitle);
         }).fail(function editCardTitleFail() {
             console.log("edit fail.");
         });
