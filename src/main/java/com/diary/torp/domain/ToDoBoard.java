@@ -42,6 +42,7 @@ public class ToDoBoard {
 
     //deck 추가
     public void addDeck(ToDoDeck newDeck) {
+        newDeck.registerIntoBoard(this);
         this.toDoDecks.add(newDeck);
     }
 

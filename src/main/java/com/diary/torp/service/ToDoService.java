@@ -73,7 +73,6 @@ public class ToDoService {
     public void addDeck(long boardId, ToDoDeck newToDoDeck) {
         log.debug("in to ToDoService - addDeck");
         ToDoBoard board = toDoBoardRepository.findOne(boardId);
-        newToDoDeck.registerIntoBoard(board);
         board.addDeck(newToDoDeck);
         return;
     }
@@ -107,7 +106,6 @@ public class ToDoService {
     public void addCard(long deckId, ToDoCard newCard) {
         log.debug("in to ToDoService - addCard");
         ToDoDeck deck = toDoDeckRepository.findOne(deckId);
-        newCard.registerIntoDeck(deck);
         deck.addCard(newCard);
     }
 
@@ -126,7 +124,6 @@ public class ToDoService {
     @Transactional
     public Comment addComment(User loginUser, long cardId, Comment newComment) throws UnAuthenticationException {
         ToDoCard card = toDoCardRepository.findOne(cardId);
-        newComment.registerIntoCard(card);
         card.addComment(loginUser, newComment);
         return newComment;
     }

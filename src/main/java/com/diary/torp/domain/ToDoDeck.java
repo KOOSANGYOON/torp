@@ -49,6 +49,7 @@ public class ToDoDeck {
     }
 
     public void addCard(ToDoCard newCard) {
+        newCard.registerIntoDeck(this);
         this.toDoCards.add(newCard);
     }
 

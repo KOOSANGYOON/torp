@@ -78,6 +78,7 @@ public class ToDoCard {
             log.debug("--- loginUser : " + loginUser);
             throw new UnAuthenticationException();
         }
+        newComment.registerIntoCard(this);
         this.comments.add(newComment);
     }
 
