@@ -35,15 +35,28 @@ var BOARDS = (function (window){
             url: url,
             contentType: 'text/html; charset=utf-8',
             data: boardName,
-            dataType: 'json',
-            error: makeBoardFail,
-            success: makeBoardSuccess});
+            dataType: 'json'}).done(function makeBoardSuccess(data) {
+            	console.log("data is : ", data);
+            	console.log("data : ", data.id);
 
-        $(".warning").css("display","none");
-        var str = Template.board.replace(/\{\{input-value\}\}/gi,boardName);
-        $(".board-name").val("");
-        $("#modal").modal("close");
-        $(".board-list").append(str);
+            	$(".warning").css("display","none");
+				var str = Template.board.replace(/\{\{input-value\}\}/gi, boardName);
+				$(".board-name").val("");
+				$("#modal").modal("close");
+				$(".board-list").append(str);
+				location.reload();		//무조건 이 부분은 수정해야합니다.
+		}).fail(function makeBoardFail(data) {
+            console.log("data is : ", data);
+            console.log("fail");
+		});
+            // error: makeBoardFail,
+            // success: makeBoardSuccess});
+
+        // $(".warning").css("display","none");
+        // var str = Template.board.replace(/\{\{input-value\}\}/gi,boardName);
+        // $(".board-name").val("");
+        // $("#modal").modal("close");
+        // $(".board-list").append(str);
 
     }
 
@@ -59,9 +72,10 @@ var BOARDS = (function (window){
 
 	function gotoBoard(){
         // var url = $(".board").attr("title");
-        var url = $(".board").attr("action");
+        var url = $(".board").attr("value");
+        // var index = $("#boardId").index(this);
         console.log("title " + url);
-		// window.location.href = ("/boards/{id}");
+		// window.location.href = ("/boards/" + url);
 	}
 
 	function closeModal(){

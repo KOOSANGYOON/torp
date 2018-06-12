@@ -1,5 +1,7 @@
 package com.diary.torp.domain;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.*;
 
 @Entity
@@ -11,8 +13,9 @@ public class Comment {
     @Column
     private String comment;
 
+    @JsonIgnore
     @ManyToOne
-    @JoinColumn(foreignKey = @ForeignKey(name = "commentedCard"))
+    @JoinColumn(foreignKey = @ForeignKey(name = "comments"))
     private ToDoCard toDoCard;
 
     @ManyToOne
@@ -28,6 +31,16 @@ public class Comment {
     public Comment(User loginUser, String comment) {
         this.comment = comment;
         this.writer = loginUser;
+    }
+
+    //card를 등록해주는 메서드
+    public void registerIntoCard(ToDoCard card) {
+        this.toDoCard = card;
+    }
+
+    //delete comment
+    public void delete() {
+        this.deleted = true;
     }
 
     //getter, setter
@@ -46,5 +59,9 @@ public class Comment {
 
     public boolean isDeleted() {
         return deleted;
+    }
+
+    public ToDoCard getToDoCard() {
+        return toDoCard;
     }
 }

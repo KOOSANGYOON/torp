@@ -10,7 +10,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Entity
-public class ToDoBoard {
+public class ToDoDeck {
     @Id
     @GeneratedValue
     private long id;
@@ -20,30 +20,37 @@ public class ToDoBoard {
     private String title;
 
     @JsonIgnore
-    @OneToMany(mappedBy = "toDoBoard", cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "toDoDeck", cascade = CascadeType.ALL)
     @Where(clause = "deleted = false")
     @OrderBy("id ASC")
-    private List<ToDoDeck> toDoDecks = new ArrayList<ToDoDeck>();
+    private List<ToDoCard> toDoCards = new ArrayList<ToDoCard>();
 
     @ManyToOne
-    @JoinColumn(foreignKey = @ForeignKey(name = "todo_writer"))
+    @JoinColumn(foreignKey = @ForeignKey(name = "toDoDecks"))
+    private ToDoBoard toDoBoard;
+
+    @ManyToOne
+    @JoinColumn(foreignKey = @ForeignKey(name = "deck_writer"))
     private User writer;
 
     private boolean deleted = false;
 
-    public ToDoBoard() {
+    public ToDoDeck() {
 
     }
 
-    public ToDoBoard(User writer, String title) {
+    public ToDoDeck(User loginUser, String title) {
+        this.writer = loginUser;
         this.title = title;
-        this.writer = writer;
     }
 
-    //deck 추가
-    public void addDeck(ToDoDeck newDeck) {
-        newDeck.registerIntoBoard(this);
-        this.toDoDecks.add(newDeck);
+    public void registerIntoBoard(ToDoBoard board) {
+        this.toDoBoard = board;
+    }
+
+    public void addCard(ToDoCard newCard) {
+        newCard.registerIntoDeck(this);
+        this.toDoCards.add(newCard);
     }
 
     //접근성 확인
@@ -51,7 +58,7 @@ public class ToDoBoard {
         return this.writer.equals(loginUser);
     }
 
-    //boardName 수정
+    //deck title 변경
     public void editTitle(User loginUser, String newTitle) throws UnAuthenticationException {
         if (!this.isOwner(loginUser)) {
             throw new UnAuthenticationException();
@@ -60,18 +67,18 @@ public class ToDoBoard {
         this.title = newTitle;
     }
 
-    //board 삭제
+    //deck 삭제
     public void delete(User loginUser) throws UnAuthenticationException {
         if (!this.isOwner(loginUser)) {
             throw new UnAuthenticationException();
         }
         this.deleted = true;
-        for (ToDoDeck toDoDeck : this.toDoDecks) {
-            toDoDeck.delete(loginUser);
+        for (ToDoCard toDoCard: this.toDoCards) {
+            toDoCard.delete(loginUser);
         }
     }
 
-    //getter, setter
+    //getter(), setter()
 
     public long getId() {
         return id;
@@ -81,8 +88,12 @@ public class ToDoBoard {
         return title;
     }
 
-    public List<ToDoDeck> getToDoDecks() {
-        return toDoDecks;
+    public List<ToDoCard> getToDoCards() {
+        return toDoCards;
+    }
+
+    public ToDoBoard getToDoBoard() {
+        return toDoBoard;
     }
 
     public User getWriter() {
@@ -91,18 +102,5 @@ public class ToDoBoard {
 
     public boolean isDeleted() {
         return deleted;
-    }
-
-    //toString()
-
-    @Override
-    public String toString() {
-        return "ToDoBoard{" +
-                "id=" + id +
-                ", title='" + title + '\'' +
-                ", toDoDecks=" + toDoDecks +
-                ", writer=" + writer +
-                ", deleted=" + deleted +
-                '}';
     }
 }

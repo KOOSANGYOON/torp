@@ -14,7 +14,7 @@ var Template = {
                        "<div class='add-card-form'>" +
                           "<textarea class='card-title'></textarea>" +
                           "<div class='btn-area'>" +
-                            "<button class='btn waves-effect waves-light save-card'>save</button>" +
+                            "<button class='btn waves-effect waves-light save-card' value='{{deckId}}'>save</button>" +
                             "<button class='btn waves-effect waves-light cancel-card'>cancel</button>" +
                           "</div>" +
                        "</div>" +
@@ -29,7 +29,7 @@ var Template = {
           "</div>",
 
   comment :  "<div class='comment'>" +
-                "<div class='commenter'>{writer-name}</div>" +
+                "<div class='commenter'>{{writer-name}}</div>" +
                 "<div class='comment-contents z-depth-1'>{{comment-contents}}</div>" +
                 "<div class='comment-date'>{{current-time}} - </div>" +
                 "<div class='comment-reply'> Reply</div>" +
