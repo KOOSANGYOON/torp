@@ -38,7 +38,12 @@ public class ApiBoardsController {
         log.debug("user is " + loginUser);
         log.debug("title is " + title);
 
-        ToDoDeck newToDoDeck = toDoService.createDeck(loginUser, title);
+        ToDoDeck newToDoDeck = null;
+        try {
+            newToDoDeck = toDoService.createDeck(id, loginUser, title);
+        } catch (UnAuthenticationException e) {
+            e.printStackTrace();
+        }
         toDoService.addDeck(id, newToDoDeck);
 
         return newToDoDeck;
@@ -51,7 +56,12 @@ public class ApiBoardsController {
         log.debug("deck id is " + deckId);
         log.debug("title is " + title);
 
-        ToDoCard newCard = toDoService.createCard(loginUser, title);
+        ToDoCard newCard = null;
+        try {
+            newCard = toDoService.createCard(deckId, loginUser, title);
+        } catch (UnAuthenticationException e) {
+            e.printStackTrace();
+        }
         toDoService.addCard(deckId, newCard);
 
         return newCard;

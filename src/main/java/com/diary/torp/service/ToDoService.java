@@ -56,8 +56,14 @@ public class ToDoService {
         return targetCard;
     }
 
-    public ToDoDeck createDeck(User user, String title) {
+    public ToDoDeck createDeck(long boardId, User user, String title) throws UnAuthenticationException {
         log.debug("in to ToDoService - createDeck");
+
+        ToDoBoard parentBoard = toDoBoardRepository.findOne(boardId);
+        if (!parentBoard.isOwner(user)) {
+            throw new UnAuthenticationException();
+        }
+
         ToDoDeck newDeck = new ToDoDeck(user, title);
         log.debug("new deck title " + newDeck.getTitle() + " , new deck writer is " + newDeck.getWriter());
         return toDoDeckRepository.save(newDeck);
@@ -85,8 +91,13 @@ public class ToDoService {
         return toDoCard;
     }
 
-    public ToDoCard createCard(User loginUser, String title) {
+    public ToDoCard createCard(long deckId, User loginUser, String title) throws UnAuthenticationException {
         log.debug("in to ToDoService - createCard");
+        ToDoDeck parentDeck = toDoDeckRepository.findOne(deckId);
+
+        if(!parentDeck.isOwner(loginUser)) {
+            throw new UnAuthenticationException();
+        }
 
         ToDoCard newCard = new ToDoCard(loginUser, title);
         return toDoCardRepository.save(newCard);
