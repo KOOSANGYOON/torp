@@ -94,12 +94,15 @@ public class ToDoCard {
         return this.writer.equals(loginUser);
     }
 
-    //board 삭제
+    //card 삭제
     public void delete(User loginUser) throws UnAuthenticationException {
         if (!this.isOwner(loginUser)) {
             throw new UnAuthenticationException();
         }
         this.deleted = true;
+        for (Comment comment : this.comments) {
+            comment.delete();
+        }
     }
 
     //getter, setter

@@ -98,4 +98,39 @@ public class ToDoCardTest {
         assertEquals(testCard.isOwner(testUser), true);
         assertEquals(testCard.isOwner(wrongUser), false);
     }
+
+    @Test
+    public void delete_rightUser() throws UnAuthenticationException {
+        //add comments
+        Comment newComment1 = new Comment(testUser, "comment1");
+        Comment newComment2 = new Comment(testUser, "comment2");
+        newComment1.registerIntoCard(testCard);
+        newComment2.registerIntoCard(testCard);
+        testCard.addComment(testUser, newComment1);
+        testCard.addComment(testUser, newComment2);
+
+
+        try {
+            testCard.delete(testUser);
+        } catch (UnAuthenticationException e) {
+            e.printStackTrace();
+            throw new UnAuthenticationException();
+        }
+
+        assertEquals(testCard.isDeleted(), true);
+        assertEquals(testCard.getComments().get(0).isDeleted(), true);
+        assertEquals(testCard.getComments().get(1).isDeleted(), true);
+    }
+
+    @Test (expected = UnAuthenticationException.class)
+    public void delete_wrongUser() throws UnAuthenticationException {
+        try {
+            testCard.delete(wrongUser);
+            log.debug("this message will not be shown.");
+        } catch (UnAuthenticationException e) {
+            e.printStackTrace();
+            assertEquals(testCard.isDeleted(), false);
+            throw new UnAuthenticationException();
+        }
+    }
 }

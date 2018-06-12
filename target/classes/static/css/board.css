@@ -108,7 +108,7 @@ header .header-wrapper ul li a:hover{
 .board-header-area .board-name {
 
     height: 50px;
-    width: 300px;
+    width: 350px;
     line-height: 40px;
     color:#4d4d4d;
     font-size: 2rem;
@@ -205,10 +205,11 @@ header .header-wrapper ul li a:hover{
     background-image: url(/icons/glyphicons-151-edit.png);
     background-position-x: center;
     background-position-y: center;
-    background-color: #00bcd4;
+    background-color: #eceff1;
     background-size: 15px 15px;
     background-repeat: no-repeat;
     margin-top: 10px;
+    margin-left: 20px;
     cursor: pointer;
     float: left;
     display:inline-block;
@@ -308,16 +309,18 @@ header .header-wrapper ul li a:hover{
 
 #board-canvas .deck-wrapper .deck-header .deck-header-name{
 
+    display: inline-block;
+    float: left;
     flex-direction: column;
     resize: none;
     cursor: auto;
     white-space: pre-wrap;
     background: 0 0;
     border: none;
-    margin: -3px -5px;
+    /*margin: -3px -5px;*/
     min-height: 18px;
-    padding: 3px 5px;
-    width: 100%;
+    /*padding: 3px 5px;*/
+    width: 85%;
     height: 24px;
     color: #4d4d4d;
     line-height: 18px;
@@ -1224,6 +1227,22 @@ body #warn-delete-board {
 
 }
 
+body #warn-delete-deck {
+
+    height: 265px;
+    width: 400px;
+    margin-top: 200px;
+
+}
+
+body #warn-delete-card {
+
+    height: 265px;
+    width: 400px;
+    margin-top: 200px;
+
+}
+
 #warn-delete-board .close-moadl {
 
     width: 25px;
@@ -1346,7 +1365,7 @@ body #warnNotOwner {
 
 .board-name-area {
     float: left;
-    width: 100%;
+    margin-top: 3px;
 }
 
 .delete-board-btn {
@@ -1357,7 +1376,7 @@ body #warnNotOwner {
     background-image: url(/icons/glyphicons-208-remove.png);
     background-position-x: center;
     background-position-y: center;
-    background-color: #d40300;
+    background-color: #eceff1;
     background-size: 15px 15px;
     background-repeat: no-repeat;
     margin-top: 10px;
@@ -1370,7 +1389,21 @@ body #warnNotOwner {
     display: block;
     width: 100%;
     height: 50px;
-    float: conter;
+    float: contour;
+    border-radius: 10px;
+    background-position-x: center;
+    background-position-y: center;
+    background-color: #d40400;
+    background-repeat: no-repeat;
+    margin-top: 10px;
+    cursor: pointer;
+}
+
+.submit-delete-deck {
+    display: block;
+    width: 100%;
+    height: 50px;
+    float: contour;
     border-radius: 10px;
     background-position-x: center;
     background-position-y: center;
@@ -1384,7 +1417,7 @@ body #warnNotOwner {
     display: block;
     width: 100%;
     height: 50px;
-    float: conter;
+    float: contour;
     border-radius: 10px;
     background-position-x: center;
     background-position-y: center;
@@ -1392,6 +1425,22 @@ body #warnNotOwner {
     background-repeat: no-repeat;
     margin-top: 10px;
     cursor: pointer;
+}
+
+.delete-deck-btn {
+    width: 10%;
+    height: 20px;
+    float: right;
+    border-radius: 10px;
+    background-image: url(/icons/glyphicons-599-scissors-alt.png);
+    background-position-x: center;
+    background-position-y: center;
+    background-color: #eceff1;
+    background-size: 15px 15px;
+    background-repeat: no-repeat;
+    cursor: pointer;
+    float: bottom;
+    display:inline-block;
 }
 
 #password-to-delete {

@@ -38,6 +38,11 @@ public class Comment {
         this.toDoCard = card;
     }
 
+    //delete comment
+    public void delete() {
+        this.deleted = true;
+    }
+
     //getter, setter
 
     public long getId() {

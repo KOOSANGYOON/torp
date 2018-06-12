@@ -129,6 +129,18 @@ public class ApiBoardsController {
         return toDoService.deleteBoard(loginUser, boardId);
     }
 
+    @DeleteMapping("/{boardId}/{deckId}")
+    public ToDoDeck deleteDeck(@LoginUser User loginUser, @PathVariable long boardId, @PathVariable long deckId,
+                               @Valid @RequestBody String password) throws LoginException, UnAuthenticationException {
+        log.debug("api controller - delete deck");
+
+        if (!loginUser.matchPassword(password)) {
+            log.debug("password is wrong.");
+            throw new LoginException("password isn't correct.");
+        }
+        return toDoService.deleteDeck(loginUser, deckId);
+    }
+
     @DeleteMapping("/{boardId}/{deckId}/{cardId}")
     public ToDoCard deleteCard(@LoginUser User loginUser, @PathVariable long boardId, @PathVariable long deckId,
                                @PathVariable long cardId, @Valid @RequestBody String password) throws UnAuthenticationException, LoginException {

@@ -134,35 +134,22 @@ public class ToDoService {
     @Transactional
     public ToDoBoard deleteBoard(User loginUser, long boardId) throws UnAuthenticationException {
         ToDoBoard targetBoard = toDoBoardRepository.findOne(boardId);
-
         targetBoard.delete(loginUser);
         return targetBoard;
-//        for (ToDoDeck deck: targetBoard.getToDoDecks()) {
-//            deleteDeck(deck);
-//        }
     }
 
-//    public ToDoDeck deleteDeck(ToDoDeck deck) {
-//
-//    }
-//
+    @Transactional
+    public ToDoDeck deleteDeck(User loginUser, long deckId) throws UnAuthenticationException {
+        ToDoDeck targetDeck = toDoDeckRepository.findOne(deckId);
+        targetDeck.delete(loginUser);
+        return targetDeck;
+    }
+
     @Transactional
     public ToDoCard deleteCard(User loginUser, long cardId) throws UnAuthenticationException {
         ToDoCard targetCard = toDoCardRepository.findOne(cardId);
         targetCard.delete(loginUser);
 
         return targetCard;
-
-//        for (ToDoCard card : targetDeck.getToDoCards()) {
-//
-//        }
     }
-//
-//    public Comment deleteComment(User loginUser, long cardId) {
-//        ToDoCard targetCard = toDoCardRepository.findOne(cardId);
-//
-//        for (Comment comment : targetCard.getComments()) {
-//            comment.deleteComment(loginUser);
-//        }
-//    }
 }

@@ -56,6 +56,14 @@ public class ToDoBoardTest {
 
     @Test
     public void delete_rightUser() throws UnAuthenticationException {
+        //add deck
+        ToDoDeck newDeck1 = new ToDoDeck(testUser, "newDeck1");
+        ToDoDeck newDeck2 = new ToDoDeck(testUser, "newDeck2");
+        newDeck1.registerIntoBoard(testBoard);
+        newDeck2.registerIntoBoard(testBoard);
+        testBoard.addDeck(newDeck1);
+        testBoard.addDeck(newDeck2);
+
         try {
             testBoard.delete(testUser);
         } catch (UnAuthenticationException e) {
@@ -64,6 +72,8 @@ public class ToDoBoardTest {
         }
 
         assertEquals(testBoard.isDeleted(), true);
+        assertEquals(testBoard.getToDoDecks().get(0).isDeleted(), true);
+        assertEquals(testBoard.getToDoDecks().get(1).isDeleted(), true);
     }
 
     @Test (expected = UnAuthenticationException.class)

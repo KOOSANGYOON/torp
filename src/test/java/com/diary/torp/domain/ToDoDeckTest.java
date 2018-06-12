@@ -58,4 +58,36 @@ public class ToDoDeckTest {
             throw new UnAuthenticationException();
         }
     }
+
+    @Test
+    public void delete_rightUser() throws UnAuthenticationException {
+        //add cards.
+        ToDoCard newCard1 = new ToDoCard(testUser, "newCard1");
+        ToDoCard newCard2 = new ToDoCard(testUser, "newCard2");
+        newCard1.registerIntoDeck(testDeck);
+        newCard2.registerIntoDeck(testDeck);
+        testDeck.addCard(newCard1);
+        testDeck.addCard(newCard2);
+
+        try {
+            testDeck.delete(testUser);
+        } catch (UnAuthenticationException e) {
+            e.printStackTrace();
+            throw new UnAuthenticationException();
+        }
+
+        assertEquals(testDeck.isDeleted(), true);
+        assertEquals(testDeck.getToDoCards().get(0).isDeleted(), true);
+        assertEquals(testDeck.getToDoCards().get(1).isDeleted(), true);
+    }
+
+    @Test (expected = UnAuthenticationException.class)
+    public void delete_wrongUser() throws UnAuthenticationException {
+        try {
+            testDeck.delete(wrongUser);
+        } catch (UnAuthenticationException e) {
+            assertEquals(testDeck.isDeleted(), false);
+            throw new UnAuthenticationException();
+        }
+    }
 }

@@ -66,6 +66,17 @@ public class ToDoDeck {
         this.title = newTitle;
     }
 
+    //deck 삭제
+    public void delete(User loginUser) throws UnAuthenticationException {
+        if (!this.isOwner(loginUser)) {
+            throw new UnAuthenticationException();
+        }
+        this.deleted = true;
+        for (ToDoCard toDoCard: this.toDoCards) {
+            toDoCard.delete(loginUser);
+        }
+    }
+
     //getter(), setter()
 
     public long getId() {

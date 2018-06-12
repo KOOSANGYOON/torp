@@ -12,6 +12,7 @@ var BOARD = (function (window){
         $("#warning-modal").modal();
         $("#warnNotOwner").modal();
         $("#warn-delete-board").modal();
+        $("#warn-delete-deck").modal();
         $("#warn-delete-card").modal();
         $(".close-moadl").on("click", closeModal)
         $(".members-btn").on("click", showMembers);
@@ -44,6 +45,8 @@ var BOARD = (function (window){
         $(".submit-delete-board").on("click", deleteBoard);
         $("#delete-card-btn").on("click", deleteCardForm);
         $(".submit-delete-card").on("click", deleteCard);
+        $(".delete-deck-btn").on("click", deleteDeckForm);
+        $(".submit-delete-deck").on("click", deleteDeck);
 
     }
 
@@ -475,6 +478,45 @@ var BOARD = (function (window){
                 $("#warn-delete-board").modal("close");
                 window.location.replace("/boards");     //이 부분도 수정이 필요할 수 있다. replace가 아닌 다른방법이 있는지 확인 필요.
         }).fail(function deleteBoardFail() {
+            console.log("fail to delete.");
+            alert("비밀번호를 확인해주세요.");
+            $(".password-to-delete").val('');
+        });
+    }
+
+    function deleteDeckForm(e) {
+        console.log("open delete deck form.");
+        var deckId = $(e.target).parents(".deck-wrapper").attr("id");
+        $(".hiddenDeckId").text(deckId);
+        $("#warn-delete-deck").modal('open');
+    }
+
+    function deleteDeck(e) {
+        console.log("delete deck.");
+
+        var password = $("#deleteDeckPassword").val();
+        var boardId = $(".board-header-area").attr("value");
+        var deckId = $(".hiddenDeckId").text();
+        var url = "/api/boards/" + boardId + "/" + deckId;
+
+        $.ajax({
+            type: 'delete',
+            url: url,
+            data: password,
+            contentType: 'text/html; charset=utf-8',
+            dataType: 'json'}).done(function deleteDeckSuccess() {
+                console.log("success to delete.");
+                $("#warn-delete-deck").modal("close");
+
+                var deckTitles = $(".deck-sortable").find(".deck-header-name");
+
+                for (var i = 0; i < deckTitles.length; i++) {
+                    if ($(deckTitles.get(i)).attr('value') === deckId) {
+                        console.log($(deckTitles.get(i)).attr('value'));
+                        $(deckTitles.get(i)).parents(".deck-wrapper").remove();
+                    }
+                }
+        }).fail(function deleteDeckFail() {
             console.log("fail to delete.");
             alert("비밀번호를 확인해주세요.");
             $(".password-to-delete").val('');

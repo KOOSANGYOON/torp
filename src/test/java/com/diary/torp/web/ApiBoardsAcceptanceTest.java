@@ -392,4 +392,12 @@ public class ApiBoardsAcceptanceTest extends AcceptanceTest {
     @Test
     public void deleteBoard() {
     }
+
+    @Test
+    public void deleteDeck() {
+    }
+
+    @Test
+    public void deleteCard() {
+    }
 }

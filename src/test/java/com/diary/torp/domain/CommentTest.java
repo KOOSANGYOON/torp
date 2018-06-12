@@ -21,4 +21,11 @@ public class CommentTest {
         assertNotNull(testComment.getToDoCard());
         assertEquals(testComment.getToDoCard().getTitle(), "testCard");
     }
+
+    @Test
+    public void delete() {
+        assertEquals(testComment.isDeleted(), false);
+        testComment.delete();
+        assertEquals(testComment.isDeleted(), true);
+    }
 }

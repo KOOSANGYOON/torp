@@ -64,8 +64,10 @@ public class ToDoBoard {
         if (!this.isOwner(loginUser)) {
             throw new UnAuthenticationException();
         }
-//        this.toDoDecks.clear();
         this.deleted = true;
+        for (ToDoDeck toDoDeck : this.toDoDecks) {
+            toDoDeck.delete(loginUser);
+        }
     }
 
     //getter, setter
