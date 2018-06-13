@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="codesquad.TrelloApplicationTests" time="0.014" tests="1" errors="1" skipped="0" failures="0">
+  <properties>
+    <property name="java.runtime.name" value="Java(TM) SE Runtime Environment"/>
+    <property name="sun.boot.library.path" value="/Library/Java/JavaVirtualMachines/jdk1.8.0_172.jdk/Contents/Home/jre/lib"/>
+    <property name="java.vm.version" value="25.172-b11"/>
+    <property name="gopherProxySet" value="false"/>
+    <property name="java.vm.vendor" value="Oracle Corporation"/>
+    <property name="maven.multiModuleProjectDirectory" value="/Users/koo-sang-yoon/Documents/projects/torp"/>
+    <property name="java.vendor.url" value="http://java.oracle.com/"/>
+    <property name="path.separator" value=":"/>
+    <property name="guice.disable.misplaced.annotation.check" value="true"/>
+    <property name="java.vm.name" value="Java HotSpot(TM) 64-Bit Server VM"/>
+    <property name="file.encoding.pkg" value="sun.io"/>
+    <property name="user.country" value="KR"/>
+    <property name="sun.java.launcher" value="SUN_STANDARD"/>
+    <property name="sun.os.patch.level" value="unknown"/>
+    <property name="java.vm.specification.name" value="Java Virtual Machine Specification"/>
+    <property name="user.dir" value="/Users/koo-sang-yoon/Documents/projects/torp"/>
+    <property name="java.runtime.version" value="1.8.0_172-b11"/>
+    <property name="java.awt.graphicsenv" value="sun.awt.CGraphicsEnvironment"/>
+    <property name="java.endorsed.dirs" value="/Library/Java/JavaVirtualMachines/jdk1.8.0_172.jdk/Contents/Home/jre/lib/endorsed"/>
+    <property name="os.arch" value="x86_64"/>
+    <property name="java.io.tmpdir" value="/var/folders/bw/y7pz6x0j19l9t30_7sd9g8dh0000gn/T/"/>
+    <property name="line.separator" value="&#10;"/>
+    <property name="java.vm.specification.vendor" value="Oracle Corporation"/>
+    <property name="os.name" value="Mac OS X"/>
+    <property name="classworlds.conf" value="/Users/koo-sang-yoon/.m2/wrapper/dists/apache-maven-3.5.0-bin/6ps54u5pnnbbpr6ds9rppcc7iv/apache-maven-3.5.0/bin/m2.conf"/>
+    <property name="sun.jnu.encoding" value="UTF-8"/>
+    <property name="java.library.path" value="/Users/koo-sang-yoon/Library/Java/Extensions:/Library/Java/Extensions:/Network/Library/Java/Extensions:/System/Library/Java/Extensions:/usr/lib/java:."/>
+    <property name="maven.conf" value="/Users/koo-sang-yoon/.m2/wrapper/dists/apache-maven-3.5.0-bin/6ps54u5pnnbbpr6ds9rppcc7iv/apache-maven-3.5.0/conf"/>
+    <property name="java.specification.name" value="Java Platform API Specification"/>
+    <property name="java.class.version" value="52.0"/>
+    <property name="sun.management.compiler" value="HotSpot 64-Bit Tiered Compilers"/>
+    <property name="os.version" value="10.13.5"/>
+    <property name="library.jansi.path" value="/Users/koo-sang-yoon/.m2/wrapper/dists/apache-maven-3.5.0-bin/6ps54u5pnnbbpr6ds9rppcc7iv/apache-maven-3.5.0/lib/jansi-native/osx64"/>
+    <property name="http.nonProxyHosts" value="local|*.local|169.254/16|*.169.254/16"/>
+    <property name="user.home" value="/Users/koo-sang-yoon"/>
+    <property name="user.timezone" value="Asia/Seoul"/>
+    <property name="java.awt.printerjob" value="sun.lwawt.macosx.CPrinterJob"/>
+    <property name="java.specification.version" value="1.8"/>
+    <property name="file.encoding" value="UTF-8"/>
+    <property name="user.name" value="koo-sang-yoon"/>
+    <property name="java.class.path" value="/Users/koo-sang-yoon/Documents/projects/torp/.mvn/wrapper/maven-wrapper.jar"/>
+    <property name="java.vm.specification.version" value="1.8"/>
+    <property name="sun.arch.data.model" value="64"/>
+    <property name="java.home" value="/Library/Java/JavaVirtualMachines/jdk1.8.0_172.jdk/Contents/Home/jre"/>
+    <property name="sun.java.command" value="org.apache.maven.wrapper.MavenWrapperMain clean package"/>
+    <property name="java.specification.vendor" value="Oracle Corporation"/>
+    <property name="user.language" value="ko"/>
+    <property name="user.language.format" value="ko-Kore"/>
+    <property name="awt.toolkit" value="sun.lwawt.macosx.LWCToolkit"/>
+    <property name="java.vm.info" value="mixed mode"/>
+    <property name="java.version" value="1.8.0_172"/>
+    <property name="java.ext.dirs" value="/Users/koo-sang-yoon/Library/Java/Extensions:/Library/Java/JavaVirtualMachines/jdk1.8.0_172.jdk/Contents/Home/jre/lib/ext:/Library/Java/Extensions:/Network/Library/Java/Extensions:/System/Library/Java/Extensions:/usr/lib/java"/>
+    <property name="sun.boot.class.path" value="/Library/Java/JavaVirtualMachines/jdk1.8.0_172.jdk/Contents/Home/jre/lib/resources.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_172.jdk/Contents/Home/jre/lib/rt.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_172.jdk/Contents/Home/jre/lib/sunrsasign.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_172.jdk/Contents/Home/jre/lib/jsse.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_172.jdk/Contents/Home/jre/lib/jce.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_172.jdk/Contents/Home/jre/lib/charsets.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_172.jdk/Contents/Home/jre/lib/jfr.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_172.jdk/Contents/Home/jre/classes"/>
+    <property name="java.vendor" value="Oracle Corporation"/>
+    <property name="maven.home" value="/Users/koo-sang-yoon/.m2/wrapper/dists/apache-maven-3.5.0-bin/6ps54u5pnnbbpr6ds9rppcc7iv/apache-maven-3.5.0"/>
+    <property name="file.separator" value="/"/>
+    <property name="java.vendor.url.bug" value="http://bugreport.sun.com/bugreport/"/>
+    <property name="sun.cpu.endian" value="little"/>
+    <property name="sun.io.unicode.encoding" value="UnicodeBig"/>
+    <property name="socksNonProxyHosts" value="local|*.local|169.254/16|*.169.254/16"/>
+    <property name="ftp.nonProxyHosts" value="local|*.local|169.254/16|*.169.254/16"/>
+    <property name="sun.cpu.isalist" value=""/>
+  </properties>
+  <testcase name="initializationError" classname="codesquad.TrelloApplicationTests" time="0.014">
+    <error message="Unable to find a @SpringBootConfiguration, you need to use @ContextConfiguration or @SpringBootTest(classes=...) with your test" type="java.lang.IllegalStateException"><![CDATA[java.lang.IllegalStateException: Unable to find a @SpringBootConfiguration, you need to use @ContextConfiguration or @SpringBootTest(classes=...) with your test
+	at org.springframework.util.Assert.state(Assert.java:70)
+	at org.springframework.boot.test.context.SpringBootTestContextBootstrapper.getOrFindConfigurationClasses(SpringBootTestContextBootstrapper.java:202)
+	at org.springframework.boot.test.context.SpringBootTestContextBootstrapper.processMergedContextConfiguration(SpringBootTestContextBootstrapper.java:137)
+	at org.springframework.test.context.support.AbstractTestContextBootstrapper.buildMergedContextConfiguration(AbstractTestContextBootstrapper.java:397)
+	at org.springframework.test.context.support.AbstractTestContextBootstrapper.buildDefaultMergedContextConfiguration(AbstractTestContextBootstrapper.java:311)
+	at org.springframework.test.context.support.AbstractTestContextBootstrapper.buildMergedContextConfiguration(AbstractTestContextBootstrapper.java:265)
+	at org.springframework.test.context.support.AbstractTestContextBootstrapper.buildTestContext(AbstractTestContextBootstrapper.java:105)
+	at org.springframework.boot.test.context.SpringBootTestContextBootstrapper.buildTestContext(SpringBootTestContextBootstrapper.java:82)
+	at org.springframework.test.context.TestContextManager.<init>(TestContextManager.java:120)
+	at org.springframework.test.context.TestContextManager.<init>(TestContextManager.java:105)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.createTestContextManager(SpringJUnit4ClassRunner.java:152)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.<init>(SpringJUnit4ClassRunner.java:143)
+	at org.springframework.test.context.junit4.SpringRunner.<init>(SpringRunner.java:49)
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)
+	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+	at java.lang.reflect.Constructor.newInstance(Constructor.java:423)
+	at org.junit.internal.builders.AnnotatedBuilder.buildRunner(AnnotatedBuilder.java:104)
+	at org.junit.internal.builders.AnnotatedBuilder.runnerForClass(AnnotatedBuilder.java:86)
+	at org.junit.runners.model.RunnerBuilder.safeRunnerForClass(RunnerBuilder.java:59)
+	at org.junit.internal.builders.AllDefaultPossibilitiesBuilder.runnerForClass(AllDefaultPossibilitiesBuilder.java:26)
+	at org.junit.runners.model.RunnerBuilder.safeRunnerForClass(RunnerBuilder.java:59)
+	at org.junit.internal.requests.ClassRequest.getRunner(ClassRequest.java:33)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.execute(JUnit4Provider.java:283)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.executeWithRerun(JUnit4Provider.java:173)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.executeTestSet(JUnit4Provider.java:153)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.invoke(JUnit4Provider.java:128)
+	at org.apache.maven.surefire.booter.ForkedBooter.invokeProviderInSameClassLoader(ForkedBooter.java:203)
+	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:155)
+	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:103)
+]]></error>
+    <system-out><![CDATA[15:25:40,721 |-INFO in ch.qos.logback.classic.LoggerContext[default] - Could NOT find resource [logback.groovy]
+15:25:40,721 |-INFO in ch.qos.logback.classic.LoggerContext[default] - Could NOT find resource [logback-test.xml]
+15:25:40,721 |-INFO in ch.qos.logback.classic.LoggerContext[default] - Found resource [logback.xml] at [file:/Users/koo-sang-yoon/Documents/projects/torp/target/classes/logback.xml]
+15:25:40,810 |-INFO in ch.qos.logback.classic.joran.action.ConfigurationAction - debug attribute not set
+15:25:40,811 |-INFO in ch.qos.logback.core.joran.action.AppenderAction - About to instantiate appender of type [ch.qos.logback.core.ConsoleAppender]
+15:25:40,825 |-INFO in ch.qos.logback.core.joran.action.AppenderAction - Naming appender as [STDOUT]
+15:25:40,904 |-WARN in ch.qos.logback.core.ConsoleAppender[STDOUT] - This appender no longer admits a layout as a sub-component, set an encoder instead.
+15:25:40,904 |-WARN in ch.qos.logback.core.ConsoleAppender[STDOUT] - To ensure compatibility, wrapping your layout in LayoutWrappingEncoder.
+15:25:40,904 |-WARN in ch.qos.logback.core.ConsoleAppender[STDOUT] - See also http://logback.qos.ch/codes.html#layoutInsteadOfEncoder for details
+15:25:40,907 |-INFO in ch.qos.logback.classic.joran.action.LoggerAction - Setting level of logger [com.diary.torp] to DEBUG
+15:25:40,907 |-INFO in ch.qos.logback.classic.joran.action.RootLoggerAction - Setting level of ROOT logger to INFO
+15:25:40,907 |-INFO in ch.qos.logback.core.joran.action.AppenderRefAction - Attaching appender named [STDOUT] to Logger[ROOT]
+15:25:40,908 |-INFO in ch.qos.logback.classic.joran.action.ConfigurationAction - End of configuration.
+15:25:40,910 |-INFO in ch.qos.logback.classic.joran.JoranConfigurator@1e397ed7 - Registering current configuration as safe fallback point
+
+15:25:41.097 [INFO ] [main] [o.s.b.t.c.SpringBootTestContextBootstrapper] - Neither @ContextConfiguration nor @ContextHierarchy found for test class [codesquad.TrelloApplicationTests], using SpringBootContextLoader
+15:25:41.120 [INFO ] [main] [o.s.t.c.s.AbstractContextLoader] - Could not detect default resource locations for test class [codesquad.TrelloApplicationTests]: no resource found for suffixes {-context.xml, Context.groovy}.
+15:25:41.125 [INFO ] [main] [o.s.t.c.s.AnnotationConfigContextLoaderUtils] - Could not detect default configuration classes for test class [codesquad.TrelloApplicationTests]: TrelloApplicationTests does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+15:25:41.291 [INFO ] [main] [o.s.b.t.c.SpringBootTestContextBootstrapper] - Neither @ContextConfiguration nor @ContextHierarchy found for test class [com.diary.torp.web.BoardsAcceptanceTest], using SpringBootContextLoader
+15:25:41.293 [INFO ] [main] [o.s.t.c.s.AbstractContextLoader] - Could not detect default resource locations for test class [com.diary.torp.web.BoardsAcceptanceTest]: no resource found for suffixes {-context.xml, Context.groovy}.
+15:25:41.294 [INFO ] [main] [o.s.t.c.s.AnnotationConfigContextLoaderUtils] - Could not detect default configuration classes for test class [com.diary.torp.web.BoardsAcceptanceTest]: BoardsAcceptanceTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+15:25:41.448 [INFO ] [main] [o.s.b.t.c.SpringBootTestContextBootstrapper] - Found @SpringBootConfiguration com.diary.torp.Application for test class com.diary.torp.web.BoardsAcceptanceTest
+15:25:41.458 [INFO ] [main] [o.s.b.t.c.SpringBootTestContextBootstrapper] - Loaded default TestExecutionListener class names from location [META-INF/spring.factories]: [org.springframework.test.context.web.ServletTestExecutionListener, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener, org.springframework.test.context.support.DependencyInjectionTestExecutionListener, org.springframework.test.context.support.DirtiesContextTestExecutionListener, org.springframework.test.context.transaction.TransactionalTestExecutionListener, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener, org.springframework.boot.test.mock.mockito.MockitoTestExecutionListener, org.springframework.boot.test.mock.mockito.ResetMocksTestExecutionListener, org.springframework.boot.test.autoconfigure.restdocs.RestDocsTestExecutionListener, org.springframework.boot.test.autoconfigure.web.client.MockRestServiceServerResetTestExecutionListener, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcPrintOnlyOnFailureTestExecutionListener, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverTestExecutionListener]
+15:25:41.525 [INFO ] [main] [o.s.b.t.c.SpringBootTestContextBootstrapper] - Using TestExecutionListeners: [org.springframework.test.context.web.ServletTestExecutionListener@20ce78ec, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener@393671df, org.springframework.boot.test.autoconfigure.SpringBootDependencyInjectionTestExecutionListener@56620197, org.springframework.test.context.support.DirtiesContextTestExecutionListener@6eda5c9, org.springframework.test.context.transaction.TransactionalTestExecutionListener@55b7a4e0, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener@5f058f00, org.springframework.boot.test.mock.mockito.MockitoTestExecutionListener@192d43ce, org.springframework.boot.test.mock.mockito.ResetMocksTestExecutionListener@72057ecf, org.springframework.boot.test.autoconfigure.restdocs.RestDocsTestExecutionListener@1afd44cb, org.springframework.boot.test.autoconfigure.web.client.MockRestServiceServerResetTestExecutionListener@6973b51b, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcPrintOnlyOnFailureTestExecutionListener@1ab3a8c8, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverTestExecutionListener@43195e57]
+15:25:41.531 [INFO ] [main] [o.s.b.t.c.SpringBootTestContextBootstrapper] - Neither @ContextConfiguration nor @ContextHierarchy found for test class [com.diary.torp.web.ApiBoardsAcceptanceTest], using SpringBootContextLoader
+15:25:41.535 [INFO ] [main] [o.s.t.c.s.AbstractContextLoader] - Could not detect default resource locations for test class [com.diary.torp.web.ApiBoardsAcceptanceTest]: no resource found for suffixes {-context.xml, Context.groovy}.
+15:25:41.536 [INFO ] [main] [o.s.t.c.s.AnnotationConfigContextLoaderUtils] - Could not detect default configuration classes for test class [com.diary.torp.web.ApiBoardsAcceptanceTest]: ApiBoardsAcceptanceTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+15:25:41.545 [INFO ] [main] [o.s.b.t.c.SpringBootTestContextBootstrapper] - Found @SpringBootConfiguration com.diary.torp.Application for test class com.diary.torp.web.ApiBoardsAcceptanceTest
+15:25:41.551 [INFO ] [main] [o.s.b.t.c.SpringBootTestContextBootstrapper] - Loaded default TestExecutionListener class names from location [META-INF/spring.factories]: [org.springframework.test.context.web.ServletTestExecutionListener, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener, org.springframework.test.context.support.DependencyInjectionTestExecutionListener, org.springframework.test.context.support.DirtiesContextTestExecutionListener, org.springframework.test.context.transaction.TransactionalTestExecutionListener, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener, org.springframework.boot.test.mock.mockito.MockitoTestExecutionListener, org.springframework.boot.test.mock.mockito.ResetMocksTestExecutionListener, org.springframework.boot.test.autoconfigure.restdocs.RestDocsTestExecutionListener, org.springframework.boot.test.autoconfigure.web.client.MockRestServiceServerResetTestExecutionListener, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcPrintOnlyOnFailureTestExecutionListener, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverTestExecutionListener]
+15:25:41.567 [INFO ] [main] [o.s.b.t.c.SpringBootTestContextBootstrapper] - Using TestExecutionListeners: [org.springframework.test.context.web.ServletTestExecutionListener@158d2680, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener@77847718, org.springframework.boot.test.autoconfigure.SpringBootDependencyInjectionTestExecutionListener@7f3b84b8, org.springframework.test.context.support.DirtiesContextTestExecutionListener@57a3af25, org.springframework.test.context.transaction.TransactionalTestExecutionListener@2b662a77, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener@7f0eb4b4, org.springframework.boot.test.mock.mockito.MockitoTestExecutionListener@5c33f1a9, org.springframework.boot.test.mock.mockito.ResetMocksTestExecutionListener@1623b78d, org.springframework.boot.test.autoconfigure.restdocs.RestDocsTestExecutionListener@c8c12ac, org.springframework.boot.test.autoconfigure.web.client.MockRestServiceServerResetTestExecutionListener@6adbc9d, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcPrintOnlyOnFailureTestExecutionListener@4550bb58, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverTestExecutionListener@4ec4f3a0]
+15:25:41.582 [INFO ] [main] [o.s.b.t.c.SpringBootTestContextBootstrapper] - Neither @ContextConfiguration nor @ContextHierarchy found for test class [com.diary.torp.ApplicationTests], using SpringBootContextLoader
+15:25:41.583 [INFO ] [main] [o.s.t.c.s.AbstractContextLoader] - Could not detect default resource locations for test class [com.diary.torp.ApplicationTests]: no resource found for suffixes {-context.xml, Context.groovy}.
+15:25:41.584 [INFO ] [main] [o.s.t.c.s.AnnotationConfigContextLoaderUtils] - Could not detect default configuration classes for test class [com.diary.torp.ApplicationTests]: ApplicationTests does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+15:25:41.623 [INFO ] [main] [o.s.b.t.c.SpringBootTestContextBootstrapper] - Found @SpringBootConfiguration com.diary.torp.Application for test class com.diary.torp.ApplicationTests
+15:25:41.634 [INFO ] [main] [o.s.b.t.c.SpringBootTestContextBootstrapper] - Loaded default TestExecutionListener class names from location [META-INF/spring.factories]: [org.springframework.test.context.web.ServletTestExecutionListener, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener, org.springframework.test.context.support.DependencyInjectionTestExecutionListener, org.springframework.test.context.support.DirtiesContextTestExecutionListener, org.springframework.test.context.transaction.TransactionalTestExecutionListener, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener, org.springframework.boot.test.mock.mockito.MockitoTestExecutionListener, org.springframework.boot.test.mock.mockito.ResetMocksTestExecutionListener, org.springframework.boot.test.autoconfigure.restdocs.RestDocsTestExecutionListener, org.springframework.boot.test.autoconfigure.web.client.MockRestServiceServerResetTestExecutionListener, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcPrintOnlyOnFailureTestExecutionListener, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverTestExecutionListener]
+15:25:41.639 [INFO ] [main] [o.s.b.t.c.SpringBootTestContextBootstrapper] - Using TestExecutionListeners: [org.springframework.test.context.web.ServletTestExecutionListener@7c7a06ec, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener@75d4a5c2, org.springframework.boot.test.autoconfigure.SpringBootDependencyInjectionTestExecutionListener@557caf28, org.springframework.test.context.support.DirtiesContextTestExecutionListener@408d971b, org.springframework.test.context.transaction.TransactionalTestExecutionListener@6c6cb480, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener@3c46e67a, org.springframework.boot.test.mock.mockito.MockitoTestExecutionListener@c730b35, org.springframework.boot.test.mock.mockito.ResetMocksTestExecutionListener@206a70ef, org.springframework.boot.test.autoconfigure.restdocs.RestDocsTestExecutionListener@292b08d6, org.springframework.boot.test.autoconfigure.web.client.MockRestServiceServerResetTestExecutionListener@22555ebf, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcPrintOnlyOnFailureTestExecutionListener@36ebc363, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverTestExecutionListener@45752059]
+15:25:41.662 [INFO ] [main] [o.s.b.t.c.SpringBootTestContextBootstrapper] - Neither @ContextConfiguration nor @ContextHierarchy found for test class [codesquad.TrelloApplicationTests], using SpringBootContextLoader
+15:25:41.665 [INFO ] [main] [o.s.t.c.s.AbstractContextLoader] - Could not detect default resource locations for test class [codesquad.TrelloApplicationTests]: no resource found for suffixes {-context.xml, Context.groovy}.
+15:25:41.666 [INFO ] [main] [o.s.t.c.s.AnnotationConfigContextLoaderUtils] - Could not detect default configuration classes for test class [codesquad.TrelloApplicationTests]: TrelloApplicationTests does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+]]></system-out>
+  </testcase>
+</testsuite>
