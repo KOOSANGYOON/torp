@@ -22,7 +22,7 @@ import javassist.tools.reflect.CannotCreateException;
 @Controller
 @RequestMapping("/user")
 public class UserController {
-	private static final Logger log = LoggerFactory.getLogger(HomeController.class);
+	private static final Logger log = LoggerFactory.getLogger(UserController.class);
 	
 	@Resource(name = "userService")
 	private UserService userService;
