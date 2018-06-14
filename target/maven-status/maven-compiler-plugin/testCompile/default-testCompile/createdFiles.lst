@@ -1,12 +1,11 @@
 com/diary/torp/domain/UserTest.class
 com/diary/torp/domain/ToDoBoardTest.class
-codesquad/TrelloApplicationTests.class
 com/diary/torp/domain/ToDoCardTest.class
 com/diary/torp/domain/CommentTest.class
 com/diary/torp/web/BoardsAcceptanceTest.class
 com/diary/torp/web/ApiBoardsAcceptanceTest.class
-com/diary/torp/web/UserControllerTest.class
 com/diary/torp/ApplicationTests.class
 com/diary/torp/domain/ToDoDeckTest.class
 com/diary/torp/support/HtmlFormDataBuilder.class
 com/diary/torp/support/AcceptanceTest.class
+com/diary/torp/web/UserAcceptanceTest.class

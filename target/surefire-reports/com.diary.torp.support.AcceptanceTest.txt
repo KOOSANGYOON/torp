@@ -1,8 +1,8 @@
 -------------------------------------------------------------------------------
 Test set: com.diary.torp.support.AcceptanceTest
 -------------------------------------------------------------------------------
-Tests run: 1, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 0.015 sec <<< FAILURE! - in com.diary.torp.support.AcceptanceTest
-initializationError(com.diary.torp.support.AcceptanceTest)  Time elapsed: 0.005 sec  <<< ERROR!
+Tests run: 1, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 0 sec <<< FAILURE! - in com.diary.torp.support.AcceptanceTest
+initializationError(com.diary.torp.support.AcceptanceTest)  Time elapsed: 0 sec  <<< ERROR!
 java.lang.Exception: No runnable methods
 	at org.junit.runners.BlockJUnit4ClassRunner.validateInstanceMethods(BlockJUnit4ClassRunner.java:191)
 	at org.junit.runners.BlockJUnit4ClassRunner.collectInitializationErrors(BlockJUnit4ClassRunner.java:128)
