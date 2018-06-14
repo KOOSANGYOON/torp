@@ -12,7 +12,7 @@
 
 # Package Files #
 .idea/
-.target/
+target/
 *.war
 *.nar
 *.ear
