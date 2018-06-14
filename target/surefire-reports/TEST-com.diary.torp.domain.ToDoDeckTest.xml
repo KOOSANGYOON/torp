@@ -68,7 +68,7 @@
   <testcase name="editTitle_rightUser" classname="com.diary.torp.domain.ToDoDeckTest" time="0"/>
   <testcase name="delete_wrongUser" classname="com.diary.torp.domain.ToDoDeckTest" time="0"/>
   <testcase name="addCard" classname="com.diary.torp.domain.ToDoDeckTest" time="0"/>
-  <testcase name="editTitle_wrongUser" classname="com.diary.torp.domain.ToDoDeckTest" time="0"/>
-  <testcase name="delete_rightUser" classname="com.diary.torp.domain.ToDoDeckTest" time="0.001"/>
+  <testcase name="editTitle_wrongUser" classname="com.diary.torp.domain.ToDoDeckTest" time="0.001"/>
+  <testcase name="delete_rightUser" classname="com.diary.torp.domain.ToDoDeckTest" time="0"/>
   <testcase name="isOwner" classname="com.diary.torp.domain.ToDoDeckTest" time="0"/>
 </testsuite>

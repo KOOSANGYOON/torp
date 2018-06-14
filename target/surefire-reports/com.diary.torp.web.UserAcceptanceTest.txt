@@ -1,4 +1,4 @@
 -------------------------------------------------------------------------------
 Test set: com.diary.torp.web.UserAcceptanceTest
 -------------------------------------------------------------------------------
-Tests run: 10, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.371 sec - in com.diary.torp.web.UserAcceptanceTest
+Tests run: 10, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.299 sec - in com.diary.torp.web.UserAcceptanceTest
