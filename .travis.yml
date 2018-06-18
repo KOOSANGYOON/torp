@@ -24,8 +24,8 @@ script: "./mvnw clean package"
 
 before_script:
   - mysql -u root -e 'CREATE DATABASE torp'
-  - mysql -u root -e "CREATE USER 'root'@'localhost' IDENTIFIED BY 'root'"
-  - mysql -u root -e "GRANT ALL ON torp.* TO 'root'@'localhost'"
+  - mysql -u root -e 'CREATE USER 'root'@'localhost' IDENTIFIED BY 'root''
+  - mysql -u root -e 'GRANT ALL ON torp.* TO 'root'@'localhost''
 
 # CI 실행 완료시 메일로 알람
 notifications:
