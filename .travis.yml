@@ -10,7 +10,7 @@ services:
   - mysql
 
 before_install:
-  - mysql -e 'CRATE DATABASE torp'
+  - mysql -e 'CREATE DATABASE torp'
 
 # Travis CI 서버의 Home
 cache:
