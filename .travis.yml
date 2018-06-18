@@ -10,7 +10,7 @@ branches:
 cache:
   directories:
     - '$HOME/.m2/repository'
-    - '$HOME/.maven'
+#    - '$HOME/.maven'
 
 script: "./mvnw clean package"
 
