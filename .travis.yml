@@ -6,6 +6,9 @@ branches:
   only:
     - master
 
+services:
+  - mysql
+
 # Travis CI 서버의 Home
 cache:
   directories:
