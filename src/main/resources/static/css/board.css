@@ -595,8 +595,7 @@ body #modal{
     overflow-x: hidden;
     overflow-y: visible;
     border-radius: 7px;
-    margin-top:50px;    /* 추가한부분 */
-    margin: 0 auto;
+    margin: 3% auto;
     background-color: #edeff0;
     z-index:30;
     min-height: 500px;
