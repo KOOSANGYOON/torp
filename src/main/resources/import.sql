@@ -36,9 +36,9 @@ INSERT INTO to_do_card (id, deleted, description, label, title, to_do_deck_id, w
 INSERT INTO to_do_card (id, deleted, description, label, title, to_do_deck_id, writer_id) values (12, false, 'OS - CACHE', null, 'CACHE', 8, 3);
 INSERT INTO to_do_card (id, deleted, description, label, title, to_do_deck_id, writer_id) values (13, false, 'Database - INDEX', null, 'INDEX', 10, 3);
 INSERT INTO to_do_card (id, deleted, description, label, title, to_do_deck_id, writer_id) values (14, false, 'Database - TRANSACTION', null, 'TRANSACTION', 10, 3);
-INSERT INTO to_do_card (id, deleted, description, label, title, to_do_deck_id, writer_id) values (15, false, 'Data Structure - TREE', null, 'TREE', 10, 3);
-INSERT INTO to_do_card (id, deleted, description, label, title, to_do_deck_id, writer_id) values (16, false, 'Data Structure - GRAPH', null, 'GRAPH', 10, 3);
-INSERT INTO to_do_card (id, deleted, description, label, title, to_do_deck_id, writer_id) values (17, false, 'Data Structure - STACK-QUEUE', null, 'STACK-QUEUE', 10, 3);
+INSERT INTO to_do_card (id, deleted, description, label, title, to_do_deck_id, writer_id) values (15, false, 'Data Structure - TREE', null, 'TREE', 11, 3);
+INSERT INTO to_do_card (id, deleted, description, label, title, to_do_deck_id, writer_id) values (16, false, 'Data Structure - GRAPH', null, 'GRAPH', 11, 3);
+INSERT INTO to_do_card (id, deleted, description, label, title, to_do_deck_id, writer_id) values (17, false, 'Data Structure - STACK-QUEUE', null, 'STACK-QUEUE', 11, 3);
 
 INSERT INTO comment (id, comment, deleted, to_do_card_id, writer_id) values (1, 'level3 start.', false, 1, 1);
 INSERT INTO comment (id, comment, deleted, to_do_card_id, writer_id) values (2, 'complete step 1', false, 1, 1);
