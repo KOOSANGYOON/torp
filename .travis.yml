@@ -9,12 +9,6 @@ branches:
 services:
   - mysql
 
-before_install:
-  - mysql -e 'CREATE DATABASE torp;'
-  - sudo mysql -e "use torp; update user set authentication_string=PASSWORD('root') where User='root'; update user set plugin='root';FLUSH PRIVILEGES;"
-  - sudo mysql_upgrade -proot
-  - sudo service mysql restart
-
 addons:
   apt:
     sources:
