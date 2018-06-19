@@ -9,19 +9,13 @@ branches:
 services:
   - mysql
 
-#addons:
-#  apt:
-#    sources:
-#      - mysql-5.7-trusty
-#    packages:
-#      - mysql-server
-#      - mysql-client
-
 before_install:
   - mysql_upgrade
   - mysql -e 'CREATE DATABASE torp;'
-#  - mysql -u root -e 'CREATE DATABASE torp;'
+  - mysql -u root -e 'CREATE DATABASE torp;'
+  - mysql -u root -e "CREATE USER 'root'@'localhost' IDENTIFIED BY 'root';"
 #  - mysql -u root -e "grant all privileges on *.* to 'root'@'localhost' identified by 'root' with grant option;"
+  - mysql -u root -e "grant all privileges on *.* to 'root'@'localhost';"
   - sudo service mysql restart
 
 # Travis CI 서버의 Home
