@@ -9,6 +9,12 @@ branches:
 services:
   - mysql
 
+before_install:
+  - mysql -e 'CREATE DATABASE torp;'
+  - sudo mysql -e "use torp; update user set authentication_string=PASSWORD('root') where User='root'; update user set plugin='root';FLUSH PRIVILEGES;"
+  - sudo mysql_upgrade -proot
+  - sudo service mysql restart
+
 addons:
   apt:
     sources:
@@ -17,11 +23,10 @@ addons:
       - mysql-server
       - mysql-client
 
-before_install:
-  - mysql -e 'CREATE DATABASE torp;'
-  - sudo mysql -e "use torp; update user set authentication_string=PASSWORD('root') where User='root'; update user set plugin='root';FLUSH PRIVILEGES;"
-  - sudo mysql_upgrade -proot
-  - sudo service mysql restart
+before_script:
+  - mysql -u root -proot 'CREATE DATABASE torp;'
+  - mysql -u root -proot 'CREATE USER 'test'@'localhost' IDENTIFIED BY 'test';'
+  - mysql -u root -proot 'GRANT ALL ON torp.* TO 'test'@'localhost';'
   - ./mvnw install -DskipTests=true -Dmaven.javadoc.skip=true -B -V
 
 # Travis CI 서버의 Home
