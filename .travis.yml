@@ -12,9 +12,11 @@ services:
 before_install:
   - mysql_upgrade
   - mysql -e 'CREATE DATABASE torp;'
+  - mysql -e 'FLUSH PRIVILEGES;'
   - mysql -u root -e "CREATE USER 'root'@'localhost' IDENTIFIED BY 'root';"
 #  - mysql -u root -e "grant all privileges on *.* to 'root'@'localhost' identified by 'root' with grant option;"
   - mysql -u root -e "grant all privileges on *.* to 'root'@'localhost';"
+  - mysql -e 'FLUSH PRIVILEGES;'
   - sudo service mysql restart
 
 # Travis CI 서버의 Home
