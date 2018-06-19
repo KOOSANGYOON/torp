@@ -21,17 +21,10 @@ before_install:
   - ./mvnw install -DskipTests=true -Dmaven.javadoc.skip=true -B -V
 
 before_script:
-  - sudo service mysql stop
-#  - sudo killall -9 mysqld
-  - sudo mysqld_safe
-  - mysql -u root
-  - FLUSH PRIVILEGES;
-  - UPDATE mysql.user SET Password=PASSWORD('root') WHERE User='root';
-  - FLUSH PRIVILEGES;
-  - exit;
-  - mysql -u root -proot 'CREATE DATABASE torp;'
-  - mysql -u root -proot 'CREATE USER 'test'@'localhost' IDENTIFIED BY 'test';'
-  - mysql -u root -proot 'GRANT ALL ON torp.* TO 'test'@'localhost';'
+  - mysql -u root -e 'CREATE DATABASE torp;'
+  - mysql -u root -e 'CREATE USER 'test'@'localhost' IDENTIFIED BY 'test';'
+  - mysql -u root -e 'GRANT ALL ON torp.* TO 'test'@'localhost';'
+  - mysql -u root -e 'flush privileges;'
 
 # Travis CI 서버의 Home
 cache:
