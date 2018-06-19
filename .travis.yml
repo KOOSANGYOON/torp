@@ -9,19 +9,12 @@ branches:
 services:
   - mysql
 
-addons:
-  apt:
-    sources:
-      - mysql-5.7-trusty
-    packages:
-      - mysql-server
-      - mysql-client
-
 before_install:
-  - mysql -e 'CREATE DATABASE torp;'
-  - sudo mysql -e "use torp; update user set authentication_string=PASSWORD('root') where User='root'; update user set plugin='root';FLUSH PRIVILEGES;"
-  - sudo mysql_upgrade -uroot
-  - sudo service mysql restart
+  - mysql_upgrade
+  - mysql -u root -e 'CREATE DATABASE torp;'
+  - mysql -u root -e "CREATE USER 'admin'@'localhost' IDENTIFIED BY 'admin';"
+  - mysql -u root -e "GRANT ALL ON torp.* TO 'admin'@'localhost';"
+  - mysql -u root -e "flush privileges;"
 
 # Travis CI 서버의 Home
 cache:
@@ -29,10 +22,9 @@ cache:
     - '$HOME/.m2/repository'
     - '$HOME/.mvn'
 
-script: "./mvnw install -DskipTests=true -Dmaven.javadoc.skip=true -B -V" "./mvnw clean package"
+script: "./mvnw clean package"
 
 # CI 실행 완료시 메일로 알람
 notifications:
   email:
-    recipients:
-      - nevergiveup936@naver.com
+    - nevergiveup936@naver.com
