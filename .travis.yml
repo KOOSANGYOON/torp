@@ -19,7 +19,8 @@ services:
 
 before_install:
   - mysql_upgrade
-  - mysql -u root -e 'CREATE DATABASE torp;'
+  - mysql -e 'CREATE DATABASE torp;'
+#  - mysql -u root -e 'CREATE DATABASE torp;'
   - mysql -u root -e "grant all privileges on *.* to 'root'@'localhost' identified by 'root' with grant option;"
   - sudo service mysql restart
 
