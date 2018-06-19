@@ -26,6 +26,8 @@ script: "./mvnw clean package"
 
 # CI 실행 완료시 메일로 알람
 notifications:
+  slack:
+    - codesquad-members:JL8mg8juRpnTB2Fk7w8KsOES
   email:
     - nevergiveup936@naver.com
   on_success: always
