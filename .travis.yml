@@ -18,11 +18,14 @@ addons:
       - mysql-client
 
 before_install:
-  - ./mvnw install -DskipTests=true -Dmaven.javadoc.skip=true -B -V
-  - mysql_upgrade
-  - mysql -u root -e 'CREATE DATABASE torp;'
-  - mysql -u root -e "grant all privileges on *.* to 'root'@'localhost' identified by 'root' with grant option;"
-#  - mysql -u root -p root "flush privileges;"
+#  - ./mvnw install -DskipTests=true -Dmaven.javadoc.skip=true -B -V
+#  - mysql_upgrade
+#  - mysql -u root -e 'CREATE DATABASE torp;'
+#  - mysql -u root -e "grant all privileges on *.* to 'root'@'localhost' identified by 'root' with grant option;"
+  - mysql -e 'CREATE DATABASE torp;'
+  - sudo mysql -e "use torp; update user set authentication_string=PASSWORD('root') where User='root'; update user set plugin='root';FLUSH PRIVILEGES;"
+  - sudo mysql_upgrade
+  - sudo service mysql restart
 
 #before_script:
 #  - mysql -u root -e "CREATE USER 'root'@'localhost' IDENTIFIED BY 'root';"
