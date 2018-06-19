@@ -1,0 +1,27 @@
+language: java
+jdk:
+  - openjdk8
+
+branches:
+  only:
+    - master
+
+services:
+  - mysql
+
+before_install:
+  - mysql -u root -e 'CREATE DATABASE torp'
+
+# Travis CI 서버의 Home
+cache:
+  directories:
+    - '$HOME/.m2/repository'
+    - '$HOME/.mvn'
+
+script: "./mvnw install -DskipTests=true -Dmaven.javadoc.skip=true -B -V" "./mvnw clean package"
+
+# CI 실행 완료시 메일로 알람
+notifications:
+  email:
+    recipients:
+      - nevergiveup936@naver.com
