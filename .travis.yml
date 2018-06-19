@@ -20,7 +20,7 @@ addons:
 before_install:
   - mysql -e 'CREATE DATABASE torp;'
   - sudo mysql -e "use torp; update user set authentication_string=PASSWORD('root') where User='root'; update user set plugin='root';FLUSH PRIVILEGES;"
-  - sudo mysql_upgrade -uroot
+  - sudo mysql_upgrade -proot
   - sudo service mysql restart
 
 # Travis CI 서버의 Home
