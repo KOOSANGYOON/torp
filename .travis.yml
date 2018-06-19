@@ -15,7 +15,8 @@ before_install:
 # Travis CI 서버의 Home
 cache:
   directories:
-    - '$HOME/.m2'
+    - '$HOME/.m2/repository'
+    - '$HOME/.mvn'
 
 script: "./mvnw install -DskipTests=true -Dmaven.javadoc.skip=true -B -V" "./mvnw clean package"
 
