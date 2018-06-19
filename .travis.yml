@@ -22,7 +22,7 @@ before_install:
 
 before_script:
   - sudo service mysql stop
-  - sudo killall -9 mysqld
+#  - sudo killall -9 mysqld
   - sudo mysqld_safe
   - mysql -u root
   - FLUSH PRIVILEGES;
