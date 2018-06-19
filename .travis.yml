@@ -27,5 +27,4 @@ script: "./mvnw clean package -Dmaven.test.skip=true"
 # CI 실행 완료시 메일로 알람
 notifications:
   email:
-    recipients:
-      - nevergiveup936@naver.com
+    - nevergiveup936@naver.com
