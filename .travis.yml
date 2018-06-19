@@ -11,15 +11,13 @@ services:
 
 before_install:
   - mysql -u root -e 'CREATE DATABASE torp'
-#  - mysql -u root -e "CREATE USER 'root'@'localhost'; GRANT ALL ON *.* TO 'root'@'localhost'; FLUSH PRIVILEGES;"
 
 # Travis CI 서버의 Home
 cache:
   directories:
     - '$HOME/.m2'
-#    - '$HOME/.maven'
 
-script: "./mvnw clean package"
+script: "./mvnw install -DskipTests=true -Dmaven.javadoc.skip=true -B -V" "./mvnw clean package"
 
 # CI 실행 완료시 메일로 알람
 notifications:
