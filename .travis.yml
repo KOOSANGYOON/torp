@@ -22,7 +22,6 @@ cache:
     - '$HOME/.m2/repository'
     - '$HOME/.mvn'
 
-#script: "./mvnw clean package -Dmaven.test.skip=true"
 script: "./mvnw clean package"
 
 # CI 실행 완료시 메일로 알람
