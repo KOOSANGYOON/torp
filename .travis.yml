@@ -21,6 +21,7 @@ before_install:
   - ./mvnw install -DskipTests=true -Dmaven.javadoc.skip=true -B -V
 
 before_script:
+  - sudo service mysql stop
   - sudo killall -9 mysqld
   - sudo mysqld_safe
   - mysql -u root
