@@ -28,3 +28,5 @@ script: "./mvnw clean package"
 notifications:
   email:
     - nevergiveup936@naver.com
+  on_success: always
+  on_failure: always
