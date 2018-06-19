@@ -22,6 +22,7 @@ before_install:
   - sudo mysql -e "use torp; update user set authentication_string=PASSWORD('root') where User='root'; update user set plugin='root';FLUSH PRIVILEGES;"
   - sudo mysql_upgrade -proot
   - sudo service mysql restart
+  - ./mvnw install -DskipTests=true -Dmaven.javadoc.skip=true -B -V
 
 # Travis CI 서버의 Home
 cache:
@@ -29,7 +30,7 @@ cache:
     - '$HOME/.m2/repository'
     - '$HOME/.mvn'
 
-script: "./mvnw install -DskipTests=true -Dmaven.javadoc.skip=true -B -V" "./mvnw clean package"
+script: "./mvnw clean package"
 
 # CI 실행 완료시 메일로 알람
 notifications:
