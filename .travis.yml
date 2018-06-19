@@ -21,6 +21,8 @@ before_install:
   - ./mvnw install -DskipTests=true -Dmaven.javadoc.skip=true -B -V
   - mysql_upgrade
   - mysql -u root -e 'CREATE DATABASE torp;'
+  - grant all privileges on *.* to 'root'@'localhost' identified by 'root' with grant option;
+  - flush privileges;
 
 #before_script:
 #  - mysql -u root -e "CREATE USER 'root'@'localhost' IDENTIFIED BY 'root';"
