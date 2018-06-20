@@ -44,20 +44,20 @@ deploy:
       repo: KOOSANGYOON/torp
       branch: master
 
-  - provider: codedeploy
-    default_text_charset: 'utf-8'
-    access_key_id: $AWS_ACCESS_KEY
-    secret_access_key: $AWS_SECRET_KEY
-    bucket: "torp-service-deploy"
-    key: springboot-webservice.zip
-    bundle_type: zip
-    application: "torp-service"
-    deployment_group: "torp-service-group"
-    region: ap-northeast-2
-    wait-until-deployed: true
-    on:
-      repo: KOOSANGYOON/torp
-      branch: master
+#  - provider: codedeploy
+#    default_text_charset: 'utf-8'
+#    access_key_id: $AWS_ACCESS_KEY
+#    secret_access_key: $AWS_SECRET_KEY
+#    bucket: "torp-service-deploy"
+#    key: springboot-webservice.zip
+#    bundle_type: zip
+#    application: "torp-service"
+#    deployment_group: "torp-service-group"
+#    region: ap-northeast-2
+#    wait-until-deployed: true
+#    on:
+#      repo: KOOSANGYOON/torp
+#      branch: master
 
 # CI 실행 완료시 메일로 알람
 notifications:
