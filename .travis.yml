@@ -10,7 +10,6 @@ services:
   - mysql
 
 before_install:
-  - mysql_upgrade
   - mysql -u root -e 'CREATE DATABASE torp CHARACTER SET utf8 COLLATE utf8_general_ci;'
   - mysql -u root -e "CREATE USER 'admin'@'localhost' IDENTIFIED BY 'admin';"
   - mysql -u root -e "GRANT ALL ON torp.* TO 'admin'@'localhost';"
