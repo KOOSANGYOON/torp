@@ -51,8 +51,8 @@ deploy:
     bucket: "torp-service-deploy"
     key: springboot-webservice.zip
     bundle_type: zip
-    application: torp-service
-    deployment_group: torp-service-group
+    application: "torp-service"
+    deployment_group: "torp-service-group"
     region: ap-northeast-2
     wait-until-deployed: true
     on:
