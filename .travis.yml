@@ -24,6 +24,11 @@ cache:
 
 script: "./mvnw clean package"
 
+before_deploy:
+  - zip -r springboot-webservice *
+  - mkdir -p deploy
+  - mv springboot-webservice.zip deploy/springboot-webservice.zip
+
 deploy:
   - provider: s3
     default_text_charset: 'utf-8'
@@ -33,6 +38,7 @@ deploy:
     region: ap-northeast-2
     skip_cleanup: true
     acl: public_read
+    local_dir: deploy
     wait-until-deployed: true
     on:
       repo: KOOSANGYOON/torp
