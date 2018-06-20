@@ -63,7 +63,5 @@ deploy:
 notifications:
   slack:
     - codesquad-members:JL8mg8juRpnTB2Fk7w8KsOES
-  email:
-    - nevergiveup936@naver.com
   on_success: always
   on_failure: always
