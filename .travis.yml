@@ -37,7 +37,7 @@ deploy:
     acl: public_read
     wait-until-deployed: true
     on:
-      repo: https://github.com/KOOSANGYOON/torp
+      repo: KOOSANGYOON/torp
       branch: master
 
 # CI 실행 완료시 메일로 알람
