@@ -1,0 +1,65 @@
+language: java
+jdk:
+  - openjdk8
+
+branches:
+  only:
+    - master
+
+services:
+  - mysql
+
+before_install:
+  - mysql -u root -e 'CREATE DATABASE torp CHARACTER SET utf8 COLLATE utf8_general_ci;'
+  - mysql -u root -e "CREATE USER 'admin'@'localhost' IDENTIFIED BY 'admin';"
+  - mysql -u root -e "GRANT ALL ON torp.* TO 'admin'@'localhost';"
+  - mysql -u root -e "flush privileges;"
+
+# Travis CI 서버의 Home
+cache:
+  directories:
+    - '$HOME/.m2/repository'
+    - '$HOME/.mvn'
+
+script: "./mvnw clean package"
+
+before_deploy:
+  - zip -r springboot-webservice *
+  - mkdir -p deploy
+  - mv springboot-webservice.zip deploy/springboot-webservice.zip
+
+deploy:
+  - provider: s3
+    default_text_charset: 'utf-8'
+    access_key_id: $AWS_ACCESS_KEY
+    secret_access_key: $AWS_SECRET_KEY
+    bucket: "torp-service-deploy"
+    region: ap-northeast-2
+    skip_cleanup: true
+    acl: public_read
+    local_dir: deploy
+    wait-until-deployed: true
+    on:
+      repo: KOOSANGYOON/torp
+      branch: master
+
+  - provider: codedeploy
+    access_key_id: $AWS_ACCESS_KEY
+    secret_access_key: $AWS_SECRET_KEY
+    bucket: "torp-service-deploy"
+    key: springboot-webservice.zip
+    bundle_type: zip
+    application: springboot-webservice
+    deployment_group: springboot-webservice-group
+    region: ap-northeast-2
+    wait-until-deployed: true
+    on:
+      repo: KOOSANGYOON/torp
+      branch: master
+
+# CI 실행 완료시 메일로 알람
+notifications:
+  slack:
+    - codesquad-members:JL8mg8juRpnTB2Fk7w8KsOES
+  on_success: always
+  on_failure: always
