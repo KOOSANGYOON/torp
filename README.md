@@ -14,3 +14,7 @@ This is Temporary Title. It will be changed.
 ---
 ## First DB drawing
 ![Image](https://github.com/KOOSANGYOON/TIL/blob/master/TIL201805/UpdateOnce.png?raw=true)
+
+---
+## Flow of this project
+![Image](https://github.com/KOOSANGYOON/TIL/blob/master/TIL201806/flow_drawing.png?raw=true)
