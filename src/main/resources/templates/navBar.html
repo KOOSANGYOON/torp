@@ -2,132 +2,174 @@
 <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
 <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
-	<button type="button" class="btn btn-outline-primary" id="menu-toggle"><span class="glyphicon glyphicon-menu-hamburger"></span></button>
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top" style="display: block;">
+	<button type="button" class="btn btn-outline-primary" id="menu-toggle" style="display: inline-block; float: left; margin-top: 1%;"><span class="glyphicon glyphicon-menu-hamburger"></span></button>
 	<a class="navbar-brand" style="color: white;"><i class="material-icons" style="font-size:20px">smoking_rooms</i>&nbsp T &nbsp O &nbsp R &nbsp P</a>
 
-	<div class="container">
+	<div class="container" style="display: inline-block; float: right; width: 360px;">
 		<div class="collapse navbar-collapse" id="navbarResponsive">
 			<!-- <ul class="navbar-nav ml-auto">
 				<a class="btn btn-primary" href="/" role="button"><span class="glyphicon glyphicon-home"></span>&nbsp HOME</a>
 			</ul> -->
+
+            {{^loginedUser}}		<!--non-login -->
+            <div class="btn-group" style="display: inline-block; float: right; margin-left: 3%; margin-right: 30%; margin-top: 3%">
+                <button type="button" class="btn btn-info dropdown-toggle"data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <span class="glyphicon glyphicon-user"></span>
+                </button>
+                <div class="dropdown-menu">
+                    <a class="dropdown-item" href="/user/joinForm"><span class="glyphicon glyphicon-plus"></span>&nbsp JOIN</a>
+                    <div class="dropdown-divider"></div>
+                    <a class="dropdown-item" href="/user/loginForm"><span class="glyphicon glyphicon-log-in"></span>&nbsp LOGIN</a>
+                </div>
+            </div>
+
+            <div class="btn-group" style="display: inline-block; float: right; margin-left: 1%; margin-top: 3%">
+                <a class="btn btn-primary" href="/" role="button"><span class="glyphicon glyphicon-home"></span></a>
+            </div>
+            {{/loginedUser}}
+
+            {{#loginedUser}}			<!-- login user -->
+            <div class="btn-group" style="display: inline-block; float: left; margin-left: 1%; margin-top: 3%;">
+                <a class="btn btn-primary" href="/" role="button"><span class="glyphicon glyphicon-home"></span></a>
+            </div>
+
+            <div class="btn-group" style="display: inline-block; float: left; margin-left: 1%; margin-top: 3%;">
+                <button type="button" class="btn btn-info dropdown-toggle"data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <span class="glyphicon glyphicon-user"></span>&nbsp {{loginedUser.name}}
+                </button>
+                <div class="dropdown-menu">
+                    <a class="dropdown-item" href="/user/updateForm"><span class="glyphicon glyphicon-pencil"></span>&nbsp EDIT MY INFO</a>
+                    <div class="dropdown-divider"></div>
+                    <a class="dropdown-item" href="#"><span class="glyphicon glyphicon-wrench"></span>&nbsp CHANGE PASSWORD</a>
+                    <div class="dropdown-divider"></div>
+                    <a class="dropdown-item" href="/user/logout"><span class="glyphicon glyphicon-log-out"></span>&nbsp LOGOUT</a>
+                </div>
+            </div>
+
+            <div class="btn-group" style="display: inline-block; float: left; margin-left: 1%; margin-top: 3%;">
+                <!--<button type="button" class="btn btn-success dropdown-toggle"data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">-->
+                    <!--<span class="glyphicon glyphicon-calendar"></span>&nbsp SCHEDULING-->
+                <!--</button>-->
+                <!--<div class="dropdown-menu">-->
+                    <!--<a class="dropdown-item" href="#"><span class="glyphicon glyphicon-time"></span>&nbsp MY SCHEDULE</a>-->
+                    <!--<div class="dropdown-divider"></div>-->
+                    <!--<a class="dropdown-item" href="/boards"><span class="glyphicon glyphicon-list-alt"></span>&nbsp TODO LIST</a>-->
+                <!--</div>-->
+                <a class="btn btn-success" style="margin-right: 0.5%;" href="/boards" role="button"><span class="glyphicon glyphicon-list-alt"></span></a>
+            </div>
+
+            <div class="btn-group" style="display: inline-block; float: left; margin-left: 1%; margin-top: 3%;">
+                <button type="button" class="btn btn-warning dropdown-toggle"data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <span class="glyphicon glyphicon-globe"></span>
+                </button>
+                <div class="dropdown-menu">
+                    <a class="dropdown-item" href="#">QnA BOARD</a>
+                    <div class="dropdown-divider"></div>
+                    <a class="dropdown-item" href="#">TODAY's HUMOR</a>
+                    <div class="dropdown-divider"></div>
+                    <a class="dropdown-item" href="#">EMPLOYMENT DATA</a>
+                    <div class="dropdown-divider"></div>
+                    <a class="dropdown-item" href="#">TODAY's BOOK</a>
+                    <div class="dropdown-divider"></div>
+                </div>
+            </div>
+
+            <a class="btn btn-danger" style="display: inline-block; float: left; margin-left: 1%; margin-top: 3%;" href="/chat" role="button">
+                <span class="glyphicon glyphicon-comment"></span>
+            </a>
+            {{/loginedUser}}
 		</div>
 	</div>
 
-	<div class="btn-group" style="margin-right: 10px;">
-		<a class="btn btn-primary" href="/" role="button"><span class="glyphicon glyphicon-home"></span>&nbsp HOME</a>
-	</div>
+	<!--<div class="btn-group" style="margin-right: 0.5%;">-->
+		<!--<a class="btn btn-primary" href="/" role="button"><span class="glyphicon glyphicon-home"></span></a>-->
+	<!--</div>-->
 
-	{{^loginedUser}}		<!--non-login -->
-	<div class="btn-group" style="margin-right: 10px;">
-		<button type="button" class="btn btn-info dropdown-toggle"data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-			<span class="glyphicon glyphicon-user"></span>&nbsp USER
-		</button>
-		<div class="dropdown-menu">
-			<a class="dropdown-item" href="/user/joinForm"><span class="glyphicon glyphicon-plus"></span>&nbsp JOIN</a>
-			<div class="dropdown-divider"></div>
-			<a class="dropdown-item" href="/user/loginForm"><span class="glyphicon glyphicon-log-in"></span>&nbsp LOGIN</a>
-		</div>
-	</div>
+	<!--{{^loginedUser}}		&lt;!&ndash;non-login &ndash;&gt;-->
+	<!--<div class="btn-group" style="margin-right: 0.5%;">-->
+		<!--<button type="button" class="btn btn-info dropdown-toggle"data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">-->
+			<!--<span class="glyphicon glyphicon-user"></span>-->
+		<!--</button>-->
+		<!--<div class="dropdown-menu">-->
+			<!--<a class="dropdown-item" href="/user/joinForm"><span class="glyphicon glyphicon-plus"></span>&nbsp JOIN</a>-->
+			<!--<div class="dropdown-divider"></div>-->
+			<!--<a class="dropdown-item" href="/user/loginForm"><span class="glyphicon glyphicon-log-in"></span>&nbsp LOGIN</a>-->
+		<!--</div>-->
+	<!--</div>-->
 
-	<div class="btn-group" style="margin-right: 10px;">
-		<button type="button" class="btn btn-success dropdown-toggle"data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-			<span class="glyphicon glyphicon-calendar"></span>&nbsp SCHEDULING
-		</button>
-		<div class="dropdown-menu">
-			<a class="dropdown-item" href="#">LOGIN 이 필요합니다.</a>
-			<div class="dropdown-divider"></div>
-			<a class="dropdown-item" href="#">LOGIN 후 이용해주세요.</a>
-		</div>
-	</div>
+	<!--<div class="btn-group" style="margin-right: 0.5%;">-->
+		<!--<button type="button" class="btn btn-success dropdown-toggle"data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">-->
+			<!--<span class="glyphicon glyphicon-calendar"></span>-->
+		<!--</button>-->
+		<!--<div class="dropdown-menu">-->
+			<!--<a class="dropdown-item" href="#">LOGIN 이 필요합니다.</a>-->
+			<!--<div class="dropdown-divider"></div>-->
+			<!--<a class="dropdown-item" href="#">LOGIN 후 이용해주세요.</a>-->
+		<!--</div>-->
+	<!--</div>-->
 
-	<div class="btn-group" style="margin-right: 10px;">
-		<button type="button" class="btn btn-warning dropdown-toggle"data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-			<span class="glyphicon glyphicon-globe"></span>&nbsp COMMUNITY
-		</button>
-		<div class="dropdown-menu">
-			<a class="dropdown-item" href="#">QnA BOARD</a>
-			<div class="dropdown-divider"></div>
-			<a class="dropdown-item" href="#">TODAY's HUMOR</a>
-			<div class="dropdown-divider"></div>
-			<a class="dropdown-item" href="#">EMPLOYMENT DATA</a>
-			<div class="dropdown-divider"></div>
-			<a class="dropdown-item" href="#">TODAY's BOOK</a>
-		</div>
-	</div>
+	<!--<div class="btn-group" style="margin-right: 0.5%;">-->
+		<!--<button type="button" class="btn btn-warning dropdown-toggle"data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">-->
+			<!--<span class="glyphicon glyphicon-globe"></span>-->
+		<!--</button>-->
+		<!--<div class="dropdown-menu">-->
+			<!--<a class="dropdown-item" href="#">QnA BOARD</a>-->
+			<!--<div class="dropdown-divider"></div>-->
+			<!--<a class="dropdown-item" href="#">TODAY's HUMOR</a>-->
+			<!--<div class="dropdown-divider"></div>-->
+			<!--<a class="dropdown-item" href="#">EMPLOYMENT DATA</a>-->
+			<!--<div class="dropdown-divider"></div>-->
+			<!--<a class="dropdown-item" href="#">TODAY's BOOK</a>-->
+		<!--</div>-->
+	<!--</div>-->
 
-	<div class="btn-group" style="margin-right: 100px;">
-		<button type="button" class="btn btn-danger dropdown-toggle"data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-			<span class="glyphicon glyphicon-send"></span>&nbsp CHAT
-		</button>
-		<div class="dropdown-menu">
-			<a class="dropdown-item" href="#">TOTAL CHATROOM</a>
-			<div class="dropdown-divider"></div>
-			<a class="dropdown-item" href="#">MAKE CHATROOM</a>
-			<div class="dropdown-divider"></div>
-			<a class="dropdown-item" href="#">DIRECT MESSAGE</a>
-			<div class="dropdown-divider"></div>
-			<a class="dropdown-item" href="#">ALERT CHANNEL</a>
-		</div>
-	</div>
-	{{/loginedUser}}
+	<!--<a class="btn btn-danger" style="margin-right: 0.5%;" href="/chat" role="button"><span class="glyphicon glyphicon-comment"></span></a>-->
+	<!--{{/loginedUser}}-->
 
-	{{#loginedUser}}			<!-- login user -->
-	<div class="btn-group" style="margin-right: 10px;">
-		<button type="button" class="btn btn-info dropdown-toggle"data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-			<span class="glyphicon glyphicon-user"></span>&nbsp {{loginedUser.name}}
-		</button>
-		<div class="dropdown-menu">
-			<a class="dropdown-item" href="/user/updateForm"><span class="glyphicon glyphicon-pencil"></span>&nbsp EDIT MY INFO</a>
-			<div class="dropdown-divider"></div>
-			<a class="dropdown-item" href="#"><span class="glyphicon glyphicon-wrench"></span>&nbsp CHANGE PASSWORD</a>
-			<div class="dropdown-divider"></div>
-			<a class="dropdown-item" href="/user/logout"><span class="glyphicon glyphicon-log-out"></span>&nbsp LOGOUT</a>
-		</div>
-	</div>
+	<!--{{#loginedUser}}			&lt;!&ndash; login user &ndash;&gt;-->
+	<!--<div class="btn-group" style="margin-right: 0.5%;">-->
+		<!--<button type="button" class="btn btn-info dropdown-toggle"data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">-->
+			<!--<span class="glyphicon glyphicon-user"></span>&nbsp {{loginedUser.name}}-->
+		<!--</button>-->
+		<!--<div class="dropdown-menu">-->
+			<!--<a class="dropdown-item" href="/user/updateForm"><span class="glyphicon glyphicon-pencil"></span>&nbsp EDIT MY INFO</a>-->
+			<!--<div class="dropdown-divider"></div>-->
+			<!--<a class="dropdown-item" href="#"><span class="glyphicon glyphicon-wrench"></span>&nbsp CHANGE PASSWORD</a>-->
+			<!--<div class="dropdown-divider"></div>-->
+			<!--<a class="dropdown-item" href="/user/logout"><span class="glyphicon glyphicon-log-out"></span>&nbsp LOGOUT</a>-->
+		<!--</div>-->
+	<!--</div>-->
 
-	<div class="btn-group" style="margin-right: 10px;">
-		<button type="button" class="btn btn-success dropdown-toggle"data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-			<span class="glyphicon glyphicon-calendar"></span>&nbsp SCHEDULING
-		</button>
-		<div class="dropdown-menu">
-			<a class="dropdown-item" href="#"><span class="glyphicon glyphicon-time"></span>&nbsp MY SCHEDULE</a>
-			<div class="dropdown-divider"></div>
-			<a class="dropdown-item" href="/boards"><span class="glyphicon glyphicon-list-alt"></span>&nbsp TODO LIST</a>
-		</div>
-	</div>
+	<!--<div class="btn-group" style="margin-right: 0.5%;">-->
+		<!--<button type="button" class="btn btn-success dropdown-toggle"data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">-->
+			<!--<span class="glyphicon glyphicon-calendar"></span>&nbsp SCHEDULING-->
+		<!--</button>-->
+		<!--<div class="dropdown-menu">-->
+			<!--<a class="dropdown-item" href="#"><span class="glyphicon glyphicon-time"></span>&nbsp MY SCHEDULE</a>-->
+			<!--<div class="dropdown-divider"></div>-->
+			<!--<a class="dropdown-item" href="/boards"><span class="glyphicon glyphicon-list-alt"></span>&nbsp TODO LIST</a>-->
+		<!--</div>-->
+	<!--</div>-->
 
-	<div class="btn-group" style="margin-right: 10px;">
-		<button type="button" class="btn btn-warning dropdown-toggle"data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-			<span class="glyphicon glyphicon-globe"></span>&nbsp COMMUNITY
-		</button>
-		<div class="dropdown-menu">
-			<a class="dropdown-item" href="#">QnA BOARD</a>
-			<div class="dropdown-divider"></div>
-			<a class="dropdown-item" href="#">TODAY's HUMOR</a>
-			<div class="dropdown-divider"></div>
-			<a class="dropdown-item" href="#">EMPLOYMENT DATA</a>
-			<div class="dropdown-divider"></div>
-			<a class="dropdown-item" href="#">TODAY's BOOK</a>
-			<div class="dropdown-divider"></div>
-		</div>
-	</div>
+	<!--<div class="btn-group" style="margin-right: 0.5%;">-->
+		<!--<button type="button" class="btn btn-warning dropdown-toggle"data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">-->
+			<!--<span class="glyphicon glyphicon-globe"></span>&nbsp COMMUNITY-->
+		<!--</button>-->
+		<!--<div class="dropdown-menu">-->
+			<!--<a class="dropdown-item" href="#">QnA BOARD</a>-->
+			<!--<div class="dropdown-divider"></div>-->
+			<!--<a class="dropdown-item" href="#">TODAY's HUMOR</a>-->
+			<!--<div class="dropdown-divider"></div>-->
+			<!--<a class="dropdown-item" href="#">EMPLOYMENT DATA</a>-->
+			<!--<div class="dropdown-divider"></div>-->
+			<!--<a class="dropdown-item" href="#">TODAY's BOOK</a>-->
+			<!--<div class="dropdown-divider"></div>-->
+		<!--</div>-->
+	<!--</div>-->
 
-	<div class="btn-group" style="margin-right: 100px;">
-		<button type="button" class="btn btn-danger dropdown-toggle"data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-			<span class="glyphicon glyphicon-send"></span>&nbsp CHAT
-		</button>
-		<div class="dropdown-menu">
-			<a class="dropdown-item" href="#">TOTAL CHATROOM</a>
-			<div class="dropdown-divider"></div>
-			<a class="dropdown-item" href="#">MAKE CHATROOM</a>
-			<div class="dropdown-divider"></div>
-			<a class="dropdown-item" href="#">DIRECT MESSAGE</a>
-			<div class="dropdown-divider"></div>
-			<a class="dropdown-item" href="#">ALERT CHANNEL</a>
-		</div>
-	</div>
-	{{/loginedUser}}
+    <!--<a class="btn btn-danger" style="margin-right: 0.5%;" href="/chat" role="button"><span class="glyphicon glyphicon-comment"></span></a>-->
+	<!--{{/loginedUser}}-->
 </nav>
 
 <!-- Bootstrap core JavaScript -->
