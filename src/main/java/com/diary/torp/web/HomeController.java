@@ -21,4 +21,10 @@ public class HomeController {
 		log.debug("home controller in");
 		return "main";
 	}
+
+	@GetMapping("/chat")
+	public String chat() {
+		log.debug("chat service");
+		return "/chat/chat";
+	}
 }
