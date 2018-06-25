@@ -46,13 +46,13 @@ public class UserAcceptanceTest extends AcceptanceTest {
 	@Test
 	public void logout() {
 		ResponseEntity<String> response = basicAuthTemplate().getForEntity("/user/logout", String.class);
-		assertThat(response.getStatusCode(), is(HttpStatus.OK));
+		assertThat(response.getStatusCode(), is(HttpStatus.FOUND));
 		log.debug("body : {}", response.getBody());
 	}
 
 	@Test
 	public void joinForm() {
-		ResponseEntity<String> response = template().getForEntity("/user/logout", String.class);
+		ResponseEntity<String> response = template().getForEntity("/user/joinForm", String.class);
 		assertThat(response.getStatusCode(), is(HttpStatus.OK));
 		log.debug("body : {}", response.getBody());
 	}
