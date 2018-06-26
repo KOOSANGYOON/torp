@@ -31,6 +31,10 @@ function connect(event) {
     event.preventDefault();
 }
 
+// var roomNum = $(".hidden-roomInfo").attr("id");
+// console.log("roomNum is : ", roomNum);
+//
+// var roomSession = "/" + roomNum + "/";
 
 function onConnected() {
     // Subscribe to the Public Topic

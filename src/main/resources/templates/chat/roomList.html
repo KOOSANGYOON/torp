@@ -16,7 +16,7 @@
         <!--<li class="room waves-effect waves-light btn z-depth-1">Default room</li>-->
         {{# rooms }}
         <li class="room waves-effect waves-light btn z-depth-1" name="roomId" value="{{id}}">
-            <a href="/rooms/{{id}}" style="display: block">{{title}}</a>
+            <a href="/chat/{{id}}" style="display: block">{{title}} : [made by {{maker.userId}}]</a>
         </li>
         {{/ rooms }}
     </ul>
@@ -30,7 +30,7 @@
     <div id="modal" class="modal">
         <div class="close-modal"></div>
         <!--<form class="add-room-form" action="/toDoBoard/addBoard" method="post">-->
-        <form class="add-room-form" action="/api/rooms/add" method="post">
+        <form class="add-room-form" action="/api/chat/addRoom" method="post">
             <h5>Chat room name</h5>
             <div class="input-field col s12">
                 <input class="room-name" id="room-name" name="title" type="text" placeholder="Room name">

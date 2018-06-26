@@ -40,7 +40,7 @@ var ROOMS = (function (window){
             console.log("data : ", data.id);
 
             $(".warning").css("display","none");
-            var str = Template.room.replace(/\{\{input-value\}\}/gi, roomName);
+            var str = Template.board.replace(/\{\{input-value\}\}/gi, roomName);
             $(".room-name").val("");
             $("#modal").modal("close");
             $(".room-list").append(str);

@@ -1,8 +1,6 @@
 package com.diary.torp.web;
 
-import com.diary.torp.domain.ChatMessage;
-import com.diary.torp.domain.User;
-import com.diary.torp.domain.UserRepository;
+import com.diary.torp.domain.*;
 import com.diary.torp.security.LoginUser;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -13,6 +11,7 @@ import org.springframework.messaging.simp.SimpMessageHeaderAccessor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import javax.annotation.Resource;
@@ -24,6 +23,9 @@ public class ChatController {
 
     @Resource (name = "userRepository")
     private UserRepository userRepository;
+
+    @Resource
+    private ChatRoomRepository roomRepository;
 
     @MessageMapping("/chat.sendMessage")
     @SendTo("/topic/public")
@@ -43,7 +45,17 @@ public class ChatController {
     // --- 추 후 채팅방 추가 기능 ---
     @GetMapping("/test")
     public String roomList(@LoginUser User loginUser, Model model) {
+        model.addAttribute("rooms", roomRepository.findAll());
         return "/chat/roomList";
+    }
+
+    @GetMapping("/{id}")
+    public String room(@LoginUser User loginUser, @PathVariable long id, Model model) {
+        log.debug("room in!");
+        ChatRoom targetRoom = roomRepository.findOne(id);
+        model.addAttribute("roomInfo", id);
+        model.addAttribute("title", targetRoom.getTitle());
+        return "/chat/chat";
     }
     // --------------------------
 }
