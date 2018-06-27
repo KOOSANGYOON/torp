@@ -2,15 +2,15 @@
 <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
 <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top" style="display: block;">
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top" style="display: inline-block; width: 100%;">
 	<button type="button" class="btn btn-outline-primary" id="menu-toggle" style="display: inline-block; float: left; margin-top: 1%;"><span class="glyphicon glyphicon-menu-hamburger"></span></button>
 	<a class="navbar-brand" style="color: white;"><i class="material-icons" style="font-size:20px">smoking_rooms</i>&nbsp T &nbsp O &nbsp R &nbsp P</a>
 
-	<div class="container" style="display: inline-block; float: right; width: 390px;">
-		<div class="collapse navbar-collapse" id="navbarResponsive">
+	<div class="container" style="display: inline-block; float: right; width: 30%;">
+		<div class="collapse navbar-collapse" id="navbarResponsive" style="display: inline-block; float: right; width: 100%;">
 
             {{^loginedUser}}		<!--non-login -->
-            <div class="btn-group" style="display: inline-block; float: right; margin-left: 3%; margin-right: 30%; margin-top: 3%">
+            <div class="btn-group" style="display: inline-block; float: right; margin-left: 3%; margin-right: 30%; margin-top: 3%; width: auto; height:">
                 <button type="button" class="btn btn-info dropdown-toggle"data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     <span class="glyphicon glyphicon-user"></span>
                 </button>
@@ -45,34 +45,10 @@
             </div>
 
             <div class="btn-group" style="display: inline-block; float: left; margin-left: 1%; margin-top: 3%;">
-                <!--<button type="button" class="btn btn-success dropdown-toggle"data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">-->
-                    <!--<span class="glyphicon glyphicon-calendar"></span>&nbsp SCHEDULING-->
-                <!--</button>-->
-                <!--<div class="dropdown-menu">-->
-                    <!--<a class="dropdown-item" href="#"><span class="glyphicon glyphicon-time"></span>&nbsp MY SCHEDULE</a>-->
-                    <!--<div class="dropdown-divider"></div>-->
-                    <!--<a class="dropdown-item" href="/boards"><span class="glyphicon glyphicon-list-alt"></span>&nbsp TODO LIST</a>-->
-                <!--</div>-->
                 <a class="btn btn-success" style="margin-right: 0.5%;" href="/boards" role="button"><span class="glyphicon glyphicon-list-alt"></span></a>
             </div>
 
-            <div class="btn-group" style="display: inline-block; float: left; margin-left: 1%; margin-top: 3%;">
-                <button type="button" class="btn btn-warning dropdown-toggle"data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    <span class="glyphicon glyphicon-globe"></span>
-                </button>
-                <div class="dropdown-menu">
-                    <a class="dropdown-item" href="#">QnA BOARD</a>
-                    <div class="dropdown-divider"></div>
-                    <a class="dropdown-item" href="#">TODAY's HUMOR</a>
-                    <div class="dropdown-divider"></div>
-                    <a class="dropdown-item" href="#">EMPLOYMENT DATA</a>
-                    <div class="dropdown-divider"></div>
-                    <a class="dropdown-item" href="#">TODAY's BOOK</a>
-                    <div class="dropdown-divider"></div>
-                </div>
-            </div>
-
-            <a class="btn btn-danger" style="display: inline-block; float: left; margin-left: 1%; margin-top: 3%;" href="/chat" role="button">
+            <a class="btn btn-warning" style="display: inline-block; float: left; margin-left: 1%; margin-top: 3%;" href="/chat" role="button">
                 <span class="glyphicon glyphicon-comment"></span>
             </a>
             {{/loginedUser}}

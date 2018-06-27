@@ -1,49 +1,53 @@
 <!DOCTYPE html>
-<html>
+<html lang="ko">
 <head>
     {{> header }}
-    <link rel="stylesheet" href="/css/chat.css" />
+    <link type="text/css" rel="stylesheet" href="/lib/materialize.css"  media="screen,projection"/>
+    <link type="text/css" rel="stylesheet" href="/css/chat.css"/>
 </head>
+
 <body>
 <noscript>
     <h2>Sorry! Your browser doesn't support Javascript</h2>
 </noscript>
 
-{{> navBar }}
-
-<div id="username-page">
-    <div class="username-page-container">
-        <h1 class="title">Type your username</h1>
-        <form id="usernameForm" name="usernameForm">
-            <div class="form-group">
-                <input type="text" id="name" placeholder="Username" autocomplete="off" class="form-control" />
-            </div>
-            <div class="form-group">
-                <button type="submit" class="accent username-submit">Start Chatting</button>
-            </div>
-        </form>
-    </div>
-</div>
-
-<div id="chat-page" class="hidden">
-    <div class="chat-container">
-        <div class="chat-header">
-            <h2>Spring WebSocket Chat Demo</h2>
-        </div>
-        <div class="connecting">
-            Connecting...
-        </div>
-        <ul id="messageArea">
-
-        </ul>
-        <form id="messageForm" name="messageForm" nameForm="messageForm">
-            <div class="form-group">
-                <div class="input-group clearfix">
-                    <input type="text" id="message" placeholder="Type a message..." autocomplete="off" class="form-control"/>
-                    <button type="submit" class="primary">Send</button>
+<div id="wrapper">
+    {{> navBar }}
+    <div id="username-page">
+        <div class="username-page-container">
+            <h1 class="title">Type your NickName</h1>
+            <form id="usernameForm" name="usernameForm">
+                <div class="form-group">
+                    <input type="text" id="name" placeholder="User nickname" autocomplete="off" class="form-control" />
                 </div>
+                <div class="form-group">
+                    <button type="submit" class="accent username-submit">Start Chatting</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <div id="chat-page" class="hidden">
+        <div class="hidden-roomInfo" id="{{roomInfo}}" style="display: none"></div>
+        <div class="chat-container">
+            <div class="chat-header">
+                <h2>{{title}}</h2>
             </div>
-        </form>
+            <div class="connecting">
+                Connecting...
+            </div>
+            <ul id="messageArea">
+
+            </ul>
+            <form id="messageForm" name="messageForm" nameForm="messageForm">
+                <div class="form-group">
+                    <div class="input-group clearfix">
+                        <input type="text" id="message" placeholder="Type a message..." autocomplete="off" class="form-control"/>
+                        <button type="submit" class="primary">Send</button>
+                    </div>
+                </div>
+            </form>
+        </div>
     </div>
 </div>
 

@@ -1,3 +1,8 @@
+// var roomNum = $(".hidden-roomInfo").attr("id");
+// console.log("roomNum is : ", roomNum);
+//
+// var roomSession = "/" + roomNum + "/";
+// 이후 추가될 부분.
 'use strict';
 
 var usernamePage = document.querySelector('#username-page');
