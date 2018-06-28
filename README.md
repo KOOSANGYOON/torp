@@ -1,9 +1,6 @@
 # TORP
+## (RECENT STATUS : [![Build Status](https://travis-ci.org/KOOSANGYOON/torp.svg?branch=master)](https://travis-ci.org/KOOSANGYOON/torp) )
 - KOOs First private web service. Main feature is scheduling.
-
----
-## RECENT STATUS : 
-[![Build Status](https://travis-ci.org/KOOSANGYOON/torp.svg?branch=master)](https://travis-ci.org/KOOSANGYOON/torp)
 
 ---
 ## What is purpose ?
