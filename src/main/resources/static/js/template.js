@@ -4,12 +4,13 @@ var Template = {
                     "{{input-value}}" +
           "</li>",
 
-  deck : "<div class='deck-wrapper'>" +
+  deck : "<div class='deck-wrapper deck-id' id='{{deckId}}'>" +
                 "<div class='deck-content z-depth-1'>" +
                     "<div class='deck-header'>" +
-                      "<textarea class='deck-header-name'>{{value}}</textarea>" +
+                      "<textarea class='deck-header-name' value='{{deckId}}'>{{value}}</textarea>" +
+                      "<button class='delete-deck-btn'></button>" +
                     "</div>" +
-                    "<div class='deck-cards'></div>" +
+                    "<div class='deck-cards-exist' value='{{deckId}}'></div>" +
                     "<div class='card-composer'>" +
                        "<div class='add-card-form'>" +
                           "<textarea class='card-title'></textarea>" +
@@ -18,13 +19,13 @@ var Template = {
                             "<button class='btn waves-effect waves-light cancel-card'>cancel</button>" +
                           "</div>" +
                        "</div>" +
-                       "<a class='add-card-btn' href='#'>Add a Card...</a>" +
+                       "<a class='add-card-btn'>Add a Card...</a>" +
                     "</div>" +
                 "</div>" +
               "</div>",
   card : "<div class='deck-card'>" +
   						"<div class='deck-card-detail'>" +
-                  "<a class='deck-card-title modal-trigger modalLink' dir='auto' href='#'>{{value}}</a>" +
+                  "<a class='deck-card-title modal-trigger modalLink' dir='auto' href='#' value='{{cardId}}'>{{value}}</a>" +
               "</div>" +
           "</div>",
 

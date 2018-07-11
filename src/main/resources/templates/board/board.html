@@ -74,11 +74,13 @@
 
     <div class="add-deck-area">
         <button class="btn waves-effect waves-light add-deck-btn" style="background-color: #4dd0e1">Add a Deck</button>
-        <form class="add-deck-form z-depth-1" action="/api/boards/{{board.id}}/add" method="post">
+        <!--<form class="add-deck-form z-depth-1" action="/api/boards/{{board.id}}/add" method="post">-->
+        <form class="add-deck-form z-depth-1">
             <div class="input-field col s12">
                 <input id="add-deck" type="text" class="validate" placeholder="Deck's name"/>
                 <div class=btn-area>
-                    <button type="submit" class="waves-effect waves-light btn save-deck">save</button>
+                    <!--<button type="submit" class="waves-effect waves-light btn save-deck">save</button>-->
+                    <button type="submit" class="waves-effect waves-light btn save-deck" value="/api/boards/{{board.id}}/add">save</button>
                     <button class="waves-effect waves-light btn cancel-deck">cancel</button>
                 </div>
             </div>

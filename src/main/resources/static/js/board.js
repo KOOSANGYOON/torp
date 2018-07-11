@@ -14,7 +14,7 @@ var BOARD = (function (window){
         $("#warn-delete-board").modal();
         $("#warn-delete-deck").modal();
         $("#warn-delete-card").modal();
-        $(".close-moadl").on("click", closeModal)
+        $(".close-moadl").on("click", closeModal);
         $(".members-btn").on("click", showMembers);
         $("#board-canvas").on("click",".add-card-btn", showCreateCardForm);
         $("#board-canvas").on("click",".save-card", saveCard);
@@ -115,14 +115,12 @@ var BOARD = (function (window){
                 console.log("make card success.");
 
                 $(".add-card-form").css('display', 'none');
-                var card = cardTemplate({"value":data.title});
+                var card = cardTemplate({"value":data.title, "cardId":data.id});
                 var $deckWrapper = $(eventTarget.closest(".deck-wrapper"));
                 $deckWrapper.find(".deck-cards-exist").append(card);
 
                 $(eventTarget).parents(".add-card-form").find(".card-title").val("");
                 $(eventTarget).parents(".card-composer").find("a.add-card-btn").css('display', 'block');
-
-                window.location.reload();       //수정 필요함. reload -> ajax를 쓰는 이유가 없어져버림.
         }).fail(function makeCardFail() {       //ajax fail
             console.log("make card fail.");
             // window.location.replace("/");       //재시작(도중에 로그인이 끊겼을 시)
@@ -153,7 +151,8 @@ var BOARD = (function (window){
             return;
         }
 
-        var url = $(".add-deck-form").attr("action");
+        // var url = $(".add-deck-form").attr("action");
+        var url = $(".save-deck").attr("value");        //reload를 막기위해 수정.
         console.log("url is " + url);
 
         $.ajax({
@@ -169,7 +168,6 @@ var BOARD = (function (window){
                 $(".add-deck-area").before(deck);
                 $("#add-deck").val("");
                 $(".add-deck-btn").css('display','block');
-                location.reload();      //이 부분은 무조건 수정해야 합니다.
         }).fail(function makeDeckFail() {
             console.log("make deck fail.");
             // window.location.replace("/");       //재시작(도중에 로그인이 끊겼을 시)
@@ -177,11 +175,9 @@ var BOARD = (function (window){
         return false;
     }
 
-    function cancelDeck(){
-
-        $(".add-deck-btn").css('display','block');
+    function cancelDeck(){      //reload 되는 부분 발견. 수정 필요.
         $(".add-deck-form").css('display','none');
-
+        $(".add-deck-btn").css('display','block');
     }
 
     function openCardModal(e){
@@ -189,7 +185,7 @@ var BOARD = (function (window){
         $("#modal").modal('open');
 
         var boardId = $(".board-header-area").attr("value");
-        var cardId = $(e.target).closest(".deck-card").attr("value");
+        var cardId = $(e.target).attr("value");
         var deckId = $(e.target).closest(".deck-cards-exist").attr("value");
         console.log("target : ", e.target);
         console.log("card id : ", cardId);
@@ -554,6 +550,7 @@ var BOARD = (function (window){
                     if ($(deckTitle.get(i)).attr('value') === cardId) {
                         console.log($(deckTitle.get(i)).attr('value'));
                         $(deckTitle.get(i)).parents(".deck-card").remove();
+                        $("#deleteCardPassword").val('');
                     }
                 }
         }).fail(function deleteCardFail() {
