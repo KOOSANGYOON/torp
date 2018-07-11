@@ -269,7 +269,7 @@ header .header-wrapper ul li a:hover{
 
     width: 270px;
     display: inline-block;
-    height: 100%;
+    height: auto;
     box-sizing: border-box;
     vertical-align: top;
     cursor: pointer;
