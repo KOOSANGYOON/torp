@@ -165,6 +165,13 @@ var BOARD = (function (window){
 
                 $(".add-deck-form").css('display','none');
                 var deck = deckTemplate({"value":deckTitle, "deckId":data.id});
+
+                $(deck).ready(function() {      //template.js 에서 만든 deck은 기능이 없기 때문에 ready 메서드를 이용해서 기능을 넣어준다.
+                    $(".delete-deck-btn").on("click", deleteDeckForm);
+                    $(".submit-delete-deck").on("click", deleteDeck);
+                    $(".deck-header-name").on("change", editDeckTitle);
+                });
+
                 $(".add-deck-area").before(deck);
                 $("#add-deck").val("");
                 $(".add-deck-btn").css('display','block');
@@ -175,7 +182,8 @@ var BOARD = (function (window){
         return false;
     }
 
-    function cancelDeck(){      //reload 되는 부분 발견. 수정 필요.
+    function cancelDeck(e){
+        e.preventDefault();
         $(".add-deck-form").css('display','none');
         $(".add-deck-btn").css('display','block');
     }
@@ -512,10 +520,11 @@ var BOARD = (function (window){
                         $(deckTitles.get(i)).parents(".deck-wrapper").remove();
                     }
                 }
+            $("#deleteDeckPassword").val('');
         }).fail(function deleteDeckFail() {
+            $(".password-to-delete").val('');
             console.log("fail to delete.");
             alert("비밀번호를 확인해주세요.");
-            $(".password-to-delete").val('');
         });
     }
 
