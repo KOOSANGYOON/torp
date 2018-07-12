@@ -35,29 +35,21 @@ var BOARDS = (function (window){
             url: url,
             contentType: 'text/html; charset=utf-8',
             data: boardName,
-            dataType: 'json'}).done(function makeBoardSuccess(data) {
+            dataType: 'json',
+        }).done(function makeBoardSuccess(data) {		//수정 필요 부분. -> board 생성 후에 다른 주소로 이동했다가 뒤로가기 눌렀을 시, 새로 생성된 board는 안뜸.
             	console.log("data is : ", data);
             	console.log("data : ", data.id);
 
             	$(".warning").css("display","none");
-				var str = Template.board.replace(/\{\{input-value\}\}/gi, boardName);
+				var str = (Template.board.replace(/\{\{input-value\}\}/gi, boardName)).replace(/\{\{id\}\}/gi, data.id);
+
 				$(".board-name").val("");
 				$("#modal").modal("close");
 				$(".board-list").append(str);
-				location.reload();		//무조건 이 부분은 수정해야합니다.
 		}).fail(function makeBoardFail(data) {
             console.log("data is : ", data);
             console.log("fail");
 		});
-            // error: makeBoardFail,
-            // success: makeBoardSuccess});
-
-        // $(".warning").css("display","none");
-        // var str = Template.board.replace(/\{\{input-value\}\}/gi,boardName);
-        // $(".board-name").val("");
-        // $("#modal").modal("close");
-        // $(".board-list").append(str);
-
     }
 
     function makeBoardFail(data) {
