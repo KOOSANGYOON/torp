@@ -8,10 +8,12 @@ import org.slf4j.LoggerFactory;
 
 import javax.persistence.*;
 import javax.validation.constraints.Size;
-//import java.text.DateFormat;
-//import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
+//import java.text.DateFormat;
+//import java.text.ParseException;
+//import java.text.SimpleDateFormat;
 //import java.util.Locale;
 
 @Entity
@@ -37,8 +39,8 @@ public class ToDoCard {
     @JoinColumn(foreignKey = @ForeignKey(name = "card_writer"))
     private User writer;
 
-//    @Column
-//    DateFormat dueDate;
+    @Column
+    Date dueDate;
 
     @Column(nullable = true)
     private String label;
@@ -60,8 +62,14 @@ public class ToDoCard {
     }
 
     //dueDate 수정
-//    public void editDueDate() {
-//        this.dueDate = new SimpleDateFormat("EEE MMM dd HH:mm:ss zzz yyyy", Locale.KOREA);
+//    public Date editDueDate(String inputDate) {
+//        DateFormat formatter = new SimpleDateFormat("EEE MMM dd HH:mm:ss yyyy", Locale.KOREA);
+//        try {
+//            this.dueDate = formatter.parse(inputDate);
+//        } catch (ParseException e) {
+//            e.printStackTrace();
+//        }
+//        return this.dueDate;
 //    }
 
     //deck 에 추가하기
