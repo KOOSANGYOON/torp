@@ -630,7 +630,8 @@ var BOARD = (function (window){
     function setDueDate(){
 
         var dueDate = $(".datepicker").val();
-        $(".current-due-date").text(dueDate);
+        console.log("due date type : ", dueDate.types);
+        $(".current-due-date").text("~ " + dueDate);
 
     }
 

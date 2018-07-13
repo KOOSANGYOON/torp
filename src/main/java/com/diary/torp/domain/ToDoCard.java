@@ -2,15 +2,17 @@ package com.diary.torp.domain;
 
 import com.diary.torp.UnAuthenticationException;
 import com.diary.torp.web.HomeController;
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.hibernate.annotations.Where;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import javax.persistence.*;
 import javax.validation.constraints.Size;
+//import java.text.DateFormat;
+//import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.List;
+//import java.util.Locale;
 
 @Entity
 public class ToDoCard {
@@ -35,7 +37,8 @@ public class ToDoCard {
     @JoinColumn(foreignKey = @ForeignKey(name = "card_writer"))
     private User writer;
 
-    // have to make due_date column
+//    @Column
+//    DateFormat dueDate;
 
     @Column(nullable = true)
     private String label;
@@ -55,6 +58,11 @@ public class ToDoCard {
         this.writer = loginUser;
         this.title = title;
     }
+
+    //dueDate 수정
+//    public void editDueDate() {
+//        this.dueDate = new SimpleDateFormat("EEE MMM dd HH:mm:ss zzz yyyy", Locale.KOREA);
+//    }
 
     //deck 에 추가하기
     public void registerIntoDeck(ToDoDeck deck) {

@@ -97,7 +97,6 @@
     <div class="hiddenCardTitle" style="display: none"></div>
     <div class="modal-content">
         <textarea class="card-title-in-modal">{{card-title}}</textarea>
-        <span class="due-date-notification">DUE DATE : ~ {{dueDate}}</span>
         <div class="deck-name-and-current-due-date-wrapper">
             <span class="in-deck">in deck</span>
             <span class="deck-name">{{deck-name}}</span>
@@ -149,14 +148,14 @@
             <form class="dpicker-widget">
                 <div class="datapicker-select-date">
                     <label>Date</label></br>
-                    <input class="datepicker datapicker-select-input" type="date" placeholder="17/6/2016"/>
+                    <input class="datepicker datapicker-select-input" type="date" placeholder="17/7/2018"/>
                 </div>
 
                 <div class="datapicker-select-time">
                     <label>Time</label></br>
                     <input class="datapicker-select-input" type="text" placeholder="12:00" tabindex="101"/>
                 </div>
-
+                <button class="save-due-date"></button>
             </form>
         </div>
 
