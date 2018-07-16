@@ -1,10 +1,15 @@
 package com.diary.torp.domain;
 
 import com.diary.torp.UnAuthenticationException;
-import com.diary.torp.web.HomeController;
 import org.junit.Test;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+
+//import java.text.DateFormat;
+//import java.text.ParseException;
+//import java.text.SimpleDateFormat;
+//import java.util.Date;
+//import java.util.Locale;
 
 import static org.junit.Assert.*;
 
@@ -133,4 +138,12 @@ public class ToDoCardTest {
             throw new UnAuthenticationException();
         }
     }
+
+//    @Test
+//    public void editDueDate() throws ParseException {
+////        Date dueDate = testCard.editDueDate("31-08-1982 10:20:56");
+//        DateFormat formatter = new SimpleDateFormat("EEE MMM dd HH:mm:ss yyyy", Locale.KOREA);
+//        Date dueDate = formatter.parse("31-08-1982 10:20:56");
+//        System.out.println(dueDate);
+//    }
 }
